@@ -1,3 +1,81 @@
-<h1>
-  {{title}}
-</h1>
+
+
+<div id = 'calendar' class='container'></div>
+
+<!-- Modal -->
+<div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="eventModalLabel">
+                  <span id ='eventTitle'></span>
+                </h4>
+            </div>
+            <div class="modal-body">
+                Start: <span id='eventStart'></span><br>
+                End: <span id = 'eventEnd'></span>
+            </div>
+            <div class="modal-footer">
+                <div class="pull-right">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                </div>
+                <div class="pull-left">
+                    <div class = "deleteButton">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Delete Event</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="newEventModal" tabindex="-1" role="dialog" aria-labelledby="newEventModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="newEventModalLabel">
+                  <span id ='eventTitle'></span>
+                </h4>
+            </div>
+              <form class="example-form">
+                <md-input-container class="example-full-width">
+                  <input mdInput placeholder="Title" disabled value={{hello}}>
+                </md-input-container>
+
+                <table class="example-full-width" cellspacing="0"><tr>
+                  <td><md-input-container class="example-full-width">
+                    <input mdInput placeholder="First name">
+                  </md-input-container></td>
+                  <td><md-input-container class="example-full-width">
+                    <input mdInput placeholder="Long Last Name That Will Be Truncated">
+                  </md-input-container></td>
+                </tr></table>
+
+                <p>
+                  <md-input-container class="example-full-width">
+                    <textarea mdInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
+                  </md-input-container>
+                  <md-input-container class="example-full-width">
+                     <textarea mdInput placeholder="Address 2"></textarea>
+                  </md-input-container>
+                </p>
+
+                <table class="example-full-width" cellspacing="0"><tr>
+                  <td><md-input-container class="example-full-width">
+                      <input mdInput placeholder="City">
+                  </md-input-container></td>
+                  <td><md-input-container class="example-full-width">
+                     <input mdInput placeholder="State">
+                  </md-input-container></td>
+                  <td><md-input-container class="example-full-width">
+                    <input mdInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
+                        <md-hint align="end">{{postalCode.value.length}} / 5</md-hint>
+                  </md-input-container></td>
+              </tr></table>
+            </form>
+        </div>
+    </div>
+</div>

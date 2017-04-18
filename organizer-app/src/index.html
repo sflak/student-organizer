@@ -7,6 +7,52 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <link rel='stylesheet' href='../node_modules/fullcalendar/dist/fullcalendar.css' />
+  <script src='../node_modules/jquery/dist/jquery.min.js'></script>
+  <script src='../node_modules/moment/min/moment.min.js'></script>
+  <script src='../node_modules/fullcalendar/dist/fullcalendar.js'></script>
+  <script src='../node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
+  <script>$(document).ready(function(){
+    $('#calendar').fullCalendar({
+        editable: true,
+        eventStartEditable: true,
+        eventDurationEditable: true,
+        defaultView: 'agendaWeek',
+        header:{
+          left:'agendaDay,agendaWeek,month',
+          center: 'title',
+          right: 'prev,today,next'
+        },
+        handleWindowResize: true,
+        selectHelper: true,
+        selectable: true,
+        select:function(start,end,allDay){
+          $('#newEventModal').modal("show");
+          var title = prompt('Event title: ');
+          if(title!=null){
+            $('#calendar').fullCalendar('renderEvent',
+              {
+                title:title,
+                start: start,
+                end:end,
+                allDay: false
+              },true);
+          }
+          $('#calendar').fullCalendar('unselect');
+        },
+        eventClick: function(calEvent, jsEvent,view){
+          id = calEvent.id;
+          $('#eventTitle').html(calEvent.title);
+          $('#eventStart').html(moment(calEvent.start).format('h:mm a'));
+          $('#eventEnd').html(moment(calEvent.end).format('h:mm a'));
+          $('.deleteButton').click(function(){
+            $('#calendar').fullCalendar('removeEvents',calEvent._id);
+          });
+          $('#eventModal').modal("show");
+        },
+    })
+  });</script>
 </head>
 <body>
   <app-root>Loading...</app-root>

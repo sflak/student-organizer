@@ -5,6 +5,9 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
+import {MdInputModule} from '../../node_modules/@angular/material';
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -12,9 +15,9 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    MdInputModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
