@@ -13,6 +13,9 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { HeaderComponent } from './header/header.component';
 import { ProfileComponent } from './header/profile/profile.component';
 
+import {MdInputModule} from '../../node_modules/@angular/material';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,9 +31,9 @@ import { ProfileComponent } from './header/profile/profile.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    MdInputModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
