@@ -13,7 +13,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { HeaderComponent } from './header/header.component';
 import { ProfileComponent } from './header/profile/profile.component';
 
-import {MdInputModule} from '../../node_modules/@angular/material';
+
 
 
 @NgModule({
@@ -32,7 +32,7 @@ import {MdInputModule} from '../../node_modules/@angular/material';
     BrowserModule,
     FormsModule,
     HttpModule,
-    MdInputModule
+
   ],
   bootstrap: [AppComponent]
 })
