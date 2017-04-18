@@ -1,0 +1,60 @@
+Documentation
+
+4/18/17
+
+This initial documentation outlines the properties that each component should have
+
+Header
+	Should be a <div> component that apears at the top of the screen. It will show the logo, and User Icon, with dropdown menu for user settings
+
+	-logo: string;
+		path to image
+	-user icon: string;
+		path to icon
+	-Username: string;
+
+	- dropdown menu with user settings (appears with mouseover on user name?)
+
+Todo
+	A container that takes up a little less than half the screen, and holds todo-lists
+
+	Properties:
+
+	- todoBoards: TodoList [] = [];
+
+	HTML components:
+		<div>
+
+	TodoList
+		-Label: string;
+			-whatever the user wants to call the list
+		-Color: string;
+			-will use ngStyle to dynamically change the list color
+		-todoItems: TodoItem[] = [];
+
+		TodoItem
+			-Category: string;
+				-same as label in TodoList
+				-dynamically changes depending on what list its in (think if a user moved an item from one list to another)
+			-Color: string;
+				-also same as TodoList, but must change dynamicall for same reasons as above. 
+			-Label: string;
+				-This is the actual todo the user inputs (Ex: feed cat)
+			-time: number;
+				-user chooses to add a time interval
+
+
+Calendar
+	Container that holds the buckets
+
+Bucket
+	These represent the days of the week that you can drag todo-items into
+
+	date: string;
+		- gets date using a function that uses an API
+	day: string;
+		- the day of the week
+		- gets from date
+	todos TodoItem[] = [];
+		-A list of todo items that have been dragged into that bucket
+
