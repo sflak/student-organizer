@@ -45,15 +45,16 @@ Todo
 
 Bucket
 	The top half of the page, and the container that holds the buckets
+		-days Bucket-day[] = [];
 	
-Bucket-day
-	These represent the days of the week that you can drag todo-items into
+	Bucket-day
+		These represent the days of the week that you can drag todo-items into
 
-	date: string;
-		- gets date using a function that uses an API
-	day: string;
-		- the day of the week
-		- gets from date
-	todos TodoItem[] = [];
-		-A list of todo items that have been dragged into that bucket
+		date: string;
+			- gets date using a function that uses an API
+		day: string;
+			- the day of the week
+			- gets from date
+		todos TodoItem[] = [];
+			-A list of todo items that have been dragged into that bucket
 
