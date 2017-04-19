@@ -9,7 +9,6 @@ import { TodoListComponent } from './todo/todo-list/todo-list.component';
 import { TodoItemComponent } from './todo/todo-list/todo-item/todo-item.component';
 import { BucketComponent } from './bucket/bucket.component';
 import { BucketDayComponent } from './bucket/bucket-day/bucket-day.component';
-import { CalendarComponent } from './calendar/calendar.component';
 import { HeaderComponent } from './header/header.component';
 import { ProfileComponent } from './header/profile/profile.component';
 
@@ -24,7 +23,6 @@ import { ProfileComponent } from './header/profile/profile.component';
     TodoItemComponent,
     BucketComponent,
     BucketDayComponent,
-    CalendarComponent,
     HeaderComponent,
     ProfileComponent
   ],
