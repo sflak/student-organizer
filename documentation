@@ -43,11 +43,10 @@ Todo
 			-time: number;
 				-user chooses to add a time interval
 
-
-Calendar
-	Container that holds the buckets
-
 Bucket
+	The top half of the page, and the container that holds the buckets
+	
+Bucket-day
 	These represent the days of the week that you can drag todo-items into
 
 	date: string;
