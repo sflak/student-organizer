@@ -1,3 +1,6 @@
-<p>
-  todo works!
-</p>
+<div>
+  <app-todo-list *ngFor="let list of todoLists"></app-todo-list>
+</div>
+<input type="text" class="form-control" *ngIf="needName" #nameInput/>
+<button (click) = 'onAddList()'>Add new List</button>
+
