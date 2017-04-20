@@ -38,9 +38,10 @@ Todo
 				-dynamically changes depending on what list its in (think if a user moved an item from one list to another)
 			-Color: string;
 				-also same as TodoList, but must change dynamicall for same reasons as above. 
-			-Label: string;
+			-item: string;
 				-This is the actual todo the user inputs (Ex: feed cat)
-			-time: number;
+			-timeStart: number;
+			-timeEnd: number;
 				-user chooses to add a time interval
 
 Bucket
