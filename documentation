@@ -14,6 +14,11 @@ Header
 	-Username: string;
 
 	- dropdown menu with user settings (appears with mouseover on user name?)
+	
+TodoItem Module
+	-this defines the todo-item properties so that TodoItem objects can be shared throughout the application
+TodoList Modue
+	-Defines a todoList class
 
 Todo
 	A container that takes up a little less than half the screen, and holds todo-lists
