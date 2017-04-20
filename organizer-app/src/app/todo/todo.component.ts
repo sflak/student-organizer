@@ -17,11 +17,11 @@ export class TodoComponent implements OnInit {
   ngOnInit() {
   }
 
-  onAddList() {
+  showInput(){
     this.needName = !this.needName;
-    // const listName = this.nameInputRef.nativeElement.value;
-    //
-    // this.todoLists.push(listName, null);
+  }
+  onAddList() {
+    // nothing for now
   }
 
 }
