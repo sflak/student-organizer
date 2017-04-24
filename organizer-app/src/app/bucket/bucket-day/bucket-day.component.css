@@ -1,4 +1,5 @@
 div .day-column {
+  text-align: center;
   width: 14.26%;
   min-height: 75vh;
   float: left;
@@ -8,9 +9,9 @@ div .day-column {
 }
 div .droppable {
   width: 95%;
-  min-height: 45vh;
+  min-height: 70vh;
   margin-left: 2.5%;
-  background-color: blue;
+
 }
 h3 {
   margin: 5px;
