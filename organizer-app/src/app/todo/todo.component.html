@@ -2,5 +2,5 @@
   <app-todo-list *ngFor="let list of todoLists"></app-todo-list>
 </div>
 <input type="text" class="form-control" *ngIf="needName" #nameInput/>
-<button (click) = 'showInput(); onAddList()'>Add new List</button>
+<button (click) = 'showInput(); onAddList()' class="btn btn-primary">Add new List</button>
 

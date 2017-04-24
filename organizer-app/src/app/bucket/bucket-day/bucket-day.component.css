@@ -1,0 +1,17 @@
+div .day-column {
+  width: 14.26%;
+  min-height: 75vh;
+  float: left;
+  border-left: solid darkgrey 2px;
+  border-bottom: solid darkgrey 2px;
+  border-right: solid darkgrey 2px;
+}
+div .droppable {
+  width: 95%;
+  min-height: 45vh;
+  margin-left: 2.5%;
+  background-color: blue;
+}
+h3 {
+  margin: 5px;
+}

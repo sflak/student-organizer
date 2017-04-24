@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bucket-day.component.css']
 })
 export class BucketDayComponent implements OnInit {
-
+  today: number = Date.now();
   constructor() { }
 
   ngOnInit() {

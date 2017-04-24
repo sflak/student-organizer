@@ -17,7 +17,7 @@ export class TodoComponent implements OnInit {
   ngOnInit() {
   }
 
-  showInput(){
+  showInput() {
     this.needName = !this.needName;
   }
   onAddList() {
