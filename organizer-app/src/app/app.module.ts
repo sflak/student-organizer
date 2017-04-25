@@ -20,13 +20,6 @@ import { BucketDayComponent } from './bucket/bucket-day/bucket-day.component';
 import { HeaderComponent } from './header/header.component';
 import { ProfileComponent } from './header/profile/profile.component';
 
-
-
-
-
-import { TodoComponent } from './todo/todo.component';
-import { TodoListComponent } from './todo/todo-list/todo-list.component';
-import { TodoItemComponent } from './todo/todo-list/todo-item/todo-item.component';
 import {AlertModule} from 'ngx-bootstrap';
 
 export const firebaseConfig = {

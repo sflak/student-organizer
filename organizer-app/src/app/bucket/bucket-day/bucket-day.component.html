@@ -1,11 +1,8 @@
 <div>
   <div class="day-column">
-<<<<<<< HEAD
+
     <h3>{{ today | date: "EEEE" }}</h3>
     <h2>{{ today | date: "M/d" }}</h2>
-=======
-    <h3>{{ today | date }}</h3>
->>>>>>> ryan
     <div class="droppable">
       <app-todo-item *ngFor="let item of todos" [item]="item"></app-todo-item>
 

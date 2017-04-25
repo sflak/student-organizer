@@ -12,12 +12,10 @@ import { Router } from "@angular/router";
 
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public isLoggedIn: boolean;
 
   ngOnInit() {
-
-export class HeaderComponent {
-  public isLoggedIn: boolean;
+  }
 
   constructor(public afService: AF, private router: Router) {
     // This asynchronously checks if our user is logged it and will automatically
@@ -46,5 +44,4 @@ export class HeaderComponent {
     this.afService.logout();
 
   }
-
 }
