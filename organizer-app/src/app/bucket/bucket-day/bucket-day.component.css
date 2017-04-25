@@ -11,6 +11,7 @@ div .droppable {
   width: 95%;
   min-height: 70vh;
   margin-left: 2.5%;
+  text-align: left;
 
 }
 h3 {

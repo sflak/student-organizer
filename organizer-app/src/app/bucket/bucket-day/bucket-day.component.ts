@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {TodoItem} from '../../shared/TodoItem.module';
 
 @Component({
   selector: 'app-bucket-day',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bucket-day.component.css']
 })
 export class BucketDayComponent implements OnInit {
-  today: number = Date.now();
+  @Input() today: Date;
+  @Input() todos: TodoItem[];
   constructor() { }
 
   ngOnInit() {
