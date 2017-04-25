@@ -3,9 +3,15 @@ div .day-column {
   width: 14.26%;
   min-height: 75vh;
   float: left;
+<<<<<<< HEAD
   border-left: solid darkgrey 1px;
   border-bottom: solid darkgrey 2px;
   border-right: solid darkgrey 1px;
+=======
+  border-left: solid darkgrey 2px;
+  border-bottom: solid darkgrey 2px;
+  border-right: solid darkgrey 2px;
+>>>>>>> ryan
 }
 div .droppable {
   width: 95%;
@@ -15,9 +21,13 @@ div .droppable {
 
 }
 h3 {
+<<<<<<< HEAD
   margin: 0;
 }
 h2 {
   margin: 0 0 10px 0 ;
   font-size: .99em;
+=======
+  margin: 5px;
+>>>>>>> ryan
 }

@@ -21,7 +21,7 @@ export class TodoComponent implements OnInit {
     this.needName = !this.needName;
   }
   onAddList() {
-    // nothing for now
+
   }
 
 }
