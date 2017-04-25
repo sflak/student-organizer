@@ -1,0 +1,19 @@
+div .day-column {
+  text-align: center;
+  width: 14.26%;
+  min-height: 75vh;
+  float: left;
+  border-left: solid darkgrey 2px;
+  border-bottom: solid darkgrey 2px;
+  border-right: solid darkgrey 2px;
+}
+div .droppable {
+  width: 95%;
+  min-height: 70vh;
+  margin-left: 2.5%;
+  text-align: left;
+
+}
+h3 {
+  margin: 5px;
+}

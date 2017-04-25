@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class OrganizerAppPage {
+export class AngularFirebasePage {
   navigateTo() {
     return browser.get('/');
   }

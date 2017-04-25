@@ -1,10 +1,10 @@
-import { OrganizerAppPage } from './app.po';
+import { AngularFirebasePage } from './app.po';
 
-describe('organizer-app App', () => {
-  let page: OrganizerAppPage;
+describe('angular-firebase App', function() {
+  let page: AngularFirebasePage;
 
   beforeEach(() => {
-    page = new OrganizerAppPage();
+    page = new AngularFirebasePage();
   });
 
   it('should display message saying app works', () => {

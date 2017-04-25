@@ -1,0 +1,8 @@
+div {
+  height: 30px;
+  width: 150px;
+  border: solid darkgrey 1px;
+}
+input {
+  margin-left: 10px;
+}

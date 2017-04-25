@@ -1,0 +1,10 @@
+<div>
+  <div class="day-column">
+    <h3>{{ today | date }}</h3>
+    <div class="droppable">
+      <app-todo-item *ngFor="let item of todos" [item]="item"></app-todo-item>
+
+    </div>
+  </div>
+</div>
+

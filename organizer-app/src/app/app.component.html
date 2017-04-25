@@ -1,3 +1,26 @@
-<h1>
-  {{title}}
-</h1>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+<!--
+<md-toolbar color="primary">
+  <alert type="success">Test Login</alert>
+  <span class="spacer"></span>
+  <div *ngIf="isLoggedIn">
+    <a class="btn btn-default" (click)="logout()">Logout</a>
+  </div>
+</md-toolbar>
+-->
+<div class="app-content">
+
+  <md-card>
+    <div class="app-content">
+      <router-outlet></router-outlet>
+    </div>
+  </md-card>
+</div>
+<footer>
+  <md-toolbar class="md-scroll-shrink">
+    <div layout="row" layout-align="center center" flex>
+      HoneyDo
+    </div>
+  </md-toolbar>
+</footer>
