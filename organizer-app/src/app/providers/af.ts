@@ -13,6 +13,9 @@ export class AF {
     if (loginProvider === 'google') {
       provider = AuthProviders.Google;
     }
+    else if (loginProvider === 'facebook') {
+    provider = AuthProviders.Facebook;
+  }
     return this.af.auth.login({
       provider: provider,
       method: AuthMethods.Popup,
