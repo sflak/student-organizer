@@ -57,21 +57,22 @@ export class BucketComponent implements OnInit {
   }
 
   prevWeek():void{
-      // this.refreshDayList(-7);
+      this.refreshDayList(-1);
   }
 
   nextWeek():void{
-    // this.refreshDayList(7);
+      this.refreshDayList(1);
   }
 
-  // refreshDayList(offset):void{
-  //   let numbers = [0,1,2,3,4,5,6];
-  //   for(let x of numbers){
-  //       this.dayslist[x]=this.setDay(this.d,x+offset);
-  //   }
-  //   for(let x of numbers){
-  //       this.days[x]=new BucketDay(this.dayslist[x],null);
-  //   }
-  // }
+  refreshDayList(offset):void{
+    let numbers = [0,1,2,3,4,5,6];
+    let nd: Date = new Date();
+    for(let x of numbers){
+        this.dayslist[x]=new Date(this.setDay(nd,x+offset));
+    }
+    for(let x of numbers){
+        this.days[x]=new BucketDay(this.dayslist[x],null);
+    }
+  }
 
 }
