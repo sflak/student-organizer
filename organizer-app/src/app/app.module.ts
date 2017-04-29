@@ -22,6 +22,8 @@ import { ProfileComponent } from './header/profile/profile.component';
 
 import {AlertModule} from 'ngx-bootstrap';
 
+import {ResizableModule} from 'angular-resizable-element';
+
 export const firebaseConfig = {
     apiKey: "AIzaSyApveLqa1f_nEHdHU9T8zelKaQ42VitihY",
     authDomain: "honeydo-3d364.firebaseapp.com",
@@ -70,6 +72,8 @@ const routes: Routes = [
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(routes),
     MaterialModule.forRoot(),
+
+    ResizableModule,
   ],
   bootstrap: [AppComponent]
 })

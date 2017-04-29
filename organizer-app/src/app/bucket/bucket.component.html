@@ -1,4 +1,13 @@
 <div>
+  <button
+    type="button"
+    class="prevWeekButton"
+    (click)="prevWeek()"
+    >prev</button>
+  <button
+    type="button"
+    class="nextWeekButton"
+    (click)="nextWeek()">next</button>
   <app-bucket-day *ngFor="let day of days"
                   [today] = day.theDate
                   [todos] = day.todoItems></app-bucket-day>
