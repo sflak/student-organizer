@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {ResizeEvent} from 'angular-resizable-element';
+import {TodolistComponent}   from '../todolist/todolist.component'
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css']
+  styleUrls: ['./home-page.component.css'],
 })
 export class HomePageComponent implements OnInit {
   userData: any;

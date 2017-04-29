@@ -8,6 +8,9 @@ div .day-column {
   border-bottom: solid darkgrey 2px;
   border-right: solid darkgrey 1px;
 
+  border-left: solid darkgrey 1px;
+  border-bottom: solid darkgrey 2px;
+  border-right: solid darkgrey 1px;
 }
 div .droppable {
   width: 95%;

@@ -21,6 +21,7 @@ import { HeaderComponent } from './header/header.component';
 import { ProfileComponent } from './header/profile/profile.component';
 
 import {AlertModule} from 'ngx-bootstrap';
+import { TodolistComponent } from './todolist/todolist.component';
 
 import {ResizableModule} from 'angular-resizable-element';
 
@@ -58,8 +59,9 @@ const routes: Routes = [
     ProfileComponent,
     TodoComponent,
     TodoListComponent,
-    TodoItemComponent
 
+    TodoItemComponent,
+    TodolistComponent
   ],
   providers: [AF],
   imports: [
