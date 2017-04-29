@@ -17,6 +17,7 @@ import { TodoComponent } from './todo/todo.component';
 import { TodoListComponent } from './todo/todo-list/todo-list.component';
 import { TodoItemComponent } from './todo/todo-list/todo-item/todo-item.component';
 import {AlertModule} from 'ngx-bootstrap';
+import { TodolistComponent } from './todolist/todolist.component';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyApveLqa1f_nEHdHU9T8zelKaQ42VitihY",
@@ -44,7 +45,8 @@ const routes: Routes = [
     ProfileComponent,
     TodoComponent,
     TodoListComponent,
-    TodoItemComponent
+    TodoItemComponent,
+    TodolistComponent
   ],
   providers: [AF],
   imports: [
