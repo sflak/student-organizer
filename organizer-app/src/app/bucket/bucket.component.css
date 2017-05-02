@@ -1,16 +1,14 @@
 div {
-  margin: 75px 100px 20px 100px;
-
-	margin:75px 100px 20px 100px;
+  margin: 0px 100px 20px 100px;
 }
 
 
 .prevWeekButton{
+    position: relative;
     float:left;
-    /*margin:100px;*/
 }
 
 .nextWeekButton{
+    position: relative;
     float:right;
-    /*margin:100px;*/
 }

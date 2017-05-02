@@ -1,15 +1,19 @@
-<div>
+<div
+  class = "container">
   <button
     type="button"
     class="prevWeekButton"
-    (click)="prevWeek()"
-    >prev</button>
+    (click)="prevWeek()">prev</button>
   <button
     type="button"
     class="nextWeekButton"
     (click)="nextWeek()">next</button>
+</div>
+<div
+  class = "bucketDiv">
   <app-bucket-day *ngFor="let day of days"
                   [today] = day.theDate
                   [todos] = day.todoItems></app-bucket-day>
 
 </div>
+

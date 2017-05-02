@@ -6,7 +6,7 @@ app-todo-list {
     position: relative;
     resize: vertical;
     display: block;
-    width: 100%;
+    width: 100vw;
     height: 50vh;
     border: solid 1px #121621;
     background-color: white;
@@ -22,13 +22,14 @@ app-todo-list {
     position: relative;
     resize: vertical;
     display: block;
-    width: 100%;
+    width: 100vw;
     height: 50vh;
     border: solid 1px #121621;
     background-color: white;
     border-left-color: white;
     border-right-color: white;
     border-top-color: black;
+    border-bottom-color: white;
 
     overflow: auto;
     }

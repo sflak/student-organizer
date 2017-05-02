@@ -28,12 +28,12 @@ export class BucketComponent implements OnInit {
 
   dayslist: Date[] = [
     new Date(this.setDay(this.d,0+this.i)),
-    new Date(this.setDay(this.d,1+this.i)),
-    new Date(this.setDay(this.d,2+this.i)),
-    new Date(this.setDay(this.d,3+this.i)),
-    new Date(this.setDay(this.d,4+this.i)),
-    new Date(this.setDay(this.d,5+this.i)),
-    new Date(this.setDay(this.d,6+this.i)),
+    new Date(this.setDay(this.d,1)),
+    new Date(this.setDay(this.d,2)),
+    new Date(this.setDay(this.d,3)),
+    new Date(this.setDay(this.d,4)),
+    new Date(this.setDay(this.d,5)),
+    new Date(this.setDay(this.d,6)),
   ];
 
   days: BucketDay [] = [
@@ -57,22 +57,39 @@ export class BucketComponent implements OnInit {
   }
 
   prevWeek():void{
-      this.refreshDayList(-1);
+      this.refreshDayList(-7);
   }
 
   nextWeek():void{
-      this.refreshDayList(1);
+      this.refreshDayList(7);
   }
 
   refreshDayList(offset):void{
-    let numbers = [0,1,2,3,4,5,6];
-    let nd: Date = new Date();
-    for(let x of numbers){
-        this.dayslist[x]=new Date(this.setDay(nd,x+offset));
-    }
-    for(let x of numbers){
-        this.days[x]=new BucketDay(this.dayslist[x],null);
-    }
+      this.dayslist[0]=new Date(this.setDay(this.d,0+offset));
+      this.dayslist[1]=new Date(this.setDay(this.d,1));
+      this.dayslist[2]=new Date(this.setDay(this.d,2));
+      this.dayslist[3]=new Date(this.setDay(this.d,3));
+      this.dayslist[4]=new Date(this.setDay(this.d,4));
+      this.dayslist[5]=new Date(this.setDay(this.d,5));
+      this.dayslist[6]=new Date(this.setDay(this.d,6));
+    
+      //creating new object so will delete events
+      // this.days[0]=new BucketDay(this.dayslist[0],null);
+      // this.days[1]=new BucketDay(this.dayslist[1],null);
+      // this.days[2]=new BucketDay(this.dayslist[2],null);
+      // this.days[3]=new BucketDay(this.dayslist[3],null);
+      // this.days[4]=new BucketDay(this.dayslist[4],null);
+      // this.days[5]=new BucketDay(this.dayslist[5],null);
+      // this.days[6]=new BucketDay(this.dayslist[6],null);
+
+      this.days[0].changeDate(this.dayslist[0]);
+      this.days[1].changeDate(this.dayslist[1]);
+      this.days[2].changeDate(this.dayslist[2]);
+      this.days[3].changeDate(this.dayslist[3]);
+      this.days[4].changeDate(this.dayslist[4]);
+      this.days[5].changeDate(this.dayslist[5]);
+      this.days[6].changeDate(this.dayslist[6]);
+    
   }
 
 }

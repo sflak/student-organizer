@@ -14,16 +14,4 @@ export class BucketDayComponent implements OnInit {
   ngOnInit() {
   }
 
-  // refresh(d){
-  //   this.today = d;
-  // }
-
-  // ngOnChanges(changes: SimpleChanges){
-  //   for(let propName in changes){
-  //     let chng = changes[propName];
-  //     let newValue = JSON.stringify(chng.currentValue);
-  //     console.log("change");
-  //   }
-  // }
-
 }

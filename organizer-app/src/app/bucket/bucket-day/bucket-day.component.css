@@ -3,7 +3,6 @@ div .day-column {
   width: 14.26%;
   min-height: 75vh;
   float: left;
-
   border-left: solid darkgrey 1px;
   border-bottom: solid darkgrey 2px;
   border-right: solid darkgrey 1px;
@@ -20,7 +19,6 @@ div .droppable {
 
 }
 h3 {
-
   margin: 0;
 }
 h2 {
