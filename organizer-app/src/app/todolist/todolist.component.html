@@ -1,3 +1,4 @@
+<!--
 <h3> Add todo </h3>
 <form (submit)="addTodo()">
 <input type="text" [(ngModel)]="text" name="test">
@@ -9,3 +10,24 @@
 	</li>
 
 </ul>
+-->
+<h3> Enter todo here: </h3>
+<form (submit)="addTodo()">
+<input type="text" [(ngModel)]="text" name="test">
+</form>
+<!--<div droppable [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event)">-->
+<div>
+	<h3> TodoList (Drag, drop, or swap these items)</h3>
+		<ul>
+			<li draggable *ngFor="let todo of todos"
+			[dragOverClass]="'drag-over-border'"
+			[dragData]="todo">
+			{{todo.Activity.name}}
+
+			<button (click) = "deleteTodo(todo.Activity.name)"></button> 
+			</li>
+
+		</ul>
+</div>
+
+

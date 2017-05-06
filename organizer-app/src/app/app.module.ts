@@ -25,6 +25,8 @@ import { TodolistComponent } from './todolist/todolist.component';
 
 import {ResizableModule} from 'angular-resizable-element';
 
+import {Ng2DragDropModule} from "ng2-drag-drop";
+
 export const firebaseConfig = {
     apiKey: "AIzaSyApveLqa1f_nEHdHU9T8zelKaQ42VitihY",
     authDomain: "honeydo-3d364.firebaseapp.com",
@@ -76,6 +78,7 @@ const routes: Routes = [
     MaterialModule.forRoot(),
 
     ResizableModule,
+    Ng2DragDropModule
   ],
   bootstrap: [AppComponent]
 })
