@@ -1,4 +1,4 @@
-<!--
+u<!--
 <h3> Add todo </h3>
 <form (submit)="addTodo()">
 <input type="text" [(ngModel)]="text" name="test">
@@ -19,12 +19,12 @@
 <div>
 	<h3> TodoList (Drag, drop, or swap these items)</h3>
 		<ul>
-			<li draggable *ngFor="let todo of todos"
+			<li draggable *ngFor="let todo of items | async "
 			[dragOverClass]="'drag-over-border'"
 			[dragData]="todo">
 			{{todo.Activity.name}}
 
-			<button (click) = "deleteTodo(todo.Activity.name)"></button> 
+			<button (click) = "deleteTodo(todo.$key)"></button> 
 			</li>
 
 		</ul>

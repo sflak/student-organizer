@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Activity } from '../Activity';
+import { AngularFire,FirebaseListObservable,FirebaseObjectObservable} from 'angularfire2';
+
+
 @Component({
   selector: 'app-todolist',
   templateUrl: './todolist.component.html',
@@ -9,7 +12,20 @@ export class TodolistComponent implements OnInit {
    todos;
    text;
    Activity;
-  constructor() { }
+   items: FirebaseListObservable<string[]>; // listname
+   user:  FirebaseObjectObservable<any[]>;
+   userData = JSON.parse(localStorage.getItem('userData')); // used for UID
+   search: FirebaseListObservable<any[]>;
+   searchItem: string;  
+   searchText;
+   key;
+
+
+  constructor(af: AngularFire) {
+    const path = `/users/${this.userData.uid}`; // access user data
+    this.items = af.database.list(path + `/items`); // should be replaced by listname
+    this.user = af.database.object(path);
+  }
 
   ngOnInit() {
     this.todos = [
@@ -25,14 +41,8 @@ export class TodolistComponent implements OnInit {
 
 
   //theres a bug in the delete function. It will delete multiples of the same item with one delete click*******************8
-  deleteTodo(todoText){
-      for(var i  =0 ; i < this.todos.length; i++){
-          if(this.todos[i].Activity.name == todoText){
-              this.todos.splice(i,1);
-          }
-      }
-      this.bubblesort();
-
+  deleteTodo(key){
+    this.items.remove(key);
   }
   bubblesort(){
         // crappy bubble sort for now
@@ -54,16 +64,21 @@ export class TodolistComponent implements OnInit {
   }
   addTodo(){
     let temp = new Activity(this.text);
-    //this.text = " Tiger "
-    this.todos.push({ text: this.text, Activity: temp})   ;
 
+    this.items.push({ text: this.text, 
+                      Activity: temp,
+                      time: "time", // replace with this.time?
+                      editButton: 'true/false', // edit time visblility
+                      priority: "1-5", // score
+                      listNumber: "some number" // might not be needed with list name?
+    });
     this.bubblesort();
   }
 
 }
 
 /*******************
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';  
 
 @Component({
   selector: 'app-todolist',
