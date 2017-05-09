@@ -17,15 +17,6 @@ export class BucketComponent implements OnInit {
     new TodoItem('Eat stuff', false)
   ];
 
-  // days: BucketDay [] = [
-  //   new BucketDay(this.today, null ),
-  //   new BucketDay(this.today, null),
-  //   new BucketDay(this.today, this.todos),
-  //   new BucketDay(this.today, null),
-  //   new BucketDay(this.today, null),
-  //   new BucketDay(this.today, null),
-  //   new BucketDay(this.today, null) ];
-
   dayslist: Date[] = [
     new Date(this.setDay(this.d,0+this.i)),
     new Date(this.setDay(this.d,1)),
@@ -72,15 +63,6 @@ export class BucketComponent implements OnInit {
       this.dayslist[4]=new Date(this.setDay(this.d,4));
       this.dayslist[5]=new Date(this.setDay(this.d,5));
       this.dayslist[6]=new Date(this.setDay(this.d,6));
-    
-      //creating new object so will delete events
-      // this.days[0]=new BucketDay(this.dayslist[0],null);
-      // this.days[1]=new BucketDay(this.dayslist[1],null);
-      // this.days[2]=new BucketDay(this.dayslist[2],null);
-      // this.days[3]=new BucketDay(this.dayslist[3],null);
-      // this.days[4]=new BucketDay(this.dayslist[4],null);
-      // this.days[5]=new BucketDay(this.dayslist[5],null);
-      // this.days[6]=new BucketDay(this.dayslist[6],null);
 
       this.days[0].changeDate(this.dayslist[0]);
       this.days[1].changeDate(this.dayslist[1]);

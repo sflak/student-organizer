@@ -1,0 +1,43 @@
+<div class = "container">
+    <header>
+        <div class="title">Dialog box</div>
+        <div class="exit-button" (click)="onClickedExit()">x</div>
+    </header>
+    <div class = "TimeInput">
+        <p>Start Time: </p>
+        <select>
+            <option>Hour</option>
+            <option *ngFor = "let v of hoursArray"> {{v}}</option>
+        </select>
+
+        <select>
+            <option>Minutes</option>
+            <option *ngFor = "let v of minutesArray">{{v}}</option>
+        </select>
+
+        <select>
+            <option>AM</option>
+            <option>PM</option>
+        </select>
+    </div>
+
+    <br>
+
+    <div class = "InputTime">
+        <p>Finish Time: </p>
+        <select>
+            <option>Hour</option>
+            <option *ngFor = "let v of hoursArray"> {{v}}</option>
+        </select>
+
+        <select>
+            <option>Minutes</option>
+            <option *ngFor = "let v of minutesArray">{{v}}</option>
+        </select>
+
+        <select>
+            <option>AM</option>
+            <option>PM</option>
+        </select>
+    </div>
+</div>
