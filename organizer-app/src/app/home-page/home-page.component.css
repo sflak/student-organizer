@@ -7,7 +7,7 @@ app-todo-list {
     resize: vertical;
     display: block;
     width: 100vw;
-    height: 50vh;
+    height: 65vh;
     border: solid 1px #121621;
     background-color: white;
     border-top-color: white;
@@ -23,7 +23,7 @@ app-todo-list {
     resize: vertical;
     display: block;
     width: 100vw;
-    height: 50vh;
+    height: 35vh;
     border: solid 1px #121621;
     background-color: white;
     border-left-color: white;

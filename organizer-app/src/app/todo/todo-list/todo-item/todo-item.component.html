@@ -1,5 +1,7 @@
 <div class="dragable">
-  <input type="checkbox" name="item" value="{{ item.item }}" /> {{ item.item }}
-
+    <div class = "innerDragable">
+        <input type="checkbox" name="item" value="{{ item.item }}" /> {{ item.item }}
+        <button (click)="showEdit=true">E</button>
+    </div>
+    <app-edit-event *ngIf="showEdit"></app-edit-event>
 </div>
-

@@ -1,33 +1,31 @@
-<div class = "container">
-    <header>
-        <div class="title">Dialog box</div>
-        <div class="exit-button" (click)="onClickedExit()">x</div>
-    </header>
-    <div class = "TimeInput">
+<div class = "wholeEvent">
+    <div class = "eventTitle">
+        <h4>Edit</h4>
+    </div>
+    <div class = "timeInput">
         <p>Start Time: </p>
+        
         <select>
-            <option>Hour</option>
-            <option *ngFor = "let v of hoursArray"> {{v}}</option>
+            <option>AM</option>
+            <option>PM</option>
         </select>
 
         <select>
             <option>Minutes</option>
             <option *ngFor = "let v of minutesArray">{{v}}</option>
         </select>
-
+        
         <select>
-            <option>AM</option>
-            <option>PM</option>
+            <option>Hour</option>
+            <option *ngFor = "let v of hoursArray"> {{v}}</option>
         </select>
     </div>
-
     <br>
-
-    <div class = "InputTime">
+    <div class = "timeInput">
         <p>Finish Time: </p>
         <select>
-            <option>Hour</option>
-            <option *ngFor = "let v of hoursArray"> {{v}}</option>
+            <option>AM</option>
+            <option>PM</option>
         </select>
 
         <select>
@@ -35,9 +33,11 @@
             <option *ngFor = "let v of minutesArray">{{v}}</option>
         </select>
 
-        <select>
-            <option>AM</option>
-            <option>PM</option>
+         <select>
+            <option>Hour</option>
+            <option *ngFor = "let v of hoursArray"> {{v}}</option>
         </select>
     </div>
+    <br>
+    <button class="saveButton" (click)="saveChanges()">Save</button>
 </div>

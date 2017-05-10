@@ -13,5 +13,5 @@ export class BucketDayComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
 }

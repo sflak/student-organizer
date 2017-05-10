@@ -21,4 +21,8 @@ export class EditEventComponent implements OnInit {
        this.close.emit('event');
   }
 
+  saveChanges(){
+    
+  }
+
 }

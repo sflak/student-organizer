@@ -10,6 +10,7 @@ export class TodoItemComponent implements OnInit {
   @Input() item: TodoItem;
   @Output() timeStart: number;
   @Output() timeEnd: number;
+
   constructor() { }
 
   ngOnInit() {
