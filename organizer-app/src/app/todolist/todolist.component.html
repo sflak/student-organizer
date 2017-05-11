@@ -1,0 +1,125 @@
+
+<h3> Enter todo here: </h3>
+<form (submit)="addTodo()">
+<input type="text" [(ngModel)]="text" name="test">
+</form>
+<!--<div droppable [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event)">-->
+<div>
+	<h3> TodoList (Drag, drop, or swap these items)</h3>
+		<ul>
+			<li draggable *ngFor="let todo of items | async "
+			[dragOverClass]="'drag-over-border'"
+			[dragData]="todo">
+			{{todo.Activity.name}}
+
+			<button (click) = "deleteTodo(todo.$key)"></button>
+			</li>
+
+		</ul>
+</div>
+
+
+<p hidden>This paragraph should be hidden.</p>
+<h3> Add todo </h3>
+<form >
+	<b>Enter Activity</b>
+ <input type="text" [(ngModel)]="tex" name="test">
+	<b>Enter Priority 1-5 </b>
+	<input type="text" [(ngModel)]="tex3" name="test">
+	<b>Enter List Number </b>
+	<input type="text" [(ngModel)]="tex4" name="test">
+
+ </form>
+<button (click) = "addTodo(tex4)">Submit Stuff</button>
+
+<div class="list">
+  <h3> TodoList </h3>
+  <ul>
+    <li *ngFor="let todo of items | async">
+      <font color="purple">{{todo.Activity.name}}</font>
+
+      <b> // </b>
+      <font color="purple">{{todo.Activity.time}}</font>
+
+      <b> // </b>
+      <font color="purple">{{todo.Activity.priority}}</font>
+
+      <!-- {{todo.text}}  -->
+
+      <!--  {{ todo.Activity.title}}      -->
+      <!-- <button (click) = "deleteTodo(todo.Activity.name)"></button>  -->
+    </li>
+
+  </ul>
+</div>
+<div class="list">
+  <h3> TodoList </h3>
+  <ul>
+    <li *ngFor="let todo of items | async">
+      {{todo.Activity.name}}
+      <b> // </b>
+      {{todo.Activity.time}}
+      <b> // </b>
+      {{todo.Activity.priority}}
+      <!-- {{todo.text}}  -->
+
+      <!--  {{ todo.Activity.title}}      -->
+      <!-- <button (click) = "deleteTodo(todo.Activity.name)"></button>  -->
+    </li>
+
+  </ul>
+</div>
+
+<div class="list">
+  <h3> TodoList </h3>
+  <ul>
+    <li *ngFor="let todo of items | async">
+      {{todo.Activity.name}}
+      <b> // </b>
+      {{todo.Activity.time}}
+      <b> // </b>
+      {{todo.Activity.priority}}
+      <!-- {{todo.text}}  -->
+
+      <!--  {{ todo.Activity.title}}      -->
+      <!-- <button (click) = "deleteTodo(todo.Activity.name)"></button>  -->
+    </li>
+
+  </ul>
+</div>
+<div class="list">
+  <h3> TodoList </h3>
+  <ul>
+    <li *ngFor="let todo of items | async">
+      {{todo.Activity.name}}
+      <b> // </b>
+      {{todo.Activity.time}}
+      <b> // </b>
+      {{todo.Activity.priority}}
+      <!-- {{todo.text}}  -->
+
+      <!--  {{ todo.Activity.title}}      -->
+      <!-- <button (click) = "deleteTodo(todo.Activity.name)"></button>  -->
+    </li>
+
+  </ul>
+</div>
+
+<div class="list">
+  <h3> TodoList </h3>
+  <ul>
+    <li *ngFor="let todo of items | async">
+      {{todo.Activity.name}}
+      <b> // </b>
+      {{todo.Activity.time}}
+      <b> // </b>
+      {{todo.Activity.priority}}
+      <!-- {{todo.text}}  -->
+
+      <!--  {{ todo.Activity.title}}      -->
+      <!-- <button (click) = "deleteTodo(todo.Activity.name)"></button>  -->
+    </li>
+
+  </ul>
+</div>
+

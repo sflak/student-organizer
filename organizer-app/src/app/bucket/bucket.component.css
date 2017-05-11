@@ -1,0 +1,29 @@
+div {
+  text-align: center;
+
+}
+h1 {
+  margin: 20px auto 20px auto;
+  font-weight: 400;
+}
+
+.prevWeekButton{
+    position: relative;
+    float:left;
+}
+
+.nextWeekButton{
+    position: relative;
+    float:right;
+}
+
+div .clear {
+  clear: both;
+}
+
+.drag-target-border{
+	border: #00bfff solid 2px;
+}
+.drag-over-border{
+	border: #ff525b dashed 2px;
+}

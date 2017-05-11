@@ -1,0 +1,22 @@
+div .header{
+  width: 100vw;
+  height: 50px;
+  background-color: white;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0 4px 4px -2px #ACA9A9;
+  -moz-box-shadow: 0 4px 4px -2px #ACA9A9;
+  box-shadow: 0 4px 4px -2px #ACA9A9;
+}
+div .logo {
+  float: left;
+  margin: 3px;
+}
+img .honeydo {
+  width: 108px;
+}
+div .buttons {
+  float: right;
+}
+div .buttons, a {
+  margin: 3px 12px -1px 6px;
+}

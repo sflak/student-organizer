@@ -1,0 +1,46 @@
+app-todo{
+  float: left;
+}
+app-todolist {
+  float: left;
+}
+
+.topwindow{
+    position: relative;
+    resize: vertical;
+    display: block;
+    width: 100vw;
+    height: 50vh;
+    border: solid 1px #121621;
+    background-color: white;
+    border-top-color: white;
+    border-left-color: white;
+    border-right-color: white;
+    border-bottom-color: white;
+
+    overflow: auto;
+    }
+div .clear {
+  clear: both;
+}
+
+.bottomwindow{
+    position: relative;
+    resize: vertical;
+    display: block;
+    width: 100vw;
+    height: 50vh;
+    border: solid 1px #121621;
+    background-color: white;
+    border-left-color: white;
+    border-right-color: white;
+    border-top-color: black;
+    border-bottom-color: white;
+
+    overflow: auto;
+    }
+
+.whole{
+    height: 100vh;
+}
+

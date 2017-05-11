@@ -1,3 +1,23 @@
-<p>
-  bucket-day works!
-</p>
+<div>
+  <div class="day-column">
+    <h3>{{ today | date: "EEEE" }}</h3>
+    <h2>{{ today | date: "M/d" }}</h2>
+    <div droppable class="droppable" [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event)">
+      <!--<app-todo-item *ngFor="let item of todos" [item]="item"></app-todo-item>-->
+      <!--<app-todo-item *ngFor="let item of todoBucket" [item]="item"></app-todo-item>
+
+			*ngFor="let todo of listTodo"
+			[dragOverClass]="'drag-over-border'"
+			[dragData]="todo">
+			<!--{{item.name}}-->		
+		
+	      	<ul>
+	     		 <li draggable *ngFor="let item of todoBucket" 
+	     		 [dragOverClass]="'drag-over-border'"
+	     		 [dragData]="item">
+	     		 </li>
+	     	</ul>
+    </div>
+  </div>
+</div>
+
