@@ -19,6 +19,7 @@ export class ProgressBarComponent implements OnInit {
 
   increasePercent() {
     this.itemsChecked += 1;
-    Math.floor(this.progressWidth = (this.itemsChecked / this.totalItems) * 100);
+    this.progressWidth = (this.itemsChecked / this.totalItems) * 100;
+    this.progressWidth = Math.floor(this.progressWidth);
   }
 }
