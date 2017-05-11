@@ -11,7 +11,6 @@ import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable,
 export class TodolistComponent implements OnInit {
    todos;
    text;
-   Activity;
    items: FirebaseListObservable<string[]>; // listname
    user:  FirebaseObjectObservable<any[]>;
    userData = JSON.parse(localStorage.getItem('userData')); // used for UID
@@ -20,6 +19,13 @@ export class TodolistComponent implements OnInit {
    searchText;
    key;
 
+
+   tex; // holds activity name for user input
+   tex2;// holds time name for user input
+   tex3;// holds priority name for user input
+   tex4; // idk maybe in the future
+
+   Activity;
 
   constructor(af: AngularFireDatabase) {
     const path = `/users/${this.userData.uid}`; // access user data
@@ -62,16 +68,13 @@ export class TodolistComponent implements OnInit {
               }
             }
   }
-  addTodo(){
-    let temp = new Activity(this.text);
+  addTodo() {
+      let temp = new Activity(this.tex, this.tex4, this.tex3);
 
-    this.items.push({ text: this.text,
-                      Activity: temp,
-                      time: "time", // replace with this.time?
-                      editButton: 'true/false', // edit time visblility
-                      priority: "1-5", // score
-                      listNumber: "some number" // might not be needed with list name?
+    this.items.push({
+        Activity: temp
     });
+
     this.bubblesort();
   }
 
