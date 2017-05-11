@@ -32,82 +32,94 @@
  </form>
 <button (click) = "addTodo(tex4)">Submit Stuff</button>
 
+<div class="list">
+  <h3> TodoList </h3>
+  <ul>
+    <li *ngFor="let todo of items | async">
+      <font color="purple">{{todo.Activity.name}}</font>
 
-<h3> TodoList </h3>
-<ul>
-	<li *ngFor="let todo of items | async">
-		<font color="purple">{{todo.Activity.name}}</font>
+      <b> // </b>
+      <font color="purple">{{todo.Activity.time}}</font>
 
-	<b> // </b>
-	<font color="purple">{{todo.Activity.time}}</font>
+      <b> // </b>
+      <font color="purple">{{todo.Activity.priority}}</font>
 
-	<b> // </b>
-	<font color="purple">{{todo.Activity.priority}}</font> 
+      <!-- {{todo.text}}  -->
 
-	<!-- {{todo.text}}  -->
+      <!--  {{ todo.Activity.title}}      -->
+      <!-- <button (click) = "deleteTodo(todo.Activity.name)"></button>  -->
+    </li>
 
-	<!--  {{ todo.Activity.title}}      -->
-	<!-- <button (click) = "deleteTodo(todo.Activity.name)"></button>  -->
-	</li>
+  </ul>
+</div>
+<div class="list">
+  <h3> TodoList </h3>
+  <ul>
+    <li *ngFor="let todo of items | async">
+      {{todo.Activity.name}}
+      <b> // </b>
+      {{todo.Activity.time}}
+      <b> // </b>
+      {{todo.Activity.priority}}
+      <!-- {{todo.text}}  -->
 
-</ul>
-<h3> TodoList </h3>
-<ul>
-	<li *ngFor="let todo of items | async">
-	{{todo.Activity.name}}
-	<b> // </b>
-	{{todo.Activity.time}}
-	<b> // </b>
-	{{todo.Activity.priority}}
-	<!-- {{todo.text}}  -->
+      <!--  {{ todo.Activity.title}}      -->
+      <!-- <button (click) = "deleteTodo(todo.Activity.name)"></button>  -->
+    </li>
 
-	<!--  {{ todo.Activity.title}}      -->
-	<!-- <button (click) = "deleteTodo(todo.Activity.name)"></button>  -->
-	</li>
+  </ul>
+</div>
 
-</ul>
-<h3> TodoList </h3>
-<ul>
-	<li *ngFor="let todo of items | async">
-	{{todo.Activity.name}}
-	<b> // </b>
-	{{todo.Activity.time}}
-	<b> // </b>
-	{{todo.Activity.priority}}
-	<!-- {{todo.text}}  -->
+<div class="list">
+  <h3> TodoList </h3>
+  <ul>
+    <li *ngFor="let todo of items | async">
+      {{todo.Activity.name}}
+      <b> // </b>
+      {{todo.Activity.time}}
+      <b> // </b>
+      {{todo.Activity.priority}}
+      <!-- {{todo.text}}  -->
 
-	<!--  {{ todo.Activity.title}}      -->
-	<!-- <button (click) = "deleteTodo(todo.Activity.name)"></button>  -->
-	</li>
+      <!--  {{ todo.Activity.title}}      -->
+      <!-- <button (click) = "deleteTodo(todo.Activity.name)"></button>  -->
+    </li>
 
-</ul>
-<h3> TodoList </h3>
-<ul>
-	<li *ngFor="let todo of items | async">
-	{{todo.Activity.name}}
-	<b> // </b>
-	{{todo.Activity.time}}
-	<b> // </b>
-	{{todo.Activity.priority}}
-	<!-- {{todo.text}}  -->
+  </ul>
+</div>
+<div class="list">
+  <h3> TodoList </h3>
+  <ul>
+    <li *ngFor="let todo of items | async">
+      {{todo.Activity.name}}
+      <b> // </b>
+      {{todo.Activity.time}}
+      <b> // </b>
+      {{todo.Activity.priority}}
+      <!-- {{todo.text}}  -->
 
-	<!--  {{ todo.Activity.title}}      -->
-	<!-- <button (click) = "deleteTodo(todo.Activity.name)"></button>  -->
-	</li>
+      <!--  {{ todo.Activity.title}}      -->
+      <!-- <button (click) = "deleteTodo(todo.Activity.name)"></button>  -->
+    </li>
 
-</ul>
-<h3> TodoList </h3>
-<ul>
-	<li *ngFor="let todo of items | async">
-	{{todo.Activity.name}}
-	<b> // </b>
-	{{todo.Activity.time}}
-	<b> // </b>
-	{{todo.Activity.priority}}
-	<!-- {{todo.text}}  -->
+  </ul>
+</div>
 
-	<!--  {{ todo.Activity.title}}      -->
-	<!-- <button (click) = "deleteTodo(todo.Activity.name)"></button>  -->
-	</li>
+<div class="list">
+  <h3> TodoList </h3>
+  <ul>
+    <li *ngFor="let todo of items | async">
+      {{todo.Activity.name}}
+      <b> // </b>
+      {{todo.Activity.time}}
+      <b> // </b>
+      {{todo.Activity.priority}}
+      <!-- {{todo.text}}  -->
 
-</ul>
+      <!--  {{ todo.Activity.title}}      -->
+      <!-- <button (click) = "deleteTodo(todo.Activity.name)"></button>  -->
+    </li>
+
+  </ul>
+</div>
+
