@@ -24,6 +24,7 @@ import {AlertModule} from 'ngx-bootstrap';
 import { TodolistComponent } from './todolist/todolist.component';
 
 import {ResizableModule} from 'angular-resizable-element';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyApveLqa1f_nEHdHU9T8zelKaQ42VitihY",
@@ -61,7 +62,8 @@ const routes: Routes = [
     TodoListComponent,
 
     TodoItemComponent,
-    TodolistComponent
+    TodolistComponent,
+    ProgressBarComponent
   ],
   providers: [AF],
   imports: [

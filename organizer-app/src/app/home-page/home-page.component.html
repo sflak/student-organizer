@@ -9,8 +9,14 @@
     (resizeStart)="onResizeStartTop($event)"
     (resizing)="onResizingTop($event)"
     (resizeEnd)="onResizeEndTop($event)">
-    
+
   <app-header></app-header>
+  <div class="clear"></div>
+  <div class="container">
+    <app-progress-bar></app-progress-bar>
+  </div>
+
+  <div class="clear"></div>
   <app-bucket></app-bucket>
 </div>
 <div class="container"

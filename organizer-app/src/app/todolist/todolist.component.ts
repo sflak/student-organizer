@@ -11,14 +11,12 @@ export class TodolistComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  	this.todos = [
-
-  	];	
+    this.todos = [];
   }
-  addTodo(){
-  	this.todos.push({
-  		text: this.text
-  	});
+  addTodo() {
+    this.todos.push({
+      text: this.text
+    });
   }
 
 }

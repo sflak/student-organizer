@@ -20,6 +20,9 @@ app-todolist {
 
     overflow: auto;
     }
+div .clear {
+  clear: both;
+}
 
 .bottomwindow{
     position: relative;
