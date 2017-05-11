@@ -9,6 +9,7 @@ import {ResizeEvent} from 'angular-resizable-element';
   styleUrls: ['./bucket.component.css']
 })
 export class BucketComponent implements OnInit {
+  bucketDiv;
   today: Date = new Date();
   d: Date = new Date();
   i: number =0;
@@ -48,6 +49,10 @@ export class BucketComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.bucketDiv = {
+      'width': '92%',
+      'margin': 'auto'
+    };
   }
 
   setDay(d, day):Date {
@@ -72,7 +77,7 @@ export class BucketComponent implements OnInit {
       this.dayslist[4]=new Date(this.setDay(this.d,4));
       this.dayslist[5]=new Date(this.setDay(this.d,5));
       this.dayslist[6]=new Date(this.setDay(this.d,6));
-    
+
       //creating new object so will delete events
       // this.days[0]=new BucketDay(this.dayslist[0],null);
       // this.days[1]=new BucketDay(this.dayslist[1],null);
@@ -89,7 +94,7 @@ export class BucketComponent implements OnInit {
       this.days[4].changeDate(this.dayslist[4]);
       this.days[5].changeDate(this.dayslist[5]);
       this.days[6].changeDate(this.dayslist[6]);
-    
+
   }
 
 }

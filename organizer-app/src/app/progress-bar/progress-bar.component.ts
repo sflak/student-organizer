@@ -7,12 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProgressBarComponent implements OnInit {
   progressWidth: number;
+  totalItems = 50;
+  itemsChecked = 25;
 
   constructor() { }
 
   ngOnInit() {
-    this.progressWidth = 20;
+    // this.progressWidth = 20;
+    this.progressWidth = (this.itemsChecked / this.totalItems) * 100;
   }
 
-
+  increasePercent() {
+    this.itemsChecked += 1;
+    Math.floor(this.progressWidth = (this.itemsChecked / this.totalItems) * 100);
+  }
 }

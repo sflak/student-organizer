@@ -9,6 +9,7 @@ div .header{
 }
 div .logo {
   float: left;
+  margin: 3px;
 }
 img .honeydo {
   width: 108px;

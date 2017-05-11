@@ -18,3 +18,7 @@ p {
   font-size: 15px;
   margin: 6px;
 }
+button {
+  float: left;
+  color: black;
+}
