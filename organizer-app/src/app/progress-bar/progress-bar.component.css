@@ -6,7 +6,15 @@ div .progress-bar {
   border: solid lightgray 1px;
 }
 div .progress {
+  float: left;
   height: 32px;
   background-color: #A5EBC3;
   border-radius: 1%;
+}
+p {
+  float: right;
+  font-family: Arial, sans-serif;
+  color: lightgray;
+  font-size: 15px;
+  margin: 6px;
 }
