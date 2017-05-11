@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { AngularFire,FirebaseListObservable,FirebaseObjectObservable} from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { TodoList } from '../shared/TodoList.module';
 
 @Component({
@@ -24,10 +24,10 @@ export class TodoComponent implements OnInit {
   todoLists: TodoList[];
   needName = false;
   @ViewChild('nameInput') nameInputRef: ElementRef;
-  constructor(af: AngularFire) {
+  constructor(af: AngularFireDatabase) {
     const path = `/users/${this.userData.uid}`; // access user data
-    this.items = af.database.list(path + `/items`); // should be replaced by listname
-    this.user = af.database.object(path);
+    this.items = af.list(path + `/items`); // should be replaced by listname
+    this.user = af.object(path);
   }
 
   ngOnInit() {

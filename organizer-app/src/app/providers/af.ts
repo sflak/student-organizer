@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
-import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
 @Injectable()
 export class AF {
-  constructor(public af: AngularFire) { }
+  constructor(public af: AngularFireAuth) { }
   /**
    * Logs in the user
    * @returns {firebase.Promise<FirebaseAuthState>}
@@ -11,15 +12,12 @@ export class AF {
   socialLogin(loginProvider) {
     var provider;
     if (loginProvider === 'google') {
-      provider = AuthProviders.Google;
+      return this.af.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     }
     else if (loginProvider === 'facebook') {
-    provider = AuthProviders.Facebook;
-  }
-    return this.af.auth.login({
-      provider: provider,
-      method: AuthMethods.Popup,
-    });
+      return this.af.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+    }
+
   }
 
   
@@ -28,6 +26,6 @@ export class AF {
    */
   logout() {
 
-    return this.af.auth.logout();
+   return this.af.auth.signOut();
   }
 }

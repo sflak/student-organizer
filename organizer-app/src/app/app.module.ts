@@ -10,7 +10,11 @@ import { TodoComponent } from './todo/todo.component';
 import { TodoListComponent } from './todo/todo-list/todo-list.component';
 import { TodoItemComponent } from './todo/todo-list/todo-item/todo-item.component';
 
+
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable,FirebaseObjectObservable} from 'angularfire2/database'; 
+
 import { AF } from "./providers/af";
 import { LoginPageComponent } from './login-page/login-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -74,6 +78,8 @@ const routes: Routes = [
 
     AlertModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule, // imports firebase/database, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     RouterModule.forRoot(routes),
     MaterialModule.forRoot(),
 

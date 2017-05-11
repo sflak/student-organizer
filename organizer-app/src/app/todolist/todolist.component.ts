@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Activity } from '../Activity';
-import { AngularFire,FirebaseListObservable,FirebaseObjectObservable} from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
 
 @Component({
@@ -21,10 +21,10 @@ export class TodolistComponent implements OnInit {
    key;
 
 
-  constructor(af: AngularFire) {
+  constructor(af: AngularFireDatabase) {
     const path = `/users/${this.userData.uid}`; // access user data
-    this.items = af.database.list(path + `/items`); // should be replaced by listname
-    this.user = af.database.object(path);
+    this.items = af.list(path + `/items`); // should be replaced by listname
+    this.user = af.object(path);
   }
 
   ngOnInit() {
