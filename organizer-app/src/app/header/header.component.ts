@@ -1,47 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-
 import { AF } from "../providers/af";
 import { Router } from "@angular/router";
-
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-
-export class HeaderComponent implements OnInit {
-
+export class HeaderComponent{
   public isLoggedIn: boolean;
-
-  ngOnInit() {
-  }
-
   constructor(public afService: AF, private router: Router) {
-    // This asynchronously checks if our user is logged it and will automatically
-    // redirect them to the Login page when the status changes.
-    // This is just a small thing that Firebase does that makes it easy to use.
-    this.afService.af.auth.subscribe(
-      (auth) => {
-        if (auth == null) {
-          console.log("Not Logged in.");
-          this.router.navigate(['']);
-          this.isLoggedIn = false;
-
-        }
-        else {
-          console.log("Successfully Logged in.");
-          this.isLoggedIn = true;
-          localStorage.setItem('userData', JSON.stringify(auth.auth));
-          this.router.navigate(['home']);
-        }
-      }
-    );
   }
-
   logout() {
     localStorage.setItem('userData', '');
     this.afService.logout();
-
   }
+
 }

@@ -16,6 +16,14 @@ h1 {
     position: relative;
     float:right;
 }
+
 div .clear {
   clear: both;
+}
+
+.drag-target-border{
+	border: #00bfff solid 2px;
+}
+.drag-over-border{
+	border: #ff525b dashed 2px;
 }
