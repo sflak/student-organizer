@@ -8,9 +8,10 @@
     type="button"
     class="nextWeekButton"
     (click)="nextWeek()">next</button>
+  <h1>{{ today | date:"MMMM" }}</h1>
 </div>
-<div
-  class = "bucketDiv">
+<div class = "bucketDiv">
+
   <app-bucket-day *ngFor="let day of days"
                   [today] = day.theDate
                   [todos] = day.todoItems></app-bucket-day>

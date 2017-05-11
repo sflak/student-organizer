@@ -1,7 +1,11 @@
 div {
+  text-align: center;
   margin: 0px 100px 20px 100px;
 }
-
+h1 {
+  margin: 20px auto 20px auto;
+  font-weight: 400;
+}
 
 .prevWeekButton{
     position: relative;
