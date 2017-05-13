@@ -13,7 +13,7 @@ export class Activity {
 
     constructor(itemName: string, listNum: string, priorityNum:string) {
       this.name = itemName;
-      this.time = "hi"
+      this.time = "-1";
       this.priority = priorityNum;
       this.button = "false";
       this.listname = listNum;

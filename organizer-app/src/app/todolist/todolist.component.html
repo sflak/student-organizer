@@ -36,13 +36,15 @@
   <h3> TodoList </h3>
   <ul>
     <li *ngFor="let todo of items | async">
-      <font color="purple">{{todo.Activity.name}}</font>
-
-      <b> // </b>
-      <font color="purple">{{todo.Activity.time}}</font>
-
-      <b> // </b>
-      <font color="purple">{{todo.Activity.priority}}</font>
+      <span *ngIf= "todo.Activity.listname == '1' " > 
+	      {{todo.Activity.name}}
+	      <b> // </b>
+	      {{todo.Activity.time}}
+	      <b> // </b>
+	      {{todo.Activity.priority}}
+	      <b> // </b>
+	      {{todo.Activity.listname}}
+	  </span>
 
       <!-- {{todo.text}}  -->
 
@@ -56,11 +58,15 @@
   <h3> TodoList </h3>
   <ul>
     <li *ngFor="let todo of items | async">
-      {{todo.Activity.name}}
-      <b> // </b>
-      {{todo.Activity.time}}
-      <b> // </b>
-      {{todo.Activity.priority}}
+      <span *ngIf= "todo.Activity.listname == '2' " > 
+	      {{todo.Activity.name}}
+	      <b> // </b>
+	      {{todo.Activity.time}}
+	      <b> // </b>
+	      {{todo.Activity.priority}}
+	      <b> // </b>
+	      {{todo.Activity.listname}}
+	  </span>
       <!-- {{todo.text}}  -->
 
       <!--  {{ todo.Activity.title}}      -->
@@ -74,11 +80,15 @@
   <h3> TodoList </h3>
   <ul>
     <li *ngFor="let todo of items | async">
-      {{todo.Activity.name}}
-      <b> // </b>
-      {{todo.Activity.time}}
-      <b> // </b>
-      {{todo.Activity.priority}}
+      <span *ngIf= "todo.Activity.listname == '3' " > 
+	      {{todo.Activity.name}}
+	      <b> // </b>
+	      {{todo.Activity.time}}
+	      <b> // </b>
+	      {{todo.Activity.priority}}
+	      <b> // </b>
+	      {{todo.Activity.listname}}
+	  </span>
       <!-- {{todo.text}}  -->
 
       <!--  {{ todo.Activity.title}}      -->
@@ -91,11 +101,13 @@
   <h3> TodoList </h3>
   <ul>
     <li *ngFor="let todo of items | async">
+    <span *ngIf= "todo.Activity.listname == '4' " > 
       {{todo.Activity.name}}
       <b> // </b>
       {{todo.Activity.time}}
       <b> // </b>
       {{todo.Activity.priority}}
+    </span>
       <!-- {{todo.text}}  -->
 
       <!--  {{ todo.Activity.title}}      -->
@@ -109,12 +121,15 @@
   <h3> TodoList </h3>
   <ul>
     <li *ngFor="let todo of items | async">
-      {{todo.Activity.name}}
-      <b> // </b>
-      {{todo.Activity.time}}
-      <b> // </b>
-      {{todo.Activity.priority}}
-      <!-- {{todo.text}}  -->
+      <span *ngIf= "todo.Activity.listname == '5' " > 
+	      {{todo.Activity.name}}
+	      <b> // </b>
+	      {{todo.Activity.time}}
+	      <b> // </b>
+	      {{todo.Activity.priority}}
+	      <b> // </b>
+	      {{todo.Activity.listname}}
+	  </span>      <!-- {{todo.text}}  -->
 
       <!--  {{ todo.Activity.title}}      -->
       <!-- <button (click) = "deleteTodo(todo.Activity.name)"></button>  -->
