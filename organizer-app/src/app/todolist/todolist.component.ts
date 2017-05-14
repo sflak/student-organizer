@@ -59,8 +59,10 @@ export class TodolistComponent implements OnInit {
   deleteTodoItems(key){
     this.items.remove(key);
   }
-  addTodoItems() {
-      let temp = new Activity(this.tex, this.tex4, this.tex3);
+  addTodoItems(listName,activityName) {
+      console.log("lul" + listName + activityName);
+      this.tex3 = ""; // placeholder for edit button later
+      let temp = new Activity(activityName, listName, this.tex3);
 
     this.items.push({
         Activity: temp
