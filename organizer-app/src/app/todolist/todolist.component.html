@@ -1,6 +1,6 @@
 
 <h3> Enter todo here: </h3>
-<form (submit)="addTodo()">
+<form (submit)="addTodoItems()">
 <input type="text" [(ngModel)]="text" name="test">
 </form>
 <!--<div droppable [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event)">-->
@@ -12,11 +12,37 @@
 			[dragData]="todo">
 			{{todo.Activity.name}}
 
-			<button (click) = "deleteTodo(todo.$key)"></button>
+			<button (click) = "deleteTodoItems(todo.$key)"></button>
 			</li>
 
 		</ul>
 </div>
+
+
+<h3> Test multiple todolist </h3>
+<h4> Create new list </h4>
+<form (submit)="addTodoList()">
+	<input type="text" [(ngModel)]="tex4" name="listName">
+</form>
+<ul>
+	<li *ngFor="let list of todoLists | async">
+	   <h3>	{{list.listName}} </h3>
+		  <ul>
+    		<li *ngFor="let todo of items | async">
+      		  <span *ngIf= "todo.Activity.listname == list.listName " > 
+			      {{todo.Activity.name}}
+			      <b> // </b>
+			      {{todo.Activity.time}}
+			      <b> // </b>
+			      {{todo.Activity.priority}}
+			      <b> // </b>
+			      {{todo.Activity.listname}}
+		  </span>
+    		</li>
+
+  		</ul>
+</ul>
+<h3> End </h3>
 
 
 <p hidden>This paragraph should be hidden.</p>
@@ -30,7 +56,7 @@
 	<input type="text" [(ngModel)]="tex4" name="test">
 
  </form>
-<button (click) = "addTodo(tex4)">Submit Stuff</button>
+<button (click) = "addTodoItems(tex4)">Submit Stuff</button>
 
 <div class="list">
   <h3> TodoList </h3>
@@ -49,7 +75,7 @@
       <!-- {{todo.text}}  -->
 
       <!--  {{ todo.Activity.title}}      -->
-      <!-- <button (click) = "deleteTodo(todo.Activity.name)"></button>  -->
+      <!-- <button (click) = "deleteTodoItems(todo.Activity.name)"></button>  -->
     </li>
 
   </ul>
@@ -70,7 +96,7 @@
       <!-- {{todo.text}}  -->
 
       <!--  {{ todo.Activity.title}}      -->
-      <!-- <button (click) = "deleteTodo(todo.Activity.name)"></button>  -->
+      <!-- <button (click) = "deleteTodoItems(todo.Activity.name)"></button>  -->
     </li>
 
   </ul>
@@ -92,7 +118,7 @@
       <!-- {{todo.text}}  -->
 
       <!--  {{ todo.Activity.title}}      -->
-      <!-- <button (click) = "deleteTodo(todo.Activity.name)"></button>  -->
+      <!-- <button (click) = "deleteTodoItems(todo.Activity.name)"></button>  -->
     </li>
 
   </ul>
@@ -111,7 +137,7 @@
       <!-- {{todo.text}}  -->
 
       <!--  {{ todo.Activity.title}}      -->
-      <!-- <button (click) = "deleteTodo(todo.Activity.name)"></button>  -->
+      <!-- <button (click) = "deleteTodoItems(todo.Activity.name)"></button>  -->
     </li>
 
   </ul>
@@ -132,7 +158,7 @@
 	  </span>      <!-- {{todo.text}}  -->
 
       <!--  {{ todo.Activity.title}}      -->
-      <!-- <button (click) = "deleteTodo(todo.Activity.name)"></button>  -->
+      <!-- <button (click) = "deleteTodoItems(todo.Activity.name)"></button>  -->
     </li>
 
   </ul>

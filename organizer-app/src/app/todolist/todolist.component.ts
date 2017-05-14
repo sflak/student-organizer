@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Activity } from '../Activity';
+import { Todolist } from '../Todolist';
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
 
@@ -9,10 +10,12 @@ import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable,
   styleUrls: ['./todolist.component.css']
 })
 export class TodolistComponent implements OnInit {
-   todos;
    text;
    items: FirebaseListObservable<string[]>; // listname
-   user:  FirebaseObjectObservable<any[]>;
+   user:  FirebaseObjectObservable<any[]>; 
+
+   todoLists: FirebaseListObservable<any[]>;
+
    userData = JSON.parse(localStorage.getItem('userData')); // used for UID
    search: FirebaseListObservable<any[]>;
    searchItem: string;
@@ -23,20 +26,18 @@ export class TodolistComponent implements OnInit {
    tex; // holds activity name for user input
    tex2;// holds time name for user input
    tex3;// holds priority name for user input
-   tex4; // idk maybe in the future
+   tex4; // hold listname
 
    Activity;
 
   constructor(af: AngularFireDatabase) {
     const path = `/users/${this.userData.uid}`; // access user data
-    this.items = af.list(path + `/items`); // should be replaced by listname
+    this.items = af.list(path + `/items`);  // all items of every todolist
     this.user = af.object(path);
+    this.todoLists = af.list(path + `/todolists` )
   }
 
   ngOnInit() {
-    this.todos = [
-
-    ];
   }
 
 
@@ -44,38 +45,27 @@ export class TodolistComponent implements OnInit {
 //  this.todos.push(e.dragData);
 // }
 
+  addTodoList(){
+    console.log("clicked");
+    let todo = new Todolist(this.tex4);
+    this.todoLists.push(todo);
+  }
+
+  deleteTodoList(key){
+    this.todoLists.remove(key);
+  }
 
 
-  // theres a bug in the delete function. It will delete multiples of the same item with one delete click*******************8
-  deleteTodo(key){
+  deleteTodoItems(key){
     this.items.remove(key);
   }
-  bubblesort(){
-        // crappy bubble sort for now
-        for( var i = 0 ; i < this.todos.length; i++){
-            for(var j = 1; j < this.todos.length ; j++){
-                if(this.todos[j-1].Activity.name > this.todos[j].Activity.name)
-                {
-                  /*
-                  let temp : string = this.todos[j-1].Activity.name;
-                  this.todos[j-1].Activity.name = this.todos[j].Activity.name ;
-                  this.todos[j].Activity.name = temp;
-                  */
-                  let temp : Activity = this.todos[j-1].Activity;
-                  this.todos[j-1].Activity = this.todos[j].Activity ;
-                  this.todos[j].Activity = temp;
-                  }
-              }
-            }
-  }
-  addTodo() {
+  addTodoItems() {
       let temp = new Activity(this.tex, this.tex4, this.tex3);
 
     this.items.push({
         Activity: temp
     });
 
-    this.bubblesort();
   }
 
 }

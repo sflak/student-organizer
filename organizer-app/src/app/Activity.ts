@@ -11,12 +11,12 @@ export class Activity {
 
     button : string; // true if hidden. false otherwise
 
-    constructor(itemName: string, listNum: string, priorityNum:string) {
+    constructor(itemName: string, listName: string, priorityNum:string) {
       this.name = itemName;
       this.time = "-1";
       this.priority = priorityNum;
       this.button = "false";
-      this.listname = listNum;
+      this.listname = listName;
     }
 
 }
