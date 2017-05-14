@@ -26,7 +26,7 @@
 </form>
 <ul>
 	<li *ngFor="let list of todoLists | async">
-	   <h3>	{{list.listName}} </h3>
+	  <span> <h3>	{{list.listName}} </h3> <button (click) = "deleteTodoList(list.$key)">X</button> </span> 
 		  <ul>
 		  <form (submit)="addTodoItems(list.listName,list.tempActivity)">
 				<input type="text" [(ngModel)]="list.tempActivity" name="test">
