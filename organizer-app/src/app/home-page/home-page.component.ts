@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {ResizeEvent} from 'angular-resizable-element';
 import {TodolistComponent}   from '../todolist/todolist.component'
 
-import {EditEventComponent} from '../edit-event/edit-event.component'
-
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',

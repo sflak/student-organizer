@@ -24,7 +24,7 @@ import {AlertModule} from 'ngx-bootstrap';
 import { TodolistComponent } from './todolist/todolist.component';
 
 import {ResizableModule} from 'angular-resizable-element';
-import { EditEventComponent } from './edit-event/edit-event.component';
+import { EditEventComponent } from './todo/todo-list/todo-item/edit-event/edit-event.component';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyApveLqa1f_nEHdHU9T8zelKaQ42VitihY",

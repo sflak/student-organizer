@@ -1,4 +1,5 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-edit-event',
@@ -6,6 +7,11 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
   styleUrls: ['./edit-event.component.css']
 })
 export class EditEventComponent implements OnInit {
+  // @Input() showEdit: boolean;
+  // @Output() onSaved = new EventEmitter<boolean>();
+  // saved = false;
+
+  showEdit:boolean = false;
 
   private hoursArray=[1,2,3,4,5,6,7,8,9,10,11,12];
   private minutesArray=[0,5,10,15,20,25,30,35,40,45,50,55];
@@ -15,14 +21,16 @@ export class EditEventComponent implements OnInit {
   ngOnInit() {
   }
 
-  close = new EventEmitter();
+  showEditBox(){
+    this.showEdit = true;
+  }
 
-  onClickedExit() {
-       this.close.emit('event');
+  hide():void{
+    this.showEdit = false;
   }
 
   saveChanges(){
-    
+    this.showEdit = false;
   }
 
 }
