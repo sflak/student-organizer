@@ -18,15 +18,6 @@ export class BucketComponent implements OnInit {
     new TodoItem('Eat stuff', false)
   ];
 
-  // days: BucketDay [] = [
-  //   new BucketDay(this.today, null ),
-  //   new BucketDay(this.today, null),
-  //   new BucketDay(this.today, this.todos),
-  //   new BucketDay(this.today, null),
-  //   new BucketDay(this.today, null),
-  //   new BucketDay(this.today, null),
-  //   new BucketDay(this.today, null) ];
-
   dayslist: Date[] = [
     new Date(this.setDay(this.d,0+this.i)),
     new Date(this.setDay(this.d,1)),

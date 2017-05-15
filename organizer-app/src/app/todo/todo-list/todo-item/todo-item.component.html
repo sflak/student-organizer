@@ -1,5 +1,7 @@
 <div class="dragable">
-  <input type="checkbox" name="item" value="{{ item.item }}" /> {{ item.item }}
-
+    <div class = "innerDragable">
+        <input type="checkbox" name="item" value="{{ item.item }}" /> {{ item.item }}
+        <button (click)="editComponent.showEditBox(); showEditor = true">E</button>
+    </div>
+    <app-edit-event #editComponent [style.display]="editComponent.showEdit ? 'block' : 'none'"></app-edit-event>
 </div>
-

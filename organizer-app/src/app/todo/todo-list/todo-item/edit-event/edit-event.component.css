@@ -1,0 +1,34 @@
+.select{
+    display:inline;
+}
+
+p{
+    display:inline;
+}
+
+.wholeEvent{
+    background-color: white;
+    z-index: 100;
+    position:absolute;
+    border: solid darkgrey 1px;
+}
+
+select{
+    float:right;
+}
+
+.saveButton{
+    float:right;
+    position:relative;
+    margin-right:5px;
+    margin-bottom:5px;
+}
+
+.eventTitle{
+    margin-left: 5px;
+}
+
+.timeInput{
+    margin-right:5px;
+    margin-left:5px;
+}

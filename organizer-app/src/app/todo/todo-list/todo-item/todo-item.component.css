@@ -1,8 +1,23 @@
-div {
+.dragable {
   height: 30px;
   width: 150px;
   border: solid darkgrey 1px;
 }
 input {
   margin-left: 10px;
+}
+
+app-edit-event{
+  display:inline;
+  position: absolute;
+  min-width: 500px;
+  min-height: 400px;
+}
+
+.innerDragable{
+  display: inline;
+}
+
+button{
+  float:right;
 }

@@ -1,0 +1,43 @@
+<div class = "wholeEvent">
+    <div class = "eventTitle">
+        <h4>Edit</h4>
+    </div>
+    <div class = "timeInput">
+        <p>Start Time: </p>
+        
+        <select>
+            <option>AM</option>
+            <option>PM</option>
+        </select>
+
+        <select>
+            <option>Minutes</option>
+            <option *ngFor = "let v of minutesArray">{{v}}</option>
+        </select>
+        
+        <select>
+            <option>Hour</option>
+            <option *ngFor = "let v of hoursArray"> {{v}}</option>
+        </select>
+    </div>
+    <br>
+    <div class = "timeInput">
+        <p>Finish Time: </p>
+        <select>
+            <option>AM</option>
+            <option>PM</option>
+        </select>
+
+        <select>
+            <option>Minutes</option>
+            <option *ngFor = "let v of minutesArray">{{v}}</option>
+        </select>
+
+         <select>
+            <option>Hour</option>
+            <option *ngFor = "let v of hoursArray"> {{v}}</option>
+        </select>
+    </div>
+    <br>
+    <button class="saveButton" (click)="saveChanges()">Save</button>
+</div>
