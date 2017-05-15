@@ -36,7 +36,7 @@ Comments
 Use JSDoc style comments for functions, interfaces, enums, and classes.
 Strings
 
-Use double quotes for strings.
+Use double quotes for strings. (Except when in HTML when within double quotes use single quotes for clarity).
 All strings visible to the user need to be localized (make an entry in diagnosticMessages.json).
 Diagnostic Messages
 
