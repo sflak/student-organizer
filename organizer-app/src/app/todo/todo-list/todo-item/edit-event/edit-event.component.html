@@ -1,39 +1,39 @@
 <div class = "wholeEvent">
     <div class = "eventTitle">
         <h4 style = "display:inline;">Edit</h4>
-        <button (click) = "hideEditBox()" style = "float:right;">x</button>
+        <button (click) = "cancel()" style = "float:right;">x</button>
     </div>
     <div class = "startTimeInput">
         <p>Start Time: </p>
         
-        <select id ="startAmPmInput">
+        <select [(ngModel)] = "temp3" id ="startAmPmInput">
             <option>AM</option>
             <option>PM</option>
         </select>
 
-        <select id="startMinInput">
+        <select [(ngModel)] = "temp2" id="startMinInput">
             <option>Min</option>
             <option *ngFor = "let v of minutesArray">{{v}}</option>
         </select>
         
-        <select  id="startHourInput">
+        <select  [(ngModel)] = "temp1" id="startHourInput">
             <option>Hour</option>
             <option *ngFor = "let v of hoursArray"> {{v}}</option>
         </select>
     </div>
     <div class = "finishTimeInput">
         <p>Finish Time: </p>
-        <select id ="finishAmPmInput">
+        <select [(ngModel)] = "temp6" id ="finishAmPmInput">
             <option>AM</option>
             <option>PM</option>
         </select>
 
-        <select id = "finishMinInput">
+        <select [(ngModel)] = "temp5" id = "finishMinInput">
             <option>Min</option>
             <option *ngFor = "let v of minutesArray">{{v}}</option>
         </select>
 
-         <select id = "finishHourInput">
+         <select [(ngModel)] = "temp4" id = "finishHourInput">
             <option>Hour</option>
             <option *ngFor = "let v of hoursArray">{{v}}</option>
         </select>

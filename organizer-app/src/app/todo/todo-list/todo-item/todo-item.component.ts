@@ -16,30 +16,22 @@ export class TodoItemComponent implements OnInit {
   @Output() timeEnd: number;
   @ViewChild(EditEventComponent) editComponent: EditEventComponent;
 
-  startHour:number = null;
-  startMin:number = null;
-  startAmPm:string = null;
-  finishHour: number =null;
-  finishMin:number = null;
-  finishAmPm:string = null;
-
   constructor() { }
 
   ngOnInit() {
   }
 
   oneTimePresent():boolean{
-      if(this.editComponent.saved){
-          if(!isNaN(this.editComponent.startHour) && !isNaN(this.editComponent.startMin)
-            && isNaN(this.editComponent.finishHour)  && isNaN(this.editComponent.finishMin)){
+      if(this.editComponent.startHour!=null && this.editComponent.startMin!=null
+            && this.editComponent.finishHour==null  && this.editComponent.finishMin==null){
                 return true;
-          }else if(isNaN(this.editComponent.startHour) && isNaN(this.editComponent.startMin)
-            && !isNaN(this.editComponent.finishHour) && !isNaN(this.editComponent.finishMin)){
+      }else if(this.editComponent.startHour==null && this.editComponent.startMin==null
+            && this.editComponent.finishHour!=null && this.editComponent.finishMin!=null){
                 return true;
-          }else{
+      }else{
                 return false;
-        }
       }
+   
   }
 
   bothTimesPresent():boolean{
@@ -51,20 +43,18 @@ export class TodoItemComponent implements OnInit {
     }
 
   startTimePresent():boolean{
-      if(!isNaN(this.editComponent.startHour) && !isNaN(this.editComponent.startMin)
-           && this.editComponent.saved == true){
+      if(this.editComponent.startHour!=null && this.editComponent.startMin!=null){
               return true;
       }else{
-        return false;
+              return false;
       }
   }
 
   finishTimePresent():boolean{
-      if(!isNaN(this.editComponent.finishHour) && !isNaN(this.editComponent.finishMin)
-           && this.editComponent.saved == true){
-              return true;
+      if(this.editComponent.finishHour!=null && this.editComponent.finishMin!=null){
+            return true;
       }else{
-        return false;
+            return false;
       }
   }
 }

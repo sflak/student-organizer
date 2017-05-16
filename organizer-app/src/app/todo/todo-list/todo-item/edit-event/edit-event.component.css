@@ -24,6 +24,13 @@ select{
     margin-bottom:5px;
 }
 
+.clearButton{
+    float:left;
+    position:relative;
+    margin-left:5px;
+    margin-bottom:5px;
+}
+
 .eventTitle{
     margin-left: 5px;
 }
