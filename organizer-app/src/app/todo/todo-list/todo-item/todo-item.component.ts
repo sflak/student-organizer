@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
+
 import { TodoItem} from '../../../shared/TodoItem.module';
 import { AfterViewInit, ViewChild } from '@angular/core';
 

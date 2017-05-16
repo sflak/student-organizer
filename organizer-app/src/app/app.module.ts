@@ -1,4 +1,4 @@
-import { RouterModule, Routes } from '@angular/router';
+    import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -7,7 +7,7 @@ import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
 
 import { TodoComponent } from './todo/todo.component';
-import { TodoListComponent } from './todo/todo-list/todo-list.component';
+import { TodolistComponent } from './todo/todo-list/todo-list.component';
 import { TodoItemComponent } from './todo/todo-list/todo-item/todo-item.component';
 
 
@@ -25,7 +25,7 @@ import { HeaderComponent } from './header/header.component';
 import { ProfileComponent } from './header/profile/profile.component';
 
 import {AlertModule} from 'ngx-bootstrap';
-import { TodolistComponent } from './todolist/todolist.component';
+
 
 import {ResizableModule} from 'angular-resizable-element';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
@@ -54,8 +54,6 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     TodoComponent,
-    TodoListComponent,
-    TodoItemComponent,
     BucketComponent,
     BucketDayComponent,
     HeaderComponent,
@@ -68,8 +66,6 @@ const routes: Routes = [
     HeaderComponent,
     ProfileComponent,
     TodoComponent,
-    TodoListComponent,
-
     TodoItemComponent,
     TodolistComponent,
 

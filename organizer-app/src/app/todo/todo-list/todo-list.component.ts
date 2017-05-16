@@ -1,32 +1,83 @@
-import { Component, OnInit, Output, Input } from '@angular/core';
-import { TodoItem } from '../../shared/TodoItem.module';
-import { TodoList } from '../../shared/TodoList.module';
+import { Component, OnInit } from '@angular/core';
+import { Activity } from './todo-item/Activity';
+import { Todolist } from './Todolist';
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+
 
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css']
 })
-export class TodoListComponent implements OnInit {
-  @Input() list: TodoList;
-  // todoItems: TodoItem[] = [];
+export class TodolistComponent implements OnInit {
+   text;
+   items: FirebaseListObservable<string[]>; // listname
+   user:  FirebaseObjectObservable<any[]>; 
+
+   todoLists: FirebaseListObservable<any[]>;
+
+   userData = JSON.parse(localStorage.getItem('userData')); // used for UID
+   search: FirebaseListObservable<any[]>;
+   searchItem: string;
+   searchText;
+   key;
+
+   needName = false;
 
 
-  // below is a dummy list for testing purposes, actual declaration below
-  todoItems: TodoItem[] = [
-    new TodoItem('Take out trash', false),
-    new TodoItem('walk the dog', false),
-    new TodoItem('Do HW', false)
-  ];
-  // @Output() label: string;
+   tex; // holds activity name for user input
+   tex2;// holds time name for user input
+   tex3;// holds priority name for user input
+   tex4; // hold listname
 
-  // @Output() label = 'Life';
-  // @Output() color: string;
+   Activity;
 
-  constructor() { }
+  constructor(af: AngularFireDatabase) {
+    const path = `/users/${this.userData.uid}`; // access user data
+    this.items = af.list(path + `/items`);  // all items of every todolist
+    this.user = af.object(path);
+    this.todoLists = af.list(path + `/todolists` )
+  }
 
   ngOnInit() {
-    this.list = new TodoList ('life', this.todoItems);
+  }
+
+
+// onTodoDrop(e: any) {
+//  this.todos.push(e.dragData);
+// }
+
+  showInput() {
+    this.needName = !this.needName;
+  }
+  onAddList() {
+
+  }
+
+  
+  addTodoList(){
+    console.log("clicked");
+    let todo = new Todolist(this.tex4);
+    this.todoLists.push(todo);
+  }
+
+  deleteTodoList(key){
+    this.todoLists.remove(key);
+  }
+
+
+  deleteTodoItems(key){
+    this.items.remove(key);
+  }
+  addTodoItems(listName,activityName) {
+      console.log("test" + listName + activityName);
+      this.tex3 = ""; // placeholder for edit button later
+      let temp = new Activity(activityName, listName, this.tex3);
+
+    this.items.push({
+        Activity: temp
+    });
+
   }
 
 }
