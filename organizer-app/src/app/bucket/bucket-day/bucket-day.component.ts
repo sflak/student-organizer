@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import {TodoItem} from '../../shared/TodoItem.module';
-import { Activity } from '../../Activity';
-import { TodolistComponent } from '../../todolist/todolist.component';
+
 
 @Component({
   selector: 'app-bucket-day',
