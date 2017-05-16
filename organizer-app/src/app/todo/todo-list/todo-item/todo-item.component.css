@@ -1,5 +1,5 @@
 .dragable {
-  height: 30px;
+  height: 70px;
   width: 150px;
   border: solid darkgrey 1px;
 }
@@ -20,4 +20,8 @@ app-edit-event{
 
 button{
   float:right;
+}
+
+p{
+  margin-top:0px;
 }

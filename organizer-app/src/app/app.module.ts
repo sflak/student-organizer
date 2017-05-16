@@ -73,7 +73,7 @@ const routes: Routes = [
     TodoItemComponent,
     TodolistComponent,
 
-    ProgressBarComponent
+    ProgressBarComponent,
 
     EditEventComponent
   ],

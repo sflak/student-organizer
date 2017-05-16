@@ -15,33 +15,55 @@ export class TodoItemComponent implements OnInit {
   @Output() timeEnd: number;
   @ViewChild(EditEventComponent) editComponent: EditEventComponent;
 
-  showEditor:boolean;
+  startHour:number = null;
+  startMin:number = null;
+  startAmPm:string = null;
+  finishHour: number =null;
+  finishMin:number = null;
+  finishAmPm:string = null;
 
   constructor() { }
 
   ngOnInit() {
-    this.showEditor = false;
   }
 
-  // ngAfterViewInit(){
-  //   this.editComponent.showEdit = false;
-  // }
-
-  show(){
-    console.log("showEditor value"+this.showEditor);
-    this.showEditor = true; 
-     
-    this.editComponent.showEditBox();
-    // console.log("here");
-    // this.editComponent.showEdit = true;
+  oneTimePresent():boolean{
+      if(this.editComponent.saved){
+          if(!isNaN(this.editComponent.startHour) && !isNaN(this.editComponent.startMin)
+            && isNaN(this.editComponent.finishHour)  && isNaN(this.editComponent.finishMin)){
+                return true;
+          }else if(isNaN(this.editComponent.startHour) && isNaN(this.editComponent.startMin)
+            && !isNaN(this.editComponent.finishHour) && !isNaN(this.editComponent.finishMin)){
+                return true;
+          }else{
+                return false;
+        }
+      }
   }
 
-  hide(){
-    // this.editComponent.hide();
-    this.showEditor = false;
+  bothTimesPresent():boolean{
+      if(this.startTimePresent() && this.finishTimePresent()){
+        return true;
+      }else{
+            return false;
+      }
+    }
+
+  startTimePresent():boolean{
+      if(!isNaN(this.editComponent.startHour) && !isNaN(this.editComponent.startMin)
+           && this.editComponent.saved == true){
+              return true;
+      }else{
+        return false;
+      }
   }
 
-  returnStatus():boolean{
-    return this.showEditor;
+  finishTimePresent():boolean{
+      if(!isNaN(this.editComponent.finishHour) && !isNaN(this.editComponent.finishMin)
+           && this.editComponent.saved == true){
+              return true;
+      }else{
+        return false;
+      }
   }
 }

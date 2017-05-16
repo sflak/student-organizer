@@ -1,43 +1,44 @@
 <div class = "wholeEvent">
     <div class = "eventTitle">
-        <h4>Edit</h4>
+        <h4 style = "display:inline;">Edit</h4>
+        <button (click) = "hideEditBox()" style = "float:right;">x</button>
     </div>
-    <div class = "timeInput">
+    <div class = "startTimeInput">
         <p>Start Time: </p>
         
-        <select>
+        <select id ="startAmPmInput">
             <option>AM</option>
             <option>PM</option>
         </select>
 
-        <select>
-            <option>Minutes</option>
+        <select id="startMinInput">
+            <option>Min</option>
             <option *ngFor = "let v of minutesArray">{{v}}</option>
         </select>
         
-        <select>
+        <select  id="startHourInput">
             <option>Hour</option>
             <option *ngFor = "let v of hoursArray"> {{v}}</option>
         </select>
     </div>
-    <br>
-    <div class = "timeInput">
+    <div class = "finishTimeInput">
         <p>Finish Time: </p>
-        <select>
+        <select id ="finishAmPmInput">
             <option>AM</option>
             <option>PM</option>
         </select>
 
-        <select>
-            <option>Minutes</option>
+        <select id = "finishMinInput">
+            <option>Min</option>
             <option *ngFor = "let v of minutesArray">{{v}}</option>
         </select>
 
-         <select>
+         <select id = "finishHourInput">
             <option>Hour</option>
-            <option *ngFor = "let v of hoursArray"> {{v}}</option>
+            <option *ngFor = "let v of hoursArray">{{v}}</option>
         </select>
     </div>
     <br>
-    <button class="saveButton" (click)="saveChanges()">Save</button>
+    <button class ="clearButton"(click)="clearChanges()">Clear</button>
+    <button class ="saveButton" (click)="saveChanges()">Save</button>
 </div>

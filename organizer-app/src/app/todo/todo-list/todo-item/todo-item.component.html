@@ -1,7 +1,14 @@
-<div class="dragable">
+<div class="dragable" [style.height] ="oneTimePresent()? '50px':'30px'"
+    [style.height]="bothTimesPresent()? '70px':'30px'">
     <div class = "innerDragable">
-        <input type="checkbox" name="item" value="{{ item.item }}" /> {{ item.item }}
-        <button (click)="editComponent.showEditBox(); showEditor = true">E</button>
+        <input type="checkbox" name="item" value="{{ item.item }}"/> {{ item.item }}
+        <button (click)="editComponent.showEditBox()">E</button>
     </div>
-    <app-edit-event #editComponent [style.display]="editComponent.showEdit ? 'block' : 'none'"></app-edit-event>
+    <app-edit-event [style.display]="editComponent.showEdit ? 'inline' : 'none'"></app-edit-event>
+    <div class = "timeFields">
+        <p *ngIf="startTimePresent()">
+            Start: {{editComponent.startHour}}:{{editComponent.startMin}} {{editComponent.startAmPm}}</p>
+        <p *ngIf="finishTimePresent()">
+            End: {{editComponent.finishHour}}:{{editComponent.finishMin}} {{editComponent.finishAmPm}}</p>
+    </div>
 </div>
