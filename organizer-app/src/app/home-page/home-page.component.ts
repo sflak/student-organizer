@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ResizeEvent} from 'angular-resizable-element';
-import {TodolistComponent}   from '../todolist/todolist.component'
+
 
 @Component({
   selector: 'app-home-page',
