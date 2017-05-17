@@ -19,13 +19,14 @@
   <ul>
     <li *ngFor="let list of todoLists | async">
       <div class="todo-list-box">
-        <span> <h3>	{{list.listName}} </h3> <button (click) = "deleteTodoList(list.$key)">X</button> </span>
-
-        <ul>
-          <form (submit)="addTodoItems(list.listName,list.tempActivity)">
-            <input type="text" [(ngModel)]="list.tempActivity" name="test">
-          </form>
-          <li *ngFor="let todo of items | async">
+        <div class="list-label"> <h3>	{{list.listName}} </h3> <button class="list-delete-button" (click) = "deleteTodoList(list.$key)">&#8230;</button> </div>
+        <div class="clear"></div>
+        <div class="list-item-box">
+          <ul>
+            <form (submit)="addTodoItems(list.listName,list.tempActivity)">
+              <input placeholder="Add to-do" type="text" [(ngModel)]="list.tempActivity" name="test">
+            </form>
+            <li *ngFor="let todo of items | async">
               <span *ngIf= "todo.Activity.listname == list.listName " >
               {{todo.Activity.name}}
               <b> // </b>
@@ -35,10 +36,11 @@
               <b> // </b>
               {{todo.Activity.listname}}
 
-             <button (click) = "deleteTodoItems(todo.$key)"></button>
+             <button class="item-delete-button" (click) = "deleteTodoItems(todo.$key)"></button>
             </span>
-           </li>
-         </ul>
+            </li>
+          </ul>
+        </div>
       </div>
     </li>
   </ul>

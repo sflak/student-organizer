@@ -1,4 +1,9 @@
-
+h3 {
+  float: left;
+}
+.clear {
+  clear: both;
+}
 ul {
   list-style: none;
 }
@@ -8,22 +13,39 @@ ul {
 .drag-over-border{
 	border: #ff525b dashed 2px;
 }
-button{
-  float: left;
-	background-color: red;
+.list-delete-button{
+  float: right;
 	border: none;
+  background-color: transparent;
 	color: white;
-	padding: 10px;
-	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-	margin-right: 10px;
+	padding-right: 9px;
+	margin-top: -11px;
+  font-size: 32px;
 }
-input {
-  float: left;
+.item-delete-button {
+  background-color: #ff525b;
 }
-div .list {
-  float: left;
+.list-label {
+  margin-left: 20px;
+  text-align: center;
+  width: auto;
+  color: white;
+  font-family: Avenir, Helvetica, sans-serif;
 }
 .todo-list-box {
+  margin-right: 20px;
+  width: 250px;
   float: left;
-  border: solid black 2px;
+  background-color: #4A91B5;
+}
+.list-item-box {
+  width: 236px;
+  background-color: white;
+  margin: 0 auto 20px auto;
+}
+.list-item-box ul {
+  padding: 4px;
+}
+.list-item-box input {
+  width: 100%;
 }
