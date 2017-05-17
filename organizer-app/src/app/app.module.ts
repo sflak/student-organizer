@@ -32,6 +32,9 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 import {Ng2DragDropModule} from "ng2-drag-drop";
 
+import { EditEventComponent } from './todo/todo-list/todo-item/edit-event/edit-event.component';
+
+
 export const firebaseConfig = {
     apiKey: "AIzaSyApveLqa1f_nEHdHU9T8zelKaQ42VitihY",
     authDomain: "honeydo-3d364.firebaseapp.com",
@@ -65,7 +68,10 @@ const routes: Routes = [
     TodoComponent,
     TodoItemComponent,
     TodolistComponent,
-    ProgressBarComponent
+
+    ProgressBarComponent,
+
+    EditEventComponent
   ],
   providers: [AF],
   imports: [

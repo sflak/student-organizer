@@ -1,4 +1,19 @@
-<h3> What is this </h3>
+
+<div class="dragable" [style.height] ="oneTimePresent()? '50px':'30px'"
+    [style.height]="bothTimesPresent()? '70px':'30px'">
+    <div class = "innerDragable">
+        <input type="checkbox" name="item" value="{{ item.item }}"/> {{ item.item }}
+        <button (click)="editComponent.showEditBox()">E</button>
+    </div>
+    <app-edit-event [style.display]="editComponent.showEdit ? 'inline' : 'none'"></app-edit-event>
+    <div class = "timeFields">
+        <p *ngIf="startTimePresent()">
+            Start: {{editComponent.startHour}}:{{editComponent.startMin}} {{editComponent.startAmPm}}</p>
+        <p *ngIf="finishTimePresent()">
+            End: {{editComponent.finishHour}}:{{editComponent.finishMin}} {{editComponent.finishAmPm}}</p>
+    </div>
+</div>
+
 <!--
 <div class="dragable">
   <input type="checkbox" name="item" value="{{ item.item }}" /> {{ item.item }}
