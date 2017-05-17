@@ -47,7 +47,7 @@
 
 
 <form (submit)="addTodoList()" *ngIf="needName" #nameInput  >
-	<input type="text" [(ngModel)]="tex4" name="test">
+	<input id="listLabelInput" type="text" [(ngModel)]="tex4" name="test">
 </form>
 <button (click) = 'showInput();' class="btn btn-primary">Add new List</button>
 
