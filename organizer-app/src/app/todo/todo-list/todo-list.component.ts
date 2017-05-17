@@ -12,7 +12,7 @@ import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable,
 export class TodolistComponent implements OnInit {
    text;
    items: FirebaseListObservable<string[]>; // listname
-   user:  FirebaseObjectObservable<any[]>; 
+   user:  FirebaseObjectObservable<any[]>;
 
    todoLists: FirebaseListObservable<any[]>;
 
@@ -23,6 +23,7 @@ export class TodolistComponent implements OnInit {
    key;
 
    needName = false;
+   box = 'todo-list-box';
 
 
    tex; // holds activity name for user input
@@ -50,14 +51,12 @@ export class TodolistComponent implements OnInit {
   showInput() {
     this.needName = !this.needName;
   }
-  onAddList() {
 
-  }
 
-  
   addTodoList(){
     console.log("clicked");
     let todo = new Todolist(this.tex4);
+    this.needName = !this.needName;
     this.todoLists.push(todo);
   }
 

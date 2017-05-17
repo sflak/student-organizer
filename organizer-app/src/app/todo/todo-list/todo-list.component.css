@@ -9,6 +9,7 @@ ul {
 	border: #ff525b dashed 2px;
 }
 button{
+  float: left;
 	background-color: red;
 	border: none;
 	color: white;
@@ -16,6 +17,13 @@ button{
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 	margin-right: 10px;
 }
+input {
+  float: left;
+}
 div .list {
   float: left;
+}
+.todo-list-box {
+  float: left;
+  border: solid black 2px;
 }
