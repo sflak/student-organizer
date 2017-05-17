@@ -49,3 +49,21 @@ ul {
 .list-item-box input {
   width: 100%;
 }
+.add-todo-list-button {
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  border: solid #9B9B9B 4px;
+  float: left;
+  cursor: pointer;
+}
+.add-todo-list-button p {
+  font-size: 40px;
+  color: #9B9B9B;
+  margin-top: -11px;
+}
+#listLabelInput {
+  float: left;
+  margin-right: 5px;
+
+}
