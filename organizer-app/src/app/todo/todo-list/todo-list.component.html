@@ -27,17 +27,12 @@
               <input placeholder="Add to-do" type="text" [(ngModel)]="list.tempActivity" name="test">
             </form>
             <li *ngFor="let todo of items | async">
-              <span *ngIf= "todo.Activity.listname == list.listName " >
-              {{todo.Activity.name}}
-              <b> // </b>
-              {{todo.Activity.time}}
-              <b> // </b>
-              {{todo.Activity.priority}}
-              <b> // </b>
-              {{todo.Activity.listname}}
-
-             <button class="item-delete-button" (click) = "deleteTodoItems(todo.$key)"></button>
-            </span>
+              <div class="todo-item">
+                 <span *ngIf= "todo.Activity.listname == list.listName " >
+                  {{todo.Activity.name}}
+                  <p class="item-delete-button" (click) = "deleteTodoItems(todo.$key)">&#8942;</p>
+                  </span>
+              </div>
             </li>
           </ul>
         </div>
@@ -48,7 +43,7 @@
 
 
 
-<form (submit)="addTodoList()" *ngIf="needName" #nameInput  >
+<form  (submit)="addTodoList()" *ngIf="needName" #nameInput  >
 	<input placeholder="Add list label..." id="listLabelInput" type="text" [(ngModel)]="tex4" name="test">
 </form>
 <div class="add-todo-list-button" (click) = 'showInput();' ><p>+</p></div>

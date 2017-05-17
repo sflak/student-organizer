@@ -23,7 +23,11 @@ ul {
   font-size: 32px;
 }
 .item-delete-button {
-  background-color: #ff525b;
+  float: right;
+  margin-right: 5px;
+  width: 2px;
+  font-size: 16px;
+  /*background-color: #ff525b;*/
 }
 .list-label {
   margin-left: 20px;
@@ -66,4 +70,8 @@ ul {
   float: left;
   margin-right: 5px;
 
+}
+
+.todo-item {
+  /*border: solid red 1px;*/
 }
