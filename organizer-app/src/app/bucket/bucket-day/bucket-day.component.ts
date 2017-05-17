@@ -27,5 +27,4 @@ onTodoDrop(e: any) {
 }
 
 
-
 }
