@@ -77,6 +77,9 @@ export class EditEventComponent implements OnInit {
   }
 
   validateSubmit(){
+    if(this.temp1 == "Hour" || this.temp2 =="Min" || this.temp4=="Hour" || this.temp5 == "Min"){
+        return false;
+    }
     if(this.temp1!= null || this.temp2!= null || this.temp3!=null){
         if(this.temp1== null || this.temp2== null || this.temp3==null){
             return false;
@@ -87,11 +90,19 @@ export class EditEventComponent implements OnInit {
         } 
     }  
 
-    // if(this.temp3!=null && this.temp6!= null){
-    //     if(this.temp3 == "AM" && this.temp6 =="AM"){
-    //         if()
-    //     }
-    // }
+    if(this.temp3!=null && this.temp6!= null){
+        if(this.temp3 == "PM" && this.temp6 =="AM"){
+            return false;
+        }else if(this.temp3 == this.temp6){
+            if(Number(this.temp1)>Number(this.temp4)){
+                return false;
+            }else if(Number(this.temp1) == Number(this.temp4)){
+                if(Number(this.temp2)>Number(this.temp5)){
+                  return false;
+                }
+            }
+        }
+    }
     return true; 
   }
 
