@@ -1,4 +1,9 @@
-
+h3 {
+  float: left;
+}
+.clear {
+  clear: both;
+}
 ul {
   list-style: none;
 }
@@ -8,14 +13,65 @@ ul {
 .drag-over-border{
 	border: #ff525b dashed 2px;
 }
-button{
-	background-color: red;
+.list-delete-button{
+  float: right;
 	border: none;
+  background-color: transparent;
 	color: white;
-	padding: 10px;
-	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-	margin-right: 10px;
+	padding-right: 9px;
+	margin-top: -11px;
+  font-size: 32px;
 }
-div .list {
+.item-delete-button {
+  float: right;
+  margin-right: 5px;
+  width: 2px;
+  font-size: 16px;
+  /*background-color: #ff525b;*/
+}
+.list-label {
+  margin-left: 20px;
+  text-align: center;
+  width: auto;
+  color: white;
+  font-family: Avenir, Helvetica, sans-serif;
+}
+.todo-list-box {
+  margin-right: 20px;
+  width: 250px;
   float: left;
+  background-color: #4A91B5;
+}
+.list-item-box {
+  width: 236px;
+  background-color: white;
+  margin: 0 auto 20px auto;
+}
+.list-item-box ul {
+  padding: 4px;
+}
+.list-item-box input {
+  width: 100%;
+}
+.add-todo-list-button {
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  border: solid #9B9B9B 4px;
+  float: left;
+  cursor: pointer;
+}
+.add-todo-list-button p {
+  font-size: 40px;
+  color: #9B9B9B;
+  margin-top: -11px;
+}
+#listLabelInput {
+  float: left;
+  margin-right: 5px;
+
+}
+
+.todo-item {
+  /*border: solid red 1px;*/
 }
