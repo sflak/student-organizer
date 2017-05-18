@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Activity } from './todo-item/Activity';
 import { Todolist } from './Todolist';
+import {EditEventComponent} from './todo-item/edit-event/edit-event.component';
+import {TodoItemComponent} from './todo-item/todo-item.component'
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
 
