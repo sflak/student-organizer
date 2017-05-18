@@ -19,7 +19,7 @@
   <ul>
     <li *ngFor="let list of todoLists | async">
       <div class="todo-list-box">
-        <div class="list-label"> <h3>	{{list.listName}} </h3> <button class="list-delete-button" (click) = "deleteTodoList(list.$key)">&#8230;</button> </div>
+        <div class="list-label"> <h3>	{{list.listName}} </h3> <button class="list-delete-button" (click) = "deleteTodoList(list.$key,list.listName)">&#8230;</button> </div>
         <div class="clear"></div>
         <div class="list-item-box">
           <ul>
