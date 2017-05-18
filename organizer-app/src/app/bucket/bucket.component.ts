@@ -16,7 +16,14 @@ export class BucketComponent implements OnInit {
   todos: TodoItem [] = [
     new TodoItem('Buy sandwiches', false),
     new TodoItem('Eat stuff', false)
+      //new TodoItem('ROCK', false),
   ];
+
+
+    BIGTEX; // probably will be deleted soon
+
+
+
 
   dayslist: Date[] = [
     new Date(this.setDay(this.d,0+this.i)),
