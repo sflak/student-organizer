@@ -1,25 +1,11 @@
 
-<div droppable [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event)">
-  <div>
-	    <h3> TodoList (Drag, drop, or swap these items)</h3>
-		    <ul>-->
-			       <li draggable *ngFor="let todo of items | async "
-			          [dragOverClass]="'drag-over-border'"
-			             [dragData]="todo.Activity.name">
-			                {{todo.Activity.name}}
-
-			                   <button (click) = "deleteTodoItems(todo.$key)"></button>
-			                    </li>
-
-		</ul>
-</div>
 
 
 
   <ul>
     <li *ngFor="let list of todoLists | async">
       <div class="todo-list-box">
-        <div class="list-label"> <h3>	{{list.listName}} </h3> <button class="list-delete-button" (click) = "deleteTodoList(list.$key)">&#8230;</button> </div>
+        <div class="list-label"> <h3>	{{list.listName}} </h3> <button class="list-delete-button" (click) = "deleteTodoList(list.$key,list.listName)">&#8230;</button> </div>
         <div class="clear"></div>
         <div class="list-item-box">
           <ul>
@@ -48,4 +34,6 @@
 <form  (submit)="addTodoList()" *ngIf="needName" #nameInput  >
 	<input placeholder="Add list label..." id="listLabelInput" type="text" [(ngModel)]="tex4" name="test">
 </form>
+
+
 <div class="add-todo-list-button" (click) = 'showInput();' ><p>+</p></div>

@@ -22,11 +22,11 @@ export class TodoItemComponent implements OnInit {
   }
 
   oneTimePresent():boolean{
-      if(this.editComponent.startHour!=null && this.editComponent.startMin!=null
-            && this.editComponent.finishHour==null  && this.editComponent.finishMin==null){
+      if(this.editComponent.startHour!=null && this.editComponent.startMin!=null && this.editComponent.startAmPm!=null
+            && this.editComponent.finishHour==null  && this.editComponent.finishMin==null && this.editComponent.finishAmPm == null){
                 return true;
-      }else if(this.editComponent.startHour==null && this.editComponent.startMin==null
-            && this.editComponent.finishHour!=null && this.editComponent.finishMin!=null){
+      }else if(this.editComponent.startHour==null && this.editComponent.startMin==null && this.editComponent.startAmPm == null
+            && this.editComponent.finishHour!=null && this.editComponent.finishMin!=null && this.editComponent.finishAmPm!=null){
                 return true;
       }else{
                 return false;
@@ -43,7 +43,8 @@ export class TodoItemComponent implements OnInit {
     }
 
   startTimePresent():boolean{
-      if(this.editComponent.startHour!=null && this.editComponent.startMin!=null){
+      if(this.editComponent.startHour!=null && this.editComponent.startMin!=null
+          &&this.editComponent.startAmPm!=null){
               return true;
       }else{
               return false;
@@ -51,7 +52,8 @@ export class TodoItemComponent implements OnInit {
   }
 
   finishTimePresent():boolean{
-      if(this.editComponent.finishHour!=null && this.editComponent.finishMin!=null){
+      if(this.editComponent.finishHour!=null && this.editComponent.finishMin!=null
+          && this.editComponent.finishAmPm != null){
             return true;
       }else{
             return false;

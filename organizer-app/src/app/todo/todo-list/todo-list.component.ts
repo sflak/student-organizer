@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Activity } from './todo-item/Activity';
 import { Todolist } from './Todolist';
+import {EditEventComponent} from './todo-item/edit-event/edit-event.component';
+import {TodoItemComponent} from './todo-item/todo-item.component'
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
 
@@ -11,9 +13,9 @@ import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable,
 })
 export class TodolistComponent implements OnInit {
    text;
-   items: FirebaseListObservable<string[]>; // listname
+   items: FirebaseListObservable<any[]>; // listname
    user:  FirebaseObjectObservable<any[]>;
-
+   x: FirebaseObjectObservable<any[]>;
    todoLists: FirebaseListObservable<any[]>;
 
    userData = JSON.parse(localStorage.getItem('userData')); // used for UID
@@ -64,14 +66,28 @@ export class TodolistComponent implements OnInit {
     return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
   }
 
-  deleteTodoList(key) {
+  deleteTodoList(key,name) {
     this.todoLists.remove(key);
+    this.items.take(1).subscribe(items => { 
+  items.forEach(item => {if (item.Activity.listname == name) {
+    this.deleteTodoItems(item.Activity.$key)
+  } 
+  })
+})
+  }
+
+  deleteTodoItemsList(key :AngularFireObject){
+    console.log(key);
+
   }
 
 
   deleteTodoItems(key) {
     this.items.remove(key);
   }
+
+
+
   addTodoItems(listName, activityName) {
       console.log('test' + listName + activityName);
       this.tex3 = ''; // placeholder for edit button later
@@ -83,4 +99,10 @@ export class TodolistComponent implements OnInit {
 
   }
 
+}
+
+export interface AngularFireObject {
+  $exists: () => boolean;
+  $key: string;
+  $value?: any;
 }
