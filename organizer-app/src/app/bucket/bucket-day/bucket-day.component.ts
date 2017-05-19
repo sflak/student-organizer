@@ -31,9 +31,14 @@ onTodoDrop(e: any) {
   //  this.todolist3.push({ Activity: temp})   ;
   //this.todoBucket.push({ Activity: temp})   ;
 
-  let temp3 = e.dragData;
+  let temp5 = "" + this.today.getFullYear() + this.today.getMonth() +this.today.getDate()
 
-    let temp2 = new Activity(e.dragData, "test_list", "foo");
+  let temp3 = e.dragData;
+  //var my =  this.today.charAt(2);
+    //let temp2 = new Activity(e.dragData, "test_list", "foo");
+   let temp2 = new Activity( e.dragData , temp5, "foo");
+   console.log(this.today);
+  //  today
   this.todoBucket.push({ Activity: temp2})   ;
 
 }
