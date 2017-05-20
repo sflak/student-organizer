@@ -9,7 +9,7 @@
 	      	<ul>
 	     		 <li draggable *ngFor="let item of items | async"  >
 	     		  <span draggable *ngIf= "item.listname == '' + today.getFullYear() + today.getMonth() + today.getDate()"   [dragOverClass]="'drag-over-border'"
-   			             [dragData]="item.Activity.name" >
+   			             [dragData]="item.$key" >
                   {{item.Activity.name}}
                   <button  (click) = "deleteTodoItems(item.$key)"> X </button>
           		</span>
