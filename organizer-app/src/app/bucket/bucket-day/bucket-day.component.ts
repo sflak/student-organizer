@@ -3,7 +3,7 @@ import {TodoItem} from '../../shared/TodoItem.module';
 
 import { Activity } from './../../todo/todo-list/todo-item/Activity';
 
-import {BucketComponent} from '../bucket.component';
+import {TodolistComponent} from './../../todo/todo-list/todo-list.component';
 
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
@@ -36,6 +36,11 @@ todoBucket = [
 ];
 
 
+  deleteTodoItems(key) {
+    this.items.remove(key);
+  }
+
+
 onTodoDrop(e: any) {
 //console.log(e.dragData);
 //console.log("apple");
@@ -46,16 +51,15 @@ onTodoDrop(e: any) {
   //this.todoBucket.push({ Activity: temp})   ;
 
   this.temp5 = "" + this.today.getFullYear() + this.today.getMonth() +this.today.getDate()
-
-  let temp3 = e.dragData;
   //var my =  this.today.charAt(2);
     //let temp2 = new Activity(e.dragData, "test_list", "foo");
    console.log(this.temp5);
    console.log(e.dragData);
   //  today
-  this.items.push({ Activity:{
-    listName: this.temp5
-  }})   ;
+  this.items.update(e.dragData,{
+    listname: this.temp5
+  });
+
 
 }
 
