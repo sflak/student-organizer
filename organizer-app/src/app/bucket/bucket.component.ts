@@ -44,7 +44,8 @@ export class BucketComponent implements OnInit {
     new BucketDay(this.dayslist[5], null),
     new BucketDay(this.dayslist[6], null) ];
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit() {
     this.bucketDiv = {

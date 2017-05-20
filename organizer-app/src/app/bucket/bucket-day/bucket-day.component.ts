@@ -2,6 +2,11 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/cor
 import {TodoItem} from '../../shared/TodoItem.module';
 
 import { Activity } from './../../todo/todo-list/todo-item/Activity';
+
+import {BucketComponent} from '../bucket.component';
+
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+
 @Component({
   selector: 'app-bucket-day',
   templateUrl: './bucket-day.component.html',
@@ -14,13 +19,22 @@ export class BucketDayComponent implements OnInit {
 
   text;
   Activity;
-  constructor() { }
+
+  userData = JSON.parse(localStorage.getItem('userData')); // used for UID
+  items: FirebaseListObservable<any[]>; 
+  temp5: string;
+
+  constructor(af: AngularFireDatabase) {
+    const path = `/users/${this.userData.uid}`; // access user data
+    this.items = af.list(path + `/items`);  // all items of every todolist
+   }
 
   ngOnInit() {
   }
 
 todoBucket = [
 ];
+
 
 onTodoDrop(e: any) {
 //console.log(e.dragData);
@@ -31,15 +45,17 @@ onTodoDrop(e: any) {
   //  this.todolist3.push({ Activity: temp})   ;
   //this.todoBucket.push({ Activity: temp})   ;
 
-  let temp5 = "" + this.today.getFullYear() + this.today.getMonth() +this.today.getDate()
+  this.temp5 = "" + this.today.getFullYear() + this.today.getMonth() +this.today.getDate()
 
   let temp3 = e.dragData;
   //var my =  this.today.charAt(2);
     //let temp2 = new Activity(e.dragData, "test_list", "foo");
-   let temp2 = new Activity( e.dragData , temp5, "foo");
-   console.log(this.today);
+   console.log(this.temp5);
+   console.log(e.dragData);
   //  today
-  this.todoBucket.push({ Activity: temp2})   ;
+  this.items.push({ Activity:{
+    listName: this.temp5
+  }})   ;
 
 }
 

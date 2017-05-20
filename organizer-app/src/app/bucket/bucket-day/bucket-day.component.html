@@ -1,11 +1,11 @@
 <div>
   <div class="day-column">
-    <h3>{{ today | date: "EEEE" }}</h3>
+    <h3>{{ today | date: "EEEE"  }}</h3>
     <h2>{{ today | date: "M/d" }}</h2>
-    <div droppable class="droppable" [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event)">
-      <app-todo-item *ngFor="let item of todoBucket" [item]="item">
+    <h1>{{ today | date: "MMMM d, YYYY" }}  </h1>
 
-      </app-todo-item>
+    <h6> {{ "" + today.getFullYear() + today.getMonth() + today.getDate() }} </h6>
+    <div droppable class="droppable" [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event)">
       <!--<app-todo-item *ngFor="let item of todoBucket" [item]="item"></app-todo-item>
 {{item.Activity.name}}
 			*ngFor="let todo of listTodo"
@@ -15,11 +15,12 @@
 
 
 	      	<ul>
-	     		 <li draggable *ngFor="let item of todoBucket"
-	     		 [dragOverClass]="'drag-over-border'"
-	     		 [dragData]="item">
-            {{item.Activity.name}}
-            {{item.Activity.listname}}
+	     		 <li draggable *ngFor="let item of items | async"  >
+
+	     		  <span draggable *ngIf= "item.Activity.listname == '' + today.getFullYear() + today.getMonth() + today.getDate()"   [dragOverClass]="'drag-over-border'"
+   			             [dragData]="item.Activity.name" >
+                  {{item.Activity.name}} // {{item.Activity.listname}}
+          		</span>
 	     		 </li>
 	     	</ul>
     </div>
