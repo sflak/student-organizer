@@ -68,9 +68,9 @@ export class TodolistComponent implements OnInit {
 
   deleteTodoList(key,name) {
     this.todoLists.remove(key);
-    this.items.take(1).subscribe(items => { 
-  items.forEach(item => {if (item.Activity.listname == name) {
-    this.deleteTodoItems(item.Activity.$key)
+    this.items.take(1).subscribe(items => {
+  items.forEach(item => {if (item.listname == name) {
+    this.deleteTodoItems(item.$key)
   } 
   })
 })
@@ -94,6 +94,7 @@ export class TodolistComponent implements OnInit {
       let temp = new Activity(activityName, listName, this.tex3);
 
     this.items.push({
+        listname: listName,
         Activity: temp
     });
 

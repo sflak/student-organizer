@@ -1,18 +1,4 @@
 
-<!--<div droppable [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event)">-->
-<!--<div>-->
-	<!--<h3> TodoList (Drag, drop, or swap these items)</h3>-->
-		<!--<ul>-->
-			<!--<li draggable *ngFor="let todo of items | async "-->
-			<!--[dragOverClass]="'drag-over-border'"-->
-			<!--[dragData]="todo">-->
-			<!--{{todo.Activity.name}}-->
-
-			<!--<button (click) = "deleteTodoItems(todo.$key)"></button>-->
-			<!--</li>-->
-
-		<!--</ul>-->
-<!--</div>-->
 
 
 
@@ -26,9 +12,11 @@
             <form (submit)="addTodoItems(list.listName,list.tempActivity)">
               <input placeholder="Add to-do" type="text" [(ngModel)]="list.tempActivity" name="test">
             </form>
-            <li *ngFor="let todo of items | async">
+            <li draggable *ngFor="let todo of items | async">
               <div class="todo-item">
-                 <span *ngIf= "todo.Activity.listname == list.listName " >
+                 <span draggable *ngIf= "todo.listname == list.listName "   [dragOverClass]="'drag-over-border'"
+   			             [dragData]="todo.$key" >
+
                   {{todo.Activity.name}}
                   <p class="item-delete-button" (click) = "deleteTodoItems(todo.$key)">&#8942;</p>
                   </span>
@@ -72,3 +60,5 @@
 </ul>
 <div class="add-todo-list-button" (click) = 'showInput();' ><p>+</p></div>
 
+
+<div class="add-todo-list-button" (click) = 'showInput();' ><p>+</p></div>
