@@ -18,7 +18,7 @@ export class BucketDayComponent implements OnInit {
 
   @Input() today: Date;
   @Input() todos: TodoItem[];
-  // @ViewChild(EditEventComponent) editComponent: EditEventComponent;
+  @ViewChild(EditEventComponent) editComponent: EditEventComponent;
   text;
   Activity;
 

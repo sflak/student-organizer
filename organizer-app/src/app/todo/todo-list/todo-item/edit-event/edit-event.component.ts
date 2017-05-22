@@ -57,7 +57,7 @@ export class EditEventComponent implements OnInit {
     }else{
       this.validSave = false;
     }
-    this.el.nativeElement.style.display = "none";
+    // this.el.nativeElement.style.display = "none";
   }
 
   clearChanges(){
@@ -77,7 +77,7 @@ export class EditEventComponent implements OnInit {
     this.temp5 = this.finishMin;
     this.temp6 = this.finishAmPm;
     this.showEdit = false;
-    this.el.nativeElement.style.display = "none";
+    // this.el.nativeElement.style.display = "none";
   }
 
   validateSubmit(){
