@@ -94,6 +94,7 @@ export class TodolistComponent implements OnInit {
       let temp = new Activity(activityName, listName, this.tex3);
 
     this.items.push({
+        listname: listName,
         Activity: temp
     });
 

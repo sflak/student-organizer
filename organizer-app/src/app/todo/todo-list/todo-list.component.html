@@ -1,18 +1,4 @@
 
-<!--<div droppable [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event)">-->
-<!--<div>-->
-	<!--<h3> TodoList (Drag, drop, or swap these items)</h3>-->
-		<!--<ul>-->
-			<!--<li draggable *ngFor="let todo of items | async "-->
-			<!--[dragOverClass]="'drag-over-border'"-->
-			<!--[dragData]="todo">-->
-			<!--{{todo.Activity.name}}-->
-
-			<!--<button (click) = "deleteTodoItems(todo.$key)"></button>-->
-			<!--</li>-->
-
-		<!--</ul>-->
-<!--</div>-->
 
 
 
@@ -26,13 +12,20 @@
             <form (submit)="addTodoItems(list.listName,list.tempActivity)">
               <input placeholder="Add to-do" type="text" [(ngModel)]="list.tempActivity" name="test">
             </form>
-            <li *ngFor="let todo of items | async">
-              <div class="todo-item">
-                 <span *ngIf= "todo.Activity.listname == list.listName " >
-                  {{todo.Activity.name}}
+            <li draggable *ngFor="let todo of items | async">
+
+             <span  *ngIf= "todo.listname == list.listName" >
+               <div class="todo-item">
+                 <div class="left">
+                   <input type="checkbox">
+                 </div>
+                 <div draggable class="right"
+                      [dragOverClass]="'drag-over-border'"
+                      [dragData]="todo.$key">
+                   {{todo.Activity.name}}</div>
                   <p class="item-delete-button" (click) = "deleteTodoItems(todo.$key)">&#8942;</p>
-                  </span>
-              </div>
+               </div>
+              </span>
             </li>
           </ul>
         </div>
@@ -47,28 +40,4 @@
 	<input placeholder="Add list label..." id="listLabelInput" type="text" [(ngModel)]="tex4" name="test">
 </form>
 
-<ul>
-	<li *ngFor="let list of todoLists | async">
-	  <span> <h3>	{{list.listName}} </h3> <button (click) = "deleteTodoList(list.$key)">X</button> </span> 
-		  <ul>
-		  <form (submit)="addTodoItems(list.listName,list.tempActivity)">
-				<input type="text" [(ngModel)]="list.tempActivity" name="test">
-			</form>
-    		<li *ngFor="let todo of items | async">
-      		  <span *ngIf= "todo.Activity.listname == list.listName " > 
-			      {{todo.Activity.name}}
-			      <b> // </b>
-			      {{todo.Activity.time}}
-			      <b> // </b>
-			      {{todo.Activity.priority}}
-			      <b> // </b>
-			      {{todo.Activity.listname}}
-			      
-			<button (click) = "deleteTodoItems(todo.$key)"></button>
-			
-		 	 </span>
-    		</li>
-  		</ul>
-</ul>
 <div class="add-todo-list-button" (click) = 'showInput();' ><p>+</p></div>
-
