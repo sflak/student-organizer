@@ -69,8 +69,8 @@ export class TodolistComponent implements OnInit {
   deleteTodoList(key,name) {
     this.todoLists.remove(key);
     this.items.take(1).subscribe(items => { 
-  items.forEach(item => {if (item.Activity.listname == name) {
-    this.deleteTodoItems(item.Activity.$key)
+  items.forEach(item => {if (item.listname == name) {
+    this.deleteTodoItems(item.$key)
   } 
   })
 })
