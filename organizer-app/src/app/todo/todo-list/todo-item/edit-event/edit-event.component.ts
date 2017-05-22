@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output, ElementRef } from '@angular/core';
 import { EditEvent} from '../../../../shared/EditEvent.module';
 
 @Component({
@@ -33,7 +33,7 @@ export class EditEventComponent implements OnInit {
   private hoursArray=["1","2","3","4","5","6","7","8","9","10","11","12"];
   private minutesArray=["00","05","10","15","20","25","30","35","40","45","50","55"];
 
-  constructor() { }
+  constructor(public el:ElementRef) { }
 
   ngOnInit() {
     console.log("showEdit: "+this.showEdit);
@@ -57,6 +57,7 @@ export class EditEventComponent implements OnInit {
     }else{
       this.validSave = false;
     }
+    this.el.nativeElement.style.display = "none";
   }
 
   clearChanges(){
@@ -76,7 +77,7 @@ export class EditEventComponent implements OnInit {
     this.temp5 = this.finishMin;
     this.temp6 = this.finishAmPm;
     this.showEdit = false;
-    
+    this.el.nativeElement.style.display = "none";
   }
 
   validateSubmit(){

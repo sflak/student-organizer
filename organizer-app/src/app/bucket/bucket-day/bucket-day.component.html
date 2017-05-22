@@ -13,7 +13,7 @@
    			             [dragData]="item.$key" >
                   {{item.Activity.name}}
                   <button  (click) = "deleteTodoItems(item.$key)"> X </button>
-                  <button (click)="showEditor = !showEditor">E</button>
+                  <button (click)="showEditor = true">E</button>
                   <app-edit-event [style.display]="showEditor ? 'inline' : 'none'"></app-edit-event>
           		</span>
 	     		 </li>
