@@ -35,9 +35,12 @@
 
 
 
+<div class="label-input-form-holder">
+  <form  (submit)="addTodoList()" *ngIf="needName" #nameInput  >
+    <input placeholder="Add list label..." id="listLabelInput" type="text" [(ngModel)]="tex4" name="test">
+  </form>
+  <div class="add-todo-list-button" (click) = 'showInput();' ><p>+</p></div>
+</div>
 
-<form  (submit)="addTodoList()" *ngIf="needName" #nameInput  >
-	<input placeholder="Add list label..." id="listLabelInput" type="text" [(ngModel)]="tex4" name="test">
-</form>
 
-<div class="add-todo-list-button" (click) = 'showInput();' ><p>+</p></div>
+
