@@ -13,14 +13,19 @@
               <input placeholder="Add to-do" type="text" [(ngModel)]="list.tempActivity" name="test">
             </form>
             <li draggable *ngFor="let todo of items | async">
-              <div class="todo-item">
-                 <span draggable *ngIf= "todo.listname == list.listName "   [dragOverClass]="'drag-over-border'"
-   			             [dragData]="todo.$key" >
 
-                  {{todo.Activity.name}}
+             <span  *ngIf= "todo.listname == list.listName" >
+               <div class="todo-item">
+                 <div class="left">
+                   <input type="checkbox">
+                 </div>
+                 <div draggable class="right"
+                      [dragOverClass]="'drag-over-border'"
+                      [dragData]="todo.$key">
+                   {{todo.Activity.name}}</div>
                   <p class="item-delete-button" (click) = "deleteTodoItems(todo.$key)">&#8942;</p>
-                  </span>
-              </div>
+               </div>
+              </span>
             </li>
           </ul>
         </div>
