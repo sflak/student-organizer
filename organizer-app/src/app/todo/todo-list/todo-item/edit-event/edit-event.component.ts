@@ -39,6 +39,7 @@ export class EditEventComponent implements OnInit {
   }
 
   showEditBox(){
+    this.validSave = true;
     this.showEdit = true;
   }
 
