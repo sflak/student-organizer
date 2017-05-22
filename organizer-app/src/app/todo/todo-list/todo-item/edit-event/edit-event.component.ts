@@ -36,6 +36,7 @@ export class EditEventComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log("showEdit: "+this.showEdit);
   }
 
   showEditBox(){
@@ -75,6 +76,7 @@ export class EditEventComponent implements OnInit {
     this.temp5 = this.finishMin;
     this.temp6 = this.finishAmPm;
     this.showEdit = false;
+    
   }
 
   validateSubmit(){

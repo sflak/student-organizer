@@ -1,9 +1,11 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { AfterViewInit, ViewChild } from '@angular/core';
 import {TodoItem} from '../../shared/TodoItem.module';
 
 import { Activity } from './../../todo/todo-list/todo-item/Activity';
 
 import {TodolistComponent} from './../../todo/todo-list/todo-list.component';
+import {EditEventComponent} from './../../todo/todo-list/todo-item/edit-event/edit-event.component';
 
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
@@ -16,13 +18,15 @@ export class BucketDayComponent implements OnInit {
 
   @Input() today: Date;
   @Input() todos: TodoItem[];
-
+  // @ViewChild(EditEventComponent) editComponent: EditEventComponent;
   text;
   Activity;
 
   userData = JSON.parse(localStorage.getItem('userData')); // used for UID
   items: FirebaseListObservable<any[]>; 
   temp5: string;
+
+  showEditor: boolean = false;
 
   constructor(af: AngularFireDatabase) {
     const path = `/users/${this.userData.uid}`; // access user data
