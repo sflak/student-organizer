@@ -26,6 +26,11 @@ export class TodolistComponent implements OnInit {
 
    needName = false;
 
+  // checkedOff should be a property of the item
+  // itemsChecked should be a global counter
+   checkedOff = false;
+   itemsChecked = 0;
+
 
    tex; // holds activity name for user input
    tex2; // holds time name for user input
@@ -68,10 +73,10 @@ export class TodolistComponent implements OnInit {
 
   deleteTodoList(key,name) {
     this.todoLists.remove(key);
-    this.items.take(1).subscribe(items => { 
+    this.items.take(1).subscribe(items => {
   items.forEach(item => {if (item.Activity.listname == name) {
     this.deleteTodoItems(item.Activity.$key)
-  } 
+  }
   })
 })
   }
@@ -98,6 +103,14 @@ export class TodolistComponent implements OnInit {
         Activity: temp
     });
 
+  }
+  // checkedOff should be a property of the item
+  // itemsChecked should be a global counter
+  itemChecked() {
+    this.checkedOff = !this.checkedOff;
+    if (this.checkedOff) {
+      this.itemsChecked += 1;
+    }
   }
 
 }
