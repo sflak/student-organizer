@@ -119,3 +119,6 @@ ul {
 
 }
 
+.drag-target-border{ /* this is new 5/22/17*/
+  border: black solid 2px;
+}
