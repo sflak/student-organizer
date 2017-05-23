@@ -7,9 +7,6 @@ h3 {
 ul {
   list-style: none;
 }
-.drag-target-border{
-	border: #00bfff solid 2px;
-}
 .drag-over-border{
 	border: #ff525b dashed 2px;
 }
@@ -41,11 +38,14 @@ ul {
   width: 250px;
   float: left;
   background-color: #4A91B5;
+  margin-bottom: 20px;
 }
 .list-item-box {
-  width: 236px;
   background-color: white;
   margin: 0 auto 20px auto;
+  overflow: scroll;
+  height: 150px;
+  width: 236px;
 }
 .list-item-box ul {
   padding: 4px;
