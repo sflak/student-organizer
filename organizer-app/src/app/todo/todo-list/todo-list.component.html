@@ -17,7 +17,7 @@
              <span  *ngIf= "todo.listname == list.listName" >
                <div class="todo-item">
                  <div class="left">
-                   <input type="checkbox" (click)="itemChecked()">
+                   <input type="checkbox" value="todo.checkOff" [(ngModel)]="todo.checkOff" (click)="itemChecked(todo.$key)">
                  </div>
                  <div draggable class="right"
                       [dragOverClass]="'drag-over-border'"
