@@ -12,8 +12,10 @@
             <form (submit)="addTodoItems(list.listName,list.tempActivity)">
               <input placeholder="Add to-do" type="text" [(ngModel)]="list.tempActivity" name="test">
             </form>
+
             <li draggable *ngFor="let todo of items | async" [dragOverClass]="'drag-over-border'"
                       [dragData]="todo.$key">
+                        <div droppable class="droppable" [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event,todo.listname)">
              <span  *ngIf= "todo.listname == list.listName" >
                <div class="todo-item">
                  <div class="left">
@@ -24,7 +26,9 @@
                   <p class="item-delete-button" (click) = "deleteTodoItems(todo.$key)">&#8942;</p>
                </div>
               </span>
+              </div>
             </li>
+
           </ul>
         </div>
       </div>

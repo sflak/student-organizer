@@ -71,7 +71,7 @@ export class TodolistComponent implements OnInit {
     this.items.take(1).subscribe(items => {
   items.forEach(item => {if (item.listname == name) {
     this.deleteTodoItems(item.$key)
-  } 
+  }
   })
 })
   }
@@ -88,6 +88,17 @@ export class TodolistComponent implements OnInit {
 
 
 
+  onTodoDrop(e: any,nameOfList: any) {
+
+
+    let LISTNAME = "" + nameOfList;
+
+    this.items.update(e.dragData,{
+      listname: nameOfList
+    });
+
+
+  }
   addTodoItems(listName, activityName) {
       console.log('test' + listName + activityName);
       this.tex3 = ''; // placeholder for edit button later
