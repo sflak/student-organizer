@@ -4,7 +4,7 @@ import { Todolist } from './Todolist';
 import {EditEventComponent} from './todo-item/edit-event/edit-event.component';
 import {TodoItemComponent} from './todo-item/todo-item.component'
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
-
+import { GlobalDataService } from '../../shared/globaldata.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -15,13 +15,9 @@ export class TodolistComponent implements OnInit {
    text;
    items: FirebaseListObservable<any[]>; // listname
    user:  FirebaseObjectObservable<any[]>;
-   x: FirebaseObjectObservable<any[]>;
    todoLists: FirebaseListObservable<any[]>;
 
    userData = JSON.parse(localStorage.getItem('userData')); // used for UID
-   search: FirebaseListObservable<any[]>;
-   searchItem: string;
-   searchText;
    key;
 
    needName = false;
@@ -40,7 +36,7 @@ export class TodolistComponent implements OnInit {
 
    Activity;
 
-  constructor(af: AngularFireDatabase) {
+  constructor(af: AngularFireDatabase,gd: GlobalDataService) {
     const path = `/users/${this.userData.uid}`; // access user data
     this.items = af.list(path + `/items`);  // all items of every todolist
     this.user = af.object(path);
@@ -101,16 +97,30 @@ export class TodolistComponent implements OnInit {
 
     this.items.push({
         listname: listName,
+        checkedOff: false,
         Activity: temp
     });
 
   }
   // checkedOff should be a property of the item
   // itemsChecked should be a global counter
-  itemChecked() {
+  // *** the true/false sent to database works but clicking check sometimes doesn't 
+  // visually show the check and also refresh doesn't save the checked state 
+  // so there is a small bug.
+  itemChecked(key) {
     this.checkedOff = !this.checkedOff;
+    console.log(this.checkedOff);
     if (this.checkedOff) {
-      this.itemsChecked += 1;
+      this.itemsChecked += 1; // not needed since we query from firebase 
+      this.items.update(key,{
+        checkedOff: this.checkedOff
+      })
+    }
+    else{
+      this.itemsChecked += 1; // not needed since we query from firebase 
+      this.items.update(key,{
+        checkedOff: this.checkedOff
+      })
     }
   }
   displayDropdown() {

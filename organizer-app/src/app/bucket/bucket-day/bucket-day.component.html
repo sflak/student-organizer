@@ -13,6 +13,8 @@
    			             [dragData]="item.$key" >
                   {{item.Activity.name}}
                   <button  (click) = "deleteTodoItems(item.$key)"> X </button>
+                  <button> EDIT </button>
+                  <input type="checkbox" (click)="itemChecked()">
           		</span>
 	     		 </li>
 	     	</ul>
