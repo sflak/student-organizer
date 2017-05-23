@@ -30,8 +30,8 @@ export class EditEventComponent implements OnInit {
   temp5:string = null;
   temp6:string = null;
 
-  private hoursArray=["1","2","3","4","5","6","7","8","9","10","11","12"];
-  private minutesArray=["00","05","10","15","20","25","30","35","40","45","50","55"];
+  public hoursArray=["1","2","3","4","5","6","7","8","9","10","11","12"];
+  public minutesArray=["00","05","10","15","20","25","30","35","40","45","50","55"];
 
   constructor(public el:ElementRef) { }
 
