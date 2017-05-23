@@ -25,6 +25,7 @@ export class TodolistComponent implements OnInit {
    key;
 
    needName = false;
+   showDropdown = false;
 
   // checkedOff should be a property of the item
   // itemsChecked should be a global counter
@@ -111,6 +112,9 @@ export class TodolistComponent implements OnInit {
     if (this.checkedOff) {
       this.itemsChecked += 1;
     }
+  }
+  displayDropdown() {
+      this.showDropdown = !this.showDropdown;
   }
 
 }

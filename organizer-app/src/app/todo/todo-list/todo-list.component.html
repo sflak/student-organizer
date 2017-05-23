@@ -5,7 +5,17 @@
   <ul>
     <li *ngFor="let list of todoLists | async">
       <div class="todo-list-box">
-        <div class="list-label"> <h3>	{{list.listName}} </h3> <button class="list-delete-button" (click) = "deleteTodoList(list.$key,list.listName)">&#8230;</button> </div>
+        <div class="list-label"> <h3>	{{list.listName}} </h3>
+          <div class="dropdown">
+            <button class="list-delete-button" (click)="displayDropdown()">&#8230;</button>
+            <div id="myDropdown" class="dropdown-content" *ngIf="showDropdown">
+              <p (click) = "deleteTodoList(list.$key,list.listName)">Delete</p>
+              <p>color 1</p>
+              <p>color 2</p>
+              <p>color 3</p>
+            </div>
+          </div>
+           </div>
         <div class="clear"></div>
         <div class="list-item-box">
           <ul>
@@ -23,7 +33,7 @@
                       [dragOverClass]="'drag-over-border'"
                       [dragData]="todo.$key">
                    {{todo.Activity.name}}</div>
-                  <p class="item-delete-button" (click) = "deleteTodoItems(todo.$key)">&#8942;</p>
+                 <p (click) = "deleteTodoItems(todo.$key)">&#8230;</p>
                </div>
               </span>
             </li>
