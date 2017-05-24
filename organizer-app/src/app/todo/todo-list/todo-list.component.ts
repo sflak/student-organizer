@@ -25,6 +25,8 @@ export class TodolistComponent implements OnInit {
    key;
 
    needName = false;
+   inputField = '';
+
 
 
    tex; // holds activity name for user input
@@ -69,11 +71,11 @@ export class TodolistComponent implements OnInit {
   deleteTodoList(key,name) {
     this.todoLists.remove(key);
     this.items.take(1).subscribe(items => {
-  items.forEach(item => {if (item.listname == name) {
-    this.deleteTodoItems(item.$key)
-  }
-  })
-})
+    items.forEach(item => {if (item.listname === name) {
+      this.deleteTodoItems(item.$key);
+      }
+    });
+    });
   }
 
   deleteTodoItemsList(key :AngularFireObject){
@@ -105,12 +107,12 @@ export class TodolistComponent implements OnInit {
       let temp = new Activity(activityName, listName, this.tex3);
 
     this.items.push({
-        startTime: " ",
-        finishTime: " ",
+        startTime: '',
+        finishTime: '',
         listname: listName,
         Activity: temp
     });
-
+    this.inputField = '';
   }
 
 }
