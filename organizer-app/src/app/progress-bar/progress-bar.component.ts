@@ -32,7 +32,12 @@ export class ProgressBarComponent implements OnInit {
 
   ngOnInit() {
     // this.progressWidth = 20;
-    this.progressWidth = (this.itemsChecked / this.totalItems) * 100;
+    if (this.totalItems === 0) {
+      this.progressWidth = 0;
+    } else {
+      this.progressWidth = (this.itemsChecked / this.totalItems) * 100;
+    }
+
   }
 
     // get number of items from database then assigned to variable totalItems
