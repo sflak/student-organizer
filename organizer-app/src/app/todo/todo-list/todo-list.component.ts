@@ -68,10 +68,10 @@ export class TodolistComponent implements OnInit {
 
   deleteTodoList(key,name) {
     this.todoLists.remove(key);
-    this.items.take(1).subscribe(items => { 
-  items.forEach(item => {if (item.Activity.listname == name) {
-    this.deleteTodoItems(item.Activity.$key)
-  } 
+    this.items.take(1).subscribe(items => {
+  items.forEach(item => {if (item.listname == name) {
+    this.deleteTodoItems(item.$key)
+  }
   })
 })
   }
@@ -88,12 +88,25 @@ export class TodolistComponent implements OnInit {
 
 
 
+  onTodoDrop(e: any,nameOfList: any) {
+
+
+    let LISTNAME = "" + nameOfList;
+
+    this.items.update(e.dragData,{
+      listname: nameOfList
+    });
+
+
+  }
   addTodoItems(listName, activityName) {
       console.log('test' + listName + activityName);
       this.tex3 = ''; // placeholder for edit button later
       let temp = new Activity(activityName, listName, this.tex3);
 
     this.items.push({
+        startTime: " ",
+        finishTime: " ",
         listname: listName,
         Activity: temp
     });
