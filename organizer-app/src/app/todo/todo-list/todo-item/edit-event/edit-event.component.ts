@@ -1,13 +1,15 @@
 import { Component, OnInit, EventEmitter, Input, Output, ElementRef } from '@angular/core';
 import { EditEvent} from '../../../../shared/EditEvent.module';
 
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+
 @Component({
   selector: 'app-edit-event',
   templateUrl: './edit-event.component.html',
   styleUrls: ['./edit-event.component.css']
 })
 export class EditEventComponent implements OnInit {
-  // @Input() showEdit: boolean;
+  @Input() key: any;
   // @Output() onSaved = new EventEmitter<boolean>();
   // saved = false;
 
@@ -33,7 +35,17 @@ export class EditEventComponent implements OnInit {
   public hoursArray=["1","2","3","4","5","6","7","8","9","10","11","12"];
   public minutesArray=["00","05","10","15","20","25","30","35","40","45","50","55"];
 
-  constructor(public el:ElementRef) { }
+  userData = JSON.parse(localStorage.getItem('userData')); // used for UID
+  items: FirebaseListObservable<any[]>; // listname
+
+  startTime:string;
+  finishTime:string;
+
+  constructor(public el:ElementRef,af: AngularFireDatabase) {
+    const path = `/users/${this.userData.uid}`; // access user data
+    this.items = af.list(path + `/items`);  // all items of every todolist
+
+  }
 
   ngOnInit() {
     console.log("showEdit: "+this.showEdit);
@@ -42,6 +54,7 @@ export class EditEventComponent implements OnInit {
   showEditBox(){
     this.validSave = true;
     this.showEdit = true;
+
   }
 
   saveChanges(){
@@ -54,10 +67,26 @@ export class EditEventComponent implements OnInit {
       this.finishAmPm = this.temp6;
       this.showEdit = false;
       this.validSave = true;
+      this.startTime = this.startHour + ":" + this.startMin + this.startAmPm;
+      this.finishTime =  this.finishHour + ":" + this.finishMin + this.finishAmPm;
+      console.log(this.startTime);
+      this.updateTime();
+      // uncomment for testing time and key is correct
+      //console.log(this.startHour + ":" + this.startMin + this.startAmPm); 
+      //console.log(this.finishHour + ":" + this.finishMin + this.finishAmPm);
+      //console.log(this.key);
     }else{
       this.validSave = false;
     }
     // this.el.nativeElement.style.display = "none";
+  }
+
+  updateTime(){
+      this.items.update(this.key,{
+    startTime: this.startTime,
+    finishTime: this.finishTime
+  });
+
   }
 
   clearChanges(){
