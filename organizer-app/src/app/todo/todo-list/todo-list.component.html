@@ -25,15 +25,15 @@
 
             <li draggable *ngFor="let todo of items | async" [dragOverClass]="'drag-over-border'"
                       [dragData]="todo.$key">
-                        <div droppable class="droppable" [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event,todo.listname)">
-             <span  *ngIf= "todo.listname == list.listName" >
-               <div class="todo-item">
-                 <div class="left">
-                   <input type="checkbox" value="todo.checkOff" [(ngModel)]="todo.checkOff" (click)="itemChecked(todo.$key)">
+              <div droppable class="droppable" [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event,todo.listname)">
+                <span  *ngIf= "todo.listname == list.listName" >
+                  <div class="todo-item">
+                    <div class="left">
+                   <input type="checkbox" value="true" [(ngModel)]="todo.checkedOff" (click)="itemChecked(todo.$key)">
                  </div>
                  <div class="right">
                    {{todo.Activity.name}}</div>
-                 <p (click) = "deleteTodoItems(todo.$key)">&#8942;</p>
+                 <p class="item-delete-button" (click) = "deleteTodoItems(todo.$key)">&#8942;</p>
                </div>
               </span>
               </div>

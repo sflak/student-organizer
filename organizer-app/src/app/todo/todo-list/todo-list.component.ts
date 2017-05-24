@@ -129,15 +129,14 @@ export class TodolistComponent implements OnInit {
     console.log(this.checkedOff);
     if (this.checkedOff) {
       this.itemsChecked += 1; // not needed since we query from firebase
-      this.items.update(key,{
+      this.items.update(key, {
         checkedOff: this.checkedOff
-      })
-    }
-    else{
-      this.itemsChecked += 1; // not needed since we query from firebase
-      this.items.update(key,{
+      });
+    } else {
+      this.itemsChecked -= 1; // not needed since we query from firebase
+      this.items.update(key, {
         checkedOff: this.checkedOff
-      })
+      });
     }
   }
   displayDropdown() {

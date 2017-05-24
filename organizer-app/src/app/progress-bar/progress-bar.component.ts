@@ -48,6 +48,7 @@ export class ProgressBarComponent implements OnInit {
   setTotalItems(length) {
     this.totalItems = length;
     console.log('Total Items = ' + this.totalItems);
+    this.updatePercent();
   }
 
   // get number of checked items from database then assigned to variable itemChecked
@@ -59,12 +60,12 @@ export class ProgressBarComponent implements OnInit {
   setCheckedItems(length) {
     this.itemsChecked = length;
     console.log('number of checked items = ' + this.itemsChecked);
+    this.updatePercent();
   }
 
 
 
-  increasePercent() {
-    this.itemsChecked += 1;
+  updatePercent() {
     this.progressWidth = (this.itemsChecked / this.totalItems) * 100;
     this.progressWidth = Math.floor(this.progressWidth);
   }
