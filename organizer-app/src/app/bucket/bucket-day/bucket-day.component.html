@@ -9,12 +9,16 @@
     <div droppable class="droppable" [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event)">
 	      	<ul>
 	     		 <li draggable *ngFor="let item of items | async"  >
-	     		  <span draggable *ngIf= "item.listname == '' + today.getFullYear() + today.getMonth() + today.getDate()"   [dragOverClass]="'drag-over-border'"
+            <span draggable *ngIf= "item.listname == '' + today.getFullYear() + today.getMonth() + today.getDate()"   [dragOverClass]="'drag-over-border'"
    			             [dragData]="item.$key" >
-                  {{item.Activity.name}}
+                  {{item.Activity.name}} <br>
+                  start {{item.startTime}} <br>
+                  finish {{item.finishTime}}
                   <button  (click) = "deleteTodoItems(item.$key)"> X </button>
-                  <button> EDIT </button>
-                  <input type="checkbox" (click)="itemChecked()">
+                  <button (click)="editor.showEditBox()">E</button>
+                  <div [style.display]="editor.showEdit ? 'inline' : 'none'">
+                      <app-edit-event #editor [key] = item.$key></app-edit-event>
+                  </div>
           		</span>
 	     		 </li>
 	     	</ul>

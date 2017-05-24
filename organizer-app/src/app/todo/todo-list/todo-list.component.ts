@@ -28,6 +28,9 @@ export class TodolistComponent implements OnInit {
    checkedOff = false;
    itemsChecked = 0;
 
+   inputField = '';
+
+
 
    tex; // holds activity name for user input
    tex2; // holds time name for user input
@@ -71,11 +74,12 @@ export class TodolistComponent implements OnInit {
   deleteTodoList(key,name) {
     this.todoLists.remove(key);
     this.items.take(1).subscribe(items => {
-  items.forEach(item => {if (item.Activity.listname == name) {
-    this.deleteTodoItems(item.Activity.$key)
-  }
-  })
-})
+
+    items.forEach(item => {if (item.listname === name) {
+      this.deleteTodoItems(item.$key);
+      }
+    });
+    });
   }
 
   deleteTodoItemsList(key :AngularFireObject){
@@ -90,34 +94,47 @@ export class TodolistComponent implements OnInit {
 
 
 
+  onTodoDrop(e: any,nameOfList: any) {
+
+
+    let LISTNAME = "" + nameOfList;
+
+    this.items.update(e.dragData,{
+      listname: nameOfList
+    });
+
+
+  }
   addTodoItems(listName, activityName) {
       console.log('test' + listName + activityName);
       this.tex3 = ''; // placeholder for edit button later
       let temp = new Activity(activityName, listName, this.tex3);
 
     this.items.push({
+        startTime: '',
+        finishTime: '',
         listname: listName,
         checkedOff: false,
         Activity: temp
     });
-
+    this.inputField = '';
   }
   // checkedOff should be a property of the item
   // itemsChecked should be a global counter
-  // *** the true/false sent to database works but clicking check sometimes doesn't 
-  // visually show the check and also refresh doesn't save the checked state 
+  // *** the true/false sent to database works but clicking check sometimes doesn't
+  // visually show the check and also refresh doesn't save the checked state
   // so there is a small bug.
   itemChecked(key) {
     this.checkedOff = !this.checkedOff;
     console.log(this.checkedOff);
     if (this.checkedOff) {
-      this.itemsChecked += 1; // not needed since we query from firebase 
+      this.itemsChecked += 1; // not needed since we query from firebase
       this.items.update(key,{
         checkedOff: this.checkedOff
       })
     }
     else{
-      this.itemsChecked += 1; // not needed since we query from firebase 
+      this.itemsChecked += 1; // not needed since we query from firebase
       this.items.update(key,{
         checkedOff: this.checkedOff
       })

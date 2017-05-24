@@ -19,29 +19,32 @@
         <div class="clear"></div>
         <div class="list-item-box">
           <ul>
-            <form (submit)="addTodoItems(list.listName,list.tempActivity)">
-              <input placeholder="Add to-do" type="text" [(ngModel)]="list.tempActivity" name="test">
+            <form (submit)="addTodoItems(list.listName, inputField)">
+              <input placeholder="Add to-do" type="text" [(ngModel)]="inputField" name="test">
             </form>
-            <li draggable *ngFor="let todo of items | async">
 
+            <li draggable *ngFor="let todo of items | async" [dragOverClass]="'drag-over-border'"
+                      [dragData]="todo.$key">
+                        <div droppable class="droppable" [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event,todo.listname)">
              <span  *ngIf= "todo.listname == list.listName" >
                <div class="todo-item">
                  <div class="left">
                    <input type="checkbox" value="todo.checkOff" [(ngModel)]="todo.checkOff" (click)="itemChecked(todo.$key)">
                  </div>
-                 <div draggable class="right"
-                      [dragOverClass]="'drag-over-border'"
-                      [dragData]="todo.$key">
+                 <div class="right">
                    {{todo.Activity.name}}</div>
                  <p (click) = "deleteTodoItems(todo.$key)">&#8230;</p>
                </div>
               </span>
+              </div>
             </li>
+
           </ul>
         </div>
       </div>
     </li>
   </ul>
+
 
 
 
