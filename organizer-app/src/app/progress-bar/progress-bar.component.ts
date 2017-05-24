@@ -13,13 +13,13 @@ export class ProgressBarComponent implements OnInit {
   itemsChecked = 0;
   items: FirebaseListObservable<any[]>; // listname
   userData = JSON.parse(localStorage.getItem('userData')); // used for UID
-  numChecked: FirebaseListObservable<any[]>;   
+  numChecked: FirebaseListObservable<any[]>;
 
-  constructor(af: AngularFireDatabase,gd: GlobalDataService) {
+  constructor(af: AngularFireDatabase, gd: GlobalDataService) {
     const path = `/users/${this.userData.uid}`; // access user data
     this.items = af.list(path + `/items`);  // all items of every todolist
-        this.numChecked = af.list(path + `/items`,{
-      query:{
+        this.numChecked = af.list(path + `/items`, {
+      query: {
         orderByChild: 'checkedOff',
         equalTo: true
       }
@@ -36,24 +36,24 @@ export class ProgressBarComponent implements OnInit {
   }
 
     // get number of items from database then assigned to variable totalItems
-  getItemLength(){
+  getItemLength() {
     this.items.subscribe(items => this.setTotalItems(items.length));
   }
 
-  setTotalItems(length){
+  setTotalItems(length) {
     this.totalItems = length;
-    console.log("Total Items = " + this.totalItems);
+    console.log('Total Items = ' + this.totalItems);
   }
 
-  // get number of checked items from database then assigned to variable itemChecked 
-  getCheckedLength(){
-    this.numChecked.subscribe(queriedItems => 
-    this.setCheckedItems(queriedItems.length));
+  // get number of checked items from database then assigned to variable itemChecked
+  getCheckedLength() {
+    this.numChecked.subscribe(queriedItems =>
+      this.setCheckedItems(queriedItems.length));
   }
 
-  setCheckedItems(length){
+  setCheckedItems(length) {
     this.itemsChecked = length;
-    console.log("number of checked items = " + this.itemsChecked);
+    console.log('number of checked items = ' + this.itemsChecked);
   }
 
 
