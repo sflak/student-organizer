@@ -12,11 +12,11 @@
         <div class="clear"></div>
         <div class="list-item-box">
           <ul>
-            <form autocomplete="off" (submit)="addTodoItems(list.listName, inputField)">
-              <input placeholder="Add to-do" type="text" [(ngModel)]="inputField" name="test">
+            <form autocomplete="off" (submit)="addTodoItems(list.listName, list.tempActivity)">
+              <input placeholder="Add to-do" type="text" [(ngModel)]="list.tempActivity" name="test">
             </form>
 
-            <li draggable *ngFor="let todo of items | async" [dragOverClass]="'drag-over-border'"
+            <li draggable *ngFor="let todo of items | async" [dragOverClass]="'drag-over-border'" 
                       [dragData]="todo.$key">
               <div droppable class="droppable" [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event,todo.listname)">
                 <span  *ngIf= "todo.listname == list.listName" >
