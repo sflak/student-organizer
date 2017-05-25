@@ -30,6 +30,9 @@ export class TodolistComponent implements OnInit {
 
    inputField = '';
 
+   // custom color
+  color: 'default';
+
 
 
    tex; // holds activity name for user input
@@ -80,6 +83,7 @@ export class TodolistComponent implements OnInit {
       }
     });
     });
+    this.showDropdown = false;
   }
 
   deleteTodoItemsList(key :AngularFireObject){
@@ -125,6 +129,7 @@ export class TodolistComponent implements OnInit {
   // visually show the check and also refresh doesn't save the checked state
   // so there is a small bug.
   itemChecked(key) {
+    console.log("before switch: " + this.checkedOff);
     this.checkedOff = !this.checkedOff;
     console.log(this.checkedOff);
     if (this.checkedOff) {
@@ -142,8 +147,13 @@ export class TodolistComponent implements OnInit {
   displayDropdown() {
       this.showDropdown = !this.showDropdown;
   }
+  setBackground(className) {
+    this.color = className;
+    this.showDropdown = !this.showDropdown;
+  }
 
 }
+
 
 export interface AngularFireObject {
   $exists: () => boolean;

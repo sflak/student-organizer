@@ -4,17 +4,10 @@
 
   <ul>
     <li *ngFor="let list of todoLists | async">
-      <div class="todo-list-box">
+      <div class="todo-list-box" [ngClass]="color">
         <div class="list-label"> <h3>	{{list.listName}} </h3>
-          <div class="dropdown">
-            <button class="list-delete-button" (click)="displayDropdown()">&#8230;</button>
-            <div id="myDropdown" class="dropdown-content" *ngIf="showDropdown">
-              <p (click) = "deleteTodoList(list.$key,list.listName)">Delete</p>
-              <p>color 1</p>
-              <p>color 2</p>
-              <p>color 3</p>
-            </div>
-          </div>
+          <button class="list-delete-button" (click)="displayDropdown()">&#8230;</button>
+
            </div>
         <div class="clear"></div>
         <div class="list-item-box">
@@ -40,6 +33,14 @@
             </li>
 
           </ul>
+        </div>
+      </div>
+      <div class="dropdown" *ngIf="showDropdown">
+        <div id="myDropdown" class="dropdown-content">
+          <p (click) = "deleteTodoList(list.$key,list.listName)">Delete</p>
+          <div class="color-button" (click)="setBackground('green')"><div class="circle green"></div><p>color 1</p></div>
+          <div class="color-button"(click)="setBackground('pink')"><div class="circle pink"></div><p>color 2</p></div>
+          <div class="color-button"><div class="circle blue"></div><p>color 3</p></div>
         </div>
       </div>
     </li>
