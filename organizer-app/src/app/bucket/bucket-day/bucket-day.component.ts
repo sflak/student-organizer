@@ -27,6 +27,7 @@ export class BucketDayComponent implements OnInit {
   temp5: string;
 
   showEditor: boolean = false;
+  checkedOff = false;
 
   constructor(af: AngularFireDatabase) {
     const path = `/users/${this.userData.uid}`; // access user data
@@ -66,6 +67,20 @@ onTodoDrop(e: any) {
 
 
 }
+
+  itemChecked(key) {
+    this.checkedOff = !this.checkedOff;
+    console.log(this.checkedOff);
+    if (this.checkedOff) {
+      this.items.update(key, {
+        checkedOff: this.checkedOff
+      });
+    } else {
+      this.items.update(key, {
+        checkedOff: this.checkedOff
+      });
+    }
+  }
 
 
 }

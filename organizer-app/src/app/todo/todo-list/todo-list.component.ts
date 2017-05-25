@@ -111,7 +111,7 @@ export class TodolistComponent implements OnInit {
       let temp = new Activity(activityName, listName, this.tex3);
 
     this.items.push({
-        startTime: '',
+        startTime: '-1',
         finishTime: '',
         listname: listName,
         checkedOff: false,
