@@ -103,7 +103,7 @@ export class TodolistComponent implements OnInit {
 
     let LISTNAME = "" + nameOfList;
 
-    this.items.update(e.dragData,{
+    this.items.update(e.dragData, {
       listname: nameOfList
     });
 

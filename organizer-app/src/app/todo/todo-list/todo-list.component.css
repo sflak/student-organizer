@@ -10,7 +10,7 @@ ul {
 .drag-over-border{
 	border: #ff525b dashed 2px;
 }
-.list-delete-button{
+.list-options-button{
   float: right;
 	border: none;
   background-color: transparent;
@@ -18,6 +18,9 @@ ul {
 	padding-right: 9px;
 	margin-top: -11px;
   font-size: 32px;
+}
+button.list-options-button:focus, input[type="button"]:focus {
+  outline: none;
 }
 .item-delete-button {
   float: right;
@@ -139,11 +142,17 @@ ul {
   border-radius: 15px;
   float: left;
 }
+.color-button .circle .default {
+  background-color: #4A91B5;
+}
 .color-button .circle .green {
   background-color: #a4d400;
 }
 .color-button .circle .pink {
   background-color: #f200a3;
+}
+.color-button .circle .blue {
+  background-color: #33d4e0;
 }
 
 .label-input-form-holder {
@@ -160,4 +169,7 @@ ul {
 }
 .pink{
   background-color: #f200a3;
+}
+.blue{
+  background-color: #33d4e0;
 }
