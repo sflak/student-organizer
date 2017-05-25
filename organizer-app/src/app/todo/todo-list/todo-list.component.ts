@@ -21,7 +21,7 @@ export class TodolistComponent implements OnInit {
    key;
 
    needName = false;
-   showDropdown = false;
+   showDropdown = true;
 
   // checkedOff should be a property of the item
   // itemsChecked should be a global counter
@@ -65,7 +65,7 @@ export class TodolistComponent implements OnInit {
   addTodoList() {
     console.log('clicked');
     this.tex4 = this.toTitleCase(this.tex4);
-    const todo = new Todolist(this.tex4);
+    const todo = new Todolist(this.tex4,this.showDropdown,this.color);
     this.tex4 = '';
     this.needName = !this.needName;
     this.todoLists.push(todo);
@@ -144,12 +144,18 @@ export class TodolistComponent implements OnInit {
       });
     }
   }
-  displayDropdown() {
+  displayDropdown(key) {
       this.showDropdown = !this.showDropdown;
+      this.todoLists.update(key,{
+        showDropdown: this.showDropdown
+      });
   }
-  setBackground(className) {
+  setBackground(className,key) {
     this.color = className;
     this.showDropdown = !this.showDropdown;
+     this.todoLists.update(key,{
+        color: this.color
+      });
   }
 
 }
