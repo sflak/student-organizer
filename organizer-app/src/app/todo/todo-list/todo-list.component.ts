@@ -4,7 +4,7 @@ import { Todolist } from './Todolist';
 import {EditEventComponent} from './todo-item/edit-event/edit-event.component';
 import {TodoItemComponent} from './todo-item/todo-item.component'
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
-
+import { GlobalDataService } from '../../shared/globaldata.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -15,16 +15,24 @@ export class TodolistComponent implements OnInit {
    text;
    items: FirebaseListObservable<any[]>; // listname
    user:  FirebaseObjectObservable<any[]>;
-   x: FirebaseObjectObservable<any[]>;
    todoLists: FirebaseListObservable<any[]>;
 
    userData = JSON.parse(localStorage.getItem('userData')); // used for UID
-   search: FirebaseListObservable<any[]>;
-   searchItem: string;
-   searchText;
    key;
 
    needName = false;
+   showDropdown = true;
+
+  // checkedOff should be a property of the item
+  // itemsChecked should be a global counter
+   checkedOff = false;
+   itemsChecked = 0;
+
+   inputField = '';
+   tempActivity = '';
+   // custom color
+  color: 'default';
+
 
 
    tex; // holds activity name for user input
@@ -34,7 +42,7 @@ export class TodolistComponent implements OnInit {
 
    Activity;
 
-  constructor(af: AngularFireDatabase) {
+  constructor(af: AngularFireDatabase,gd: GlobalDataService) {
     const path = `/users/${this.userData.uid}`; // access user data
     this.items = af.list(path + `/items`);  // all items of every todolist
     this.user = af.object(path);
@@ -55,9 +63,8 @@ export class TodolistComponent implements OnInit {
 
 
   addTodoList() {
-    console.log('clicked');
     this.tex4 = this.toTitleCase(this.tex4);
-    const todo = new Todolist(this.tex4);
+    const todo = new Todolist(this.tex4,this.showDropdown,this.color);
     this.tex4 = '';
     this.needName = !this.needName;
     this.todoLists.push(todo);
@@ -69,11 +76,13 @@ export class TodolistComponent implements OnInit {
   deleteTodoList(key,name) {
     this.todoLists.remove(key);
     this.items.take(1).subscribe(items => {
-  items.forEach(item => {if (item.listname == name) {
-    this.deleteTodoItems(item.$key)
-  }
-  })
-})
+
+    items.forEach(item => {if (item.listname === name) {
+      this.deleteTodoItems(item.$key);
+      }
+    });
+    });
+    this.showDropdown = false;
   }
 
   deleteTodoItemsList(key :AngularFireObject){
@@ -93,7 +102,7 @@ export class TodolistComponent implements OnInit {
 
     let LISTNAME = "" + nameOfList;
 
-    this.items.update(e.dragData,{
+    this.items.update(e.dragData, {
       listname: nameOfList
     });
 
@@ -105,13 +114,54 @@ export class TodolistComponent implements OnInit {
       let temp = new Activity(activityName, listName, this.tex3);
 
     this.items.push({
+        startTime: '-1',
+        finishTime: '',
         listname: listName,
+        checkedOff: false,
         Activity: temp
     });
+    this.inputField = '';
+  }
+  // checkedOff should be a property of the item
+  // itemsChecked should be a global counter
+  // *** the true/false sent to database works but clicking check sometimes doesn't
+  // visually show the check and also refresh doesn't save the checked state
+  // so there is a small bug.
+  itemChecked(key) {
+    console.log("before switch: " + this.checkedOff);
+    this.checkedOff = !this.checkedOff;
+    console.log(this.checkedOff);
+    if (this.checkedOff) {
+      this.itemsChecked += 1; // not needed since we query from firebase
+      this.items.update(key, {
+        checkedOff: this.checkedOff
+      });
+    } else {
+      this.itemsChecked -= 1; // not needed since we query from firebase
+      this.items.update(key, {
+        checkedOff: this.checkedOff
+      });
+    }
+  }
+  displayDropdown(key) {
+      this.showDropdown = !this.showDropdown;
+      this.todoLists.update(key,{
+        showDropdown: this.showDropdown
+      });
+  }
+  setBackground(className, key) {
+    this.color = className;
+     this.todoLists.update(key, {
+        color: this.color
+      });
 
+    this.todoLists.update(key, {
+      showDropdown: false
+    });
   }
 
 }
+
 
 export interface AngularFireObject {
   $exists: () => boolean;

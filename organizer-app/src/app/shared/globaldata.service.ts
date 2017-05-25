@@ -10,7 +10,7 @@ export class GlobalDataService {
 	userData = JSON.parse(localStorage.getItem('userData')); // used for UID
     itemsChecked: number = 0;
 
-    constructor(){
+    constructor() {
 
     }
 }

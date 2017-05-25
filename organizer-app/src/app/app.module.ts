@@ -34,6 +34,8 @@ import {Ng2DragDropModule} from "ng2-drag-drop";
 
 import { EditEventComponent } from './todo/todo-list/todo-item/edit-event/edit-event.component';
 
+import { GlobalDataService } from './shared/globaldata.service';
+
 
 export const firebaseConfig = {
     apiKey: "AIzaSyApveLqa1f_nEHdHU9T8zelKaQ42VitihY",
@@ -73,7 +75,7 @@ const routes: Routes = [
 
     EditEventComponent
   ],
-  providers: [AF],
+  providers: [AF,GlobalDataService],
   imports: [
     BrowserModule,
     FormsModule,

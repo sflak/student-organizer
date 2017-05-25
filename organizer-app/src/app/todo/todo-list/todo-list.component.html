@@ -4,26 +4,29 @@
 
   <ul>
     <li *ngFor="let list of todoLists | async">
-      <div class="todo-list-box">
-        <div class="list-label"> <h3>	{{list.listName}} </h3> <button class="list-delete-button" (click) = "deleteTodoList(list.$key,list.listName)">&#8230;</button> </div>
+      <div class="todo-list-box" [ngClass]="list.color">
+        <div class="list-label"> <h3>	{{list.listName}} </h3>
+          <button class="list-options-button" (click)="displayDropdown(list.$key)">&#8230;</button>
+
+           </div>
         <div class="clear"></div>
         <div class="list-item-box">
           <ul>
-            <form (submit)="addTodoItems(list.listName,list.tempActivity)">
+            <form autocomplete="off" (submit)="addTodoItems(list.listName, list.tempActivity)">
               <input placeholder="Add to-do" type="text" [(ngModel)]="list.tempActivity" name="test">
             </form>
 
             <li draggable *ngFor="let todo of items | async" [dragOverClass]="'drag-over-border'" 
                       [dragData]="todo.$key">
-                        <div droppable class="droppable" [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event,todo.listname)">
-             <span  *ngIf= "todo.listname == list.listName" >
-               <div class="todo-item">
-                 <div class="left">
-                   <input type="checkbox">
+              <div droppable class="droppable" [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event,todo.listname)">
+                <span  *ngIf= "todo.listname == list.listName" >
+                  <div class="todo-item">
+                    <div class="left">
+                   <input type="checkbox" value="true" [(ngModel)]="todo.checkedOff" (click)="itemChecked(todo.$key)">
                  </div>
                  <div class="right">
                    {{todo.Activity.name}}</div>
-                  <p class="item-delete-button" (click) = "deleteTodoItems(todo.$key)">&#8942;</p>
+                 <p class="item-delete-button" (click) = "deleteTodoItems(todo.$key)">&#8942;</p>
                </div>
               </span>
               </div>
@@ -32,11 +35,27 @@
           </ul>
         </div>
       </div>
+      <div class="dropdown" *ngIf="list.showDropdown">
+        <div id="myDropdown" class="dropdown-content">
+          <div class="color-button" (click)="setBackground('default',list.$key)"><div class="circle default"></div><p>Default</p></div>
+          <div class="color-button" (click)="setBackground('green',list.$key)"><div class="circle green"></div><p>Bright Green</p></div>
+          <div class="color-button" (click)="setBackground('pink',list.$key)"><div class="circle pink"></div><p>Bright Pink</p></div>
+          <div class="color-button" (click)="setBackground('blue',list.$key)"><div class="circle blue"></div><p>Bright Blue</p></div>
+          <p (click) = "deleteTodoList(list.$key,list.listName)">Delete</p>
+        </div>
+      </div>
     </li>
   </ul>
 
-<form  (submit)="addTodoList()" *ngIf="needName" #nameInput  >
-	<input placeholder="Add list label..." id="listLabelInput" type="text" [(ngModel)]="tex4" name="test">
-</form>
 
-<div class="add-todo-list-button" (click) = 'showInput();' ><p>+</p></div>
+
+
+<div class="label-input-form-holder">
+  <form  (submit)="addTodoList()" *ngIf="needName" #nameInput  >
+    <input placeholder="Add list label..." id="listLabelInput" type="text" [(ngModel)]="tex4" name="test">
+  </form>
+  <div class="add-todo-list-button" (click) = 'showInput();' ><p>+</p></div>
+</div>
+
+
+
