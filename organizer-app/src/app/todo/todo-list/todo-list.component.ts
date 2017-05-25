@@ -29,7 +29,7 @@ export class TodolistComponent implements OnInit {
    itemsChecked = 0;
 
    inputField = '';
-
+   tempActivity = '';
    // custom color
   color: 'default';
 
@@ -63,7 +63,6 @@ export class TodolistComponent implements OnInit {
 
 
   addTodoList() {
-    console.log('clicked');
     this.tex4 = this.toTitleCase(this.tex4);
     const todo = new Todolist(this.tex4,this.showDropdown,this.color);
     this.tex4 = '';
