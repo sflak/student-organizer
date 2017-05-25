@@ -150,12 +150,15 @@ export class TodolistComponent implements OnInit {
         showDropdown: this.showDropdown
       });
   }
-  setBackground(className,key) {
+  setBackground(className, key) {
     this.color = className;
-    this.showDropdown = !this.showDropdown;
-     this.todoLists.update(key,{
+     this.todoLists.update(key, {
         color: this.color
       });
+
+    this.todoLists.update(key, {
+      showDropdown: false
+    });
   }
 
 }
