@@ -119,7 +119,8 @@ export class TodolistComponent implements OnInit {
         finishTime: '',
         listname: listName,
         checkedOff: false,
-        Activity: temp
+        Activity: temp,
+        color: ''
     });
     this.inputField = '';
   }
@@ -155,6 +156,10 @@ export class TodolistComponent implements OnInit {
      this.todoLists.update(key, {
         color: this.color
       });
+     this.items.forEach(item => {
+       this.items.update(key, { color: this.color });
+     });
+
 
     this.todoLists.update(key, {
       showDropdown: false

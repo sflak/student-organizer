@@ -23,10 +23,10 @@ export class BucketDayComponent implements OnInit {
   Activity;
 
   userData = JSON.parse(localStorage.getItem('userData')); // used for UID
-  items: FirebaseListObservable<any[]>; 
+  items: FirebaseListObservable<any[]>;
   temp5: string;
 
-  showEditor: boolean = false;
+  showEditor = false;
   checkedOff = false;
 
   constructor(af: AngularFireDatabase) {

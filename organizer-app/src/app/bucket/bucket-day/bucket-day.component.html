@@ -9,8 +9,9 @@
     <div droppable class="droppable" [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event)">
 	      	<ul>
 	     		 <li draggable *ngFor="let item of items | async"  >
-            <span draggable *ngIf= "item.listname == '' + today.getFullYear() + today.getMonth() + today.getDate()"   [dragOverClass]="'drag-over-border'"
-   			             [dragData]="item.$key" >
+             <div class="item-container" [ngClass]="item.color">
+               <span draggable *ngIf= "item.listname == '' + today.getFullYear() + today.getMonth() + today.getDate()"   [dragOverClass]="'drag-over-border'"
+                     [dragData]="item.$key" >
                   {{item.Activity.name}} <br>
                   <span *ngIf="item.startTime != '-1' " >
                   start {{item.startTime}} <br>
@@ -23,6 +24,7 @@
                   </div>
                  <input type="checkbox" value="true" [(ngModel)]="item.checkedOff" (click)="itemChecked(item.$key)">
           		</span>
+             </div>
 	     		 </li>
 	     	</ul>
     </div>
