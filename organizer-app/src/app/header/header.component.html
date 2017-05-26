@@ -25,8 +25,9 @@
       <img style="width: 108px; margin: 5px;" src="../../assets/Full-Logo.png" alt="logo">
     </div>
     <div class="buttons">
+    {{userData.displayName}}
       <a href="#" class="user">
-        <img style="width: 30px; margin-top: 10px;" src="../../assets/user-icon.png" alt="user-icon">
+        <img style="width: 40px; margin-top: 2px; border-radius: 20px " src={{photoURL}} alt="user-icon">
       </a>
       <a class="btn btn-default logout" (click)="logout()">Logout</a>
     </div>

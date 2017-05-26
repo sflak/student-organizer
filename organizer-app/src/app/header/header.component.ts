@@ -9,6 +9,8 @@ import { Router } from "@angular/router";
 })
 export class HeaderComponent{
   public isLoggedIn: boolean;
+  userData = JSON.parse(localStorage.getItem('userData'));
+  photoURL = this.userData.photoURL;
   constructor(public afService: AF, private router: Router) {
   }
   logout() {
