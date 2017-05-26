@@ -17,17 +17,11 @@
               start {{item.startTime}} <br>
               finish {{item.finishTime}}
               </span>
-               <p class="item-options-button" (click) = "showOptions()">&#8942;</p>
-
+               <button  (click) = "deleteTodoItems(item.$key)"> X </button>
+               <button (click)="editor.showEditBox()">E</button>
+               <div [style.display]="editor.showEdit ? 'inline' : 'none'">
+                 <app-edit-event #editor [key] = item.$key></app-edit-event>
              </div>
-             <div class="dropdown" *ngIf="item.showDropdown">
-               <div id="myDropdown" class="dropdown-content">
-                 <button  (click) = "deleteTodoItems(item.$key)"> X </button>
-                 <button (click)="editor.showEditBox()">E</button>
-                 <div [style.display]="editor.showEdit ? 'inline' : 'none'">
-                   <app-edit-event #editor [key] = item.$key></app-edit-event>
-                 </div>
-               </div>
              </div>
 	     		 </li>
 	     	</ul>
