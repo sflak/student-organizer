@@ -2,11 +2,15 @@
   <button
     type="button"
     class="prevWeekButton"
-    (click)="prevWeek()">prev</button>
+    (click)="prevWeek()">prev
+      <span class="tooltiptext">Previous Week</span>
+  </button>
   <button
     type="button"
     class="nextWeekButton"
-    (click)="nextWeek()">next</button>
+    (click)="nextWeek()">next
+      <span class="tooltiptext">Next Week</span>
+  </button>
   <h1>{{ today | date:"MMMM" }}</h1>
 </div>
 <div class="clear"></div>
