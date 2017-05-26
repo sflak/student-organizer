@@ -11,7 +11,8 @@
     (click)="nextWeek()">next
       <span class="tooltiptext">Next Week</span>
   </button>
-  <h1>{{ today | date:"MMMM" }}</h1>
+  <h1>{{getMonth()}}</h1>
+  <h4>{{getYear()}}</h4>
 </div>
 <div class="clear"></div>
 <div [ngStyle] = "bucketDiv">

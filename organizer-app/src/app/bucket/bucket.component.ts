@@ -22,7 +22,8 @@ export class BucketComponent implements OnInit {
 
     BIGTEX; // probably will be deleted soon
 
-
+  Months: string[] = ["January", "February", "March", 
+    "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 
   dayslist: Date[] = [
@@ -85,6 +86,14 @@ export class BucketComponent implements OnInit {
       this.days[5].changeDate(this.dayslist[5]);
       this.days[6].changeDate(this.dayslist[6]);
 
+  }
+
+  getMonth():string{
+    return this.Months[this.dayslist[0].getMonth()];
+  }
+
+  getYear():number{
+    return this.dayslist[0].getFullYear();
   }
 
 }
