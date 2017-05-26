@@ -164,7 +164,6 @@ button.list-options-button:focus, input[type="button"]:focus {
 .drag-target-border{ /* this is new 5/22/17*/
   border: black solid 2px;
 }
-=======
 /*Custom list color styles*/
 .default {
   background-color: #4A91B5;
@@ -178,5 +177,3 @@ button.list-options-button:focus, input[type="button"]:focus {
 .blue{
   background-color: #33d4e0;
 }
-/*>>>>>>> cc1e482aa4b2e89c49dae5b90866baa1bab50fa4
-*/

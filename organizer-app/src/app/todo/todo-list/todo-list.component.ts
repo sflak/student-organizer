@@ -108,7 +108,7 @@ export class TodolistComponent implements OnInit {
 
 
   }
-  addTodoItems(listName, activityName) {
+  addTodoItems(listName, activityName, color) {
       console.log('test' + listName + activityName);
       this.tex3 = ''; // placeholder for edit button later
       let temp = new Activity(activityName, listName, this.tex3);
@@ -119,7 +119,7 @@ export class TodolistComponent implements OnInit {
         listname: listName,
         checkedOff: false,
         Activity: temp,
-        color: ''
+        color: color
     });
     this.inputField = '';
   }
@@ -155,10 +155,6 @@ export class TodolistComponent implements OnInit {
      this.todoLists.update(key, {
         color: this.color
       });
-     this.items.forEach(item => {
-       this.items.update(key, { color: this.color });
-     });
-
 
     this.todoLists.update(key, {
       showDropdown: false

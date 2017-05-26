@@ -29,8 +29,24 @@ h2 {
 }
 ul {
   list-style-type: none;
+  padding: 0;
+}
+div .item-container {
+  padding: 5px;
 }
 .drag-target-border{ /* this is new 5/22/17*/
   border: #A5EBC3 solid 2px;
 }
 
+.default {
+  border: solid 1px #4A91B5;
+}
+.green {
+  border: solid 1px #a4d400;
+}
+.pink{
+  border: solid 1px #f200a3;
+}
+.blue{
+  border: solid 1px #33d4e0;
+}

@@ -9,21 +9,25 @@
     <div droppable class="droppable" [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event)">
 	      	<ul>
 	     		 <li draggable *ngFor="let item of items | async"  >
-             <div class="item-container" [ngClass]="item.color">
-               <span draggable *ngIf= "item.listname == '' + today.getFullYear() + today.getMonth() + today.getDate()"   [dragOverClass]="'drag-over-border'"
-                     [dragData]="item.$key" >
-                  {{item.Activity.name}} <br>
-                  <span *ngIf="item.startTime != '-1' " >
-                  start {{item.startTime}} <br>
-                  finish {{item.finishTime}}
-                  </span>
-                  <button  (click) = "deleteTodoItems(item.$key)"> X </button>
-                  <button (click)="editor.showEditBox()">E</button>
-                  <div [style.display]="editor.showEdit ? 'inline' : 'none'">
-                      <app-edit-event #editor [key] = item.$key></app-edit-event>
-                  </div>
-                 <input type="checkbox" value="true" [(ngModel)]="item.checkedOff" (click)="itemChecked(item.$key)">
-          		</span>
+             <div class="item-container" [ngClass]="item.color" draggable *ngIf= "item.listname == '' + today.getFullYear() + today.getMonth() + today.getDate()"   [dragOverClass]="'drag-over-border'"
+                  [dragData]="item.$key">
+               <input type="checkbox" value="true" [(ngModel)]="item.checkedOff" (click)="itemChecked(item.$key)">
+               {{item.Activity.name}} <br>
+              <span *ngIf="item.startTime != '-1' " >
+              start {{item.startTime}} <br>
+              finish {{item.finishTime}}
+              </span>
+               <p class="item-options-button" (click) = "showOptions()">&#8942;</p>
+
+             </div>
+             <div class="dropdown" *ngIf="item.showDropdown">
+               <div id="myDropdown" class="dropdown-content">
+                 <button  (click) = "deleteTodoItems(item.$key)"> X </button>
+                 <button (click)="editor.showEditBox()">E</button>
+                 <div [style.display]="editor.showEdit ? 'inline' : 'none'">
+                   <app-edit-event #editor [key] = item.$key></app-edit-event>
+                 </div>
+               </div>
              </div>
 	     		 </li>
 	     	</ul>
