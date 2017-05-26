@@ -34,6 +34,13 @@ ul {
 div .item-container {
   padding: 5px;
 }
+.item-options-button:hover {
+  cursor: pointer;
+}
+.dropdown {
+  width: 100px;
+  height: 200px;
+}
 .drag-target-border{ /* this is new 5/22/17*/
   border: #A5EBC3 solid 2px;
 }

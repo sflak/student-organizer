@@ -48,20 +48,20 @@ todoBucket = [
 
 
 onTodoDrop(e: any) {
-//console.log(e.dragData);
-//console.log("apple");
+// console.log(e.dragData);
+// console.log("apple");
 //  this.todoBucket.push(e.dragData);
-//console.log(e.dragData);
-//let temp = new Activity("recycle", "test_list", "foo");
+// console.log(e.dragData);
+// let temp = new Activity("recycle", "test_list", "foo");
   //  this.todolist3.push({ Activity: temp})   ;
-  //this.todoBucket.push({ Activity: temp})   ;
+  // this.todoBucket.push({ Activity: temp})   ;
 
   this.temp5 = "" + this.today.getFullYear() + this.today.getMonth() +this.today.getDate()
-  //var my =  this.today.charAt(2);
-    //let temp2 = new Activity(e.dragData, "test_list", "foo");
+  // var my =  this.today.charAt(2);
+    // let temp2 = new Activity(e.dragData, "test_list", "foo");
    console.log(this.temp5);
    console.log(e.dragData);
-  //  today
+  // today
   this.items.update(e.dragData,{
     listname: this.temp5
   });
@@ -84,6 +84,7 @@ onTodoDrop(e: any) {
   }
   showOptions() {
     this.showDropdown = !this.showDropdown;
+    console.log("showDropdown= ", this.showDropdown);
   }
 
 
