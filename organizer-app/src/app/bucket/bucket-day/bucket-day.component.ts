@@ -38,9 +38,6 @@ export class BucketDayComponent implements OnInit {
   ngOnInit() {
   }
 
-todoBucket = [
-];
-
 
   deleteTodoItems(key) {
     this.items.remove(key);

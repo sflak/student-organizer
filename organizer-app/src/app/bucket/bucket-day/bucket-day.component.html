@@ -15,14 +15,17 @@
                  <div class="left">
                    <input type="checkbox" value="true" [(ngModel)]="item.checkedOff" (click)="itemChecked(item.$key)">
                  </div>
-                 <div class="right">
+                 <div class="left">
                    {{item.Activity.name}}
                  </div>
                </div>
-               <div class="option-buttons">
-                 <i (click) = "deleteTodoItems(item.$key)" class="fa fa-trash-o" aria-hidden="true"></i>
-                 <i (click)="editor.showEditBox()" class="fa fa-clock-o" aria-hidden="true"></i>
-               </div>
+
+                <div class="left option-buttons">
+                  <i (click)="editor.showEditBox()" class="fa fa-clock-o" aria-hidden="true"></i>
+                </div>
+                 <div class="right option-buttons">
+                   <i (click) = "deleteTodoItems(item.$key)" class="fa fa-trash-o" aria-hidden="true"></i>
+                 </div>
                <div [style.display]="editor.showEdit ? 'inline' : 'none'">
                  <app-edit-event #editor [key] = item.$key></app-edit-event>
                </div>
