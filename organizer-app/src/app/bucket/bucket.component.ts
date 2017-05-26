@@ -13,6 +13,7 @@ export class BucketComponent implements OnInit {
   today: Date = new Date();
   d: Date = new Date();
   i: number =0;
+  offsetFromToday:number =0;
   todos: TodoItem [] = [
     new TodoItem('Buy sandwiches', false),
     new TodoItem('Eat stuff', false)
@@ -63,10 +64,12 @@ export class BucketComponent implements OnInit {
 
   prevWeek():void{
       this.refreshDayList(-7);
+      this.offsetFromToday ++;
   }
 
   nextWeek():void{
       this.refreshDayList(7);
+      this.offsetFromToday --;
   }
 
   refreshDayList(offset):void{
@@ -94,6 +97,11 @@ export class BucketComponent implements OnInit {
 
   getYear():number{
     return this.dayslist[0].getFullYear();
+  }
+
+  returnToToday():void{
+    this.refreshDayList(7*this.offsetFromToday);
+    this.offsetFromToday = 0;
   }
 
 }
