@@ -11,17 +11,26 @@
 	     		 <li draggable *ngFor="let item of items | async"  >
              <div class="item-container" [ngClass]="item.color" draggable *ngIf= "item.listname == '' + today.getFullYear() + today.getMonth() + today.getDate()"   [dragOverClass]="'drag-over-border'"
                   [dragData]="item.$key">
-               <input type="checkbox" value="true" [(ngModel)]="item.checkedOff" (click)="itemChecked(item.$key)">
-               {{item.Activity.name}} <br>
-              <span *ngIf="item.startTime != '-1' " >
-              start {{item.startTime}} <br>
-              finish {{item.finishTime}}
-              </span>
-               <button  (click) = "deleteTodoItems(item.$key)"> X </button>
-               <button (click)="editor.showEditBox()">E</button>
+               <div class="todo-item">
+                 <div class="left">
+                   <input type="checkbox" value="true" [(ngModel)]="item.checkedOff" (click)="itemChecked(item.$key)">
+                 </div>
+                 <div class="right">
+                   {{item.Activity.name}}
+                 </div>
+               </div>
+               <div class="option-buttons">
+                 <i (click) = "deleteTodoItems(item.$key)" class="fa fa-trash-o" aria-hidden="true"></i>
+                 <i (click)="editor.showEditBox()" class="fa fa-clock-o" aria-hidden="true"></i>
+               </div>
                <div [style.display]="editor.showEdit ? 'inline' : 'none'">
                  <app-edit-event #editor [key] = item.$key></app-edit-event>
-             </div>
+               </div>
+                 <div class="clear"></div>
+                 <span *ngIf="item.startTime != '-1' " >
+              <p>{{item.startTime}} - {{item.finishTime}}</p>
+              </span>
+
              </div>
 	     		 </li>
 	     	</ul>

@@ -25,7 +25,8 @@
                    <input type="checkbox" value="true" [(ngModel)]="todo.checkedOff" (click)="itemChecked(todo.$key)">
                  </div>
                  <div class="right">
-                   {{todo.Activity.name}}</div>
+                   {{todo.Activity.name}}
+                 </div>
                  <p class="item-delete-button" (click) = "deleteTodoItems(todo.$key)">&#8942;</p>
                </div>
               </span>
