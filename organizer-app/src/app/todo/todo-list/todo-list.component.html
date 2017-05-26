@@ -20,9 +20,9 @@
                       [dragData]="todo.$key">
               <div droppable class="droppable" [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event,todo.listname)">
                 <span  *ngIf= "todo.listname == list.listName" >
-                  <div class="todo-item">
+                  <div id="myItem" class="todo-item">
                     <div class="left">
-                   <input type="checkbox" value="true" [(ngModel)]="todo.checkedOff" (click)="itemChecked(todo.$key)">
+                   <input [ngClass]="list.checkboxStyle" type="checkbox" value="true" [(ngModel)]="todo.checkedOff" (click)="itemChecked(todo.$key)">
                  </div>
                  <div class="right">
                    {{todo.Activity.name}}
