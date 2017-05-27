@@ -13,7 +13,7 @@ ul {
 .drag-over-border{
 	border: #ff525b dashed 2px;
 }
-.list-delete-button{
+.list-options-button{
   float: right;
 	border: none;
   background-color: transparent;
@@ -21,6 +21,9 @@ ul {
 	padding-right: 9px;
 	margin-top: -11px;
   font-size: 32px;
+}
+button.list-options-button:focus, input[type="button"]:focus {
+  outline: none;
 }
 .item-delete-button {
   float: right;
@@ -109,6 +112,52 @@ ul {
   margin: 0;
 
 }
+.dropdown {
+  margin-left: -14px;
+  margin-right: 7px;
+  width: 150px;
+  min-height: 190px;
+  background-color: white;
+  float: left;
+  box-shadow: 1px 1px 7px #888888;
+}
+
+.dropdown-content p {
+  cursor: pointer;
+  padding: 10px;
+  font-family: Helvetica, sans-serif;
+}
+.dropdown-content p:hover {
+  background-color: lightgray;
+}
+.dropdown-content div .color-button {
+  width: 100%;
+  height: 40px;
+
+}
+.dropdown-content div.color-button:hover {
+  background-color: lightgray;
+}
+.color-button .circle {
+  margin: 5px 14px 5px 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  float: left;
+}
+.color-button .circle .default {
+  background-color: #4A91B5;
+}
+.color-button .circle .green {
+  background-color: #a4d400;
+}
+.color-button .circle .pink {
+  background-color: #f200a3;
+}
+.color-button .circle .blue {
+  background-color: #33d4e0;
+}
+
 .label-input-form-holder {
   margin-left: 52px;
 }
@@ -155,3 +204,25 @@ ul {
     visibility: visible;
     opacity: 1;
 }
+
+/*<<<<<<< HEAD*/
+.drag-target-border{ /* this is new 5/22/17*/
+  border: black solid 2px;
+}
+
+/*Custom list color styles*/
+.default {
+  background-color: #4A91B5;
+}
+.green {
+  background-color: #a4d400;
+}
+.pink{
+  background-color: #f200a3;
+}
+.blue{
+  background-color: #33d4e0;
+}
+/*>>>>>>> cc1e482aa4b2e89c49dae5b90866baa1bab50fa4
+*/
+
