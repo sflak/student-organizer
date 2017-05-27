@@ -1,7 +1,6 @@
 div .progress-bar {
   width: 100%;
   height: 5px;
-  margin-bottom: 20px;
   margin-top: -5px;
   background-color: #F1C2CF;
   border: solid 1px #F1C2CF;
@@ -9,8 +8,8 @@ div .progress-bar {
 div .progress {
   float: left;
   height: 4px;
-  background-color: #A5EBC3;
-  border-top: solid 1px #A5EBC3;
+  background-color: #6BC893;
+  border-top: solid 1px #6BC893;
   border-radius: 1%;
 }
 button {

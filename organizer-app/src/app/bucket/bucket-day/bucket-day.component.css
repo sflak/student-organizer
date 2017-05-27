@@ -1,11 +1,12 @@
+
 div .day-column {
   text-align: center;
-  width: 14.26%;
-  /*min-height: 75vh;*/
+  width: 14.28%;
   height: 100%;
   float: left;
   border-left: solid lightgray 1px;
   border-right: solid lightgray 1px;
+  background-color: white;
 }
 div .droppable {
   width: 95%;
@@ -16,15 +17,15 @@ div .droppable {
 }
 h3 {
   margin: 0;
-  color: #4A4A4A;
+  color: #a2a2a0;
   font-size: 18px;
-  font-family: Arial, sans-serif;
+  font-family: Avenir, Helvetica, sans-serif;
 }
 h2 {
   margin: 0 0 10px 0 ;
-  color: #4A4A4A;
+  color: #a2a2a0;
   font-size: 13px;
-  font-family: Arial, sans-serif;
+  font-family: Avenir, Helvetica, sans-serif;
 
 }
 ul {
