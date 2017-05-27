@@ -9,31 +9,28 @@
     <div droppable class="droppable" [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event)">
 	      	<ul>
 	     		 <li draggable *ngFor="let item of items | async"  >
-             <div draggable *ngIf= "item.listname == '' + today.getFullYear() + today.getMonth() + today.getDate()"   [dragOverClass]="'drag-over-border'"
+             <div class="item-container" [ngClass]="item.color" draggable *ngIf= "item.listname == '' + today.getFullYear() + today.getMonth() + today.getDate()"   [dragOverClass]="'drag-over-border'"
                   [dragData]="item.$key">
-               <div class="item-container"  [ngClass]="item.color">
-                  some stuff
-               </div>
-               <div class="todo-item">
-                 <div class="left">
+               <!--<div class="todo-item">-->
+                 <!--<div class="left">-->
                    <input type="checkbox" value="true" [(ngModel)]="item.checkedOff" (click)="itemChecked(item.$key)">
-                 </div>
-                 <div class="left">
+                 <!--</div>-->
+                 <!--<div class="left">-->
                    {{item.Activity.name}}
-                 </div>
-               </div>
+                 <!--</div>-->
+               <!--</div>-->
 
-                <div class="left option-buttons">
+                <!--<div class="left option-buttons">-->
                   <i (click)="editor.showEditBox()" class="fa fa-clock-o" aria-hidden="true"></i>
-                </div>
-                 <div class="right option-buttons">
+                <!--</div>-->
+                 <!--<div class="right option-buttons">-->
                    <i (click) = "deleteTodoItems(item.$key)" class="fa fa-trash-o" aria-hidden="true"></i>
-                 </div>
+                 <!--</div>-->
 
-                 <div class="clear"></div>
-                 <span *ngIf="item.startTime != '-1' " >
-              <p>{{item.startTime}} - {{item.finishTime}}</p>
-              </span>
+                 <!--<div class="clear"></div>-->
+                 <!--<span *ngIf="item.startTime != '-1' " >-->
+              <!--<p>{{item.startTime}} - {{item.finishTime}}</p>-->
+              <!--</span>-->
 
              </div>
              <div [style.display]="editor.showEdit ? 'inline' : 'none'">
