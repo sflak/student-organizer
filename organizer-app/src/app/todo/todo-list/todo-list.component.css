@@ -171,10 +171,30 @@ i.fa {
 }
 
 .label-input-form-holder {
-  margin-left: 52px;
+  float: left;
+  background-color: aliceblue;
+  padding: 5px;
 }
-button .add-list{
-  border-radius: 10px;
+div .addList{
+  padding: 2px;
+  float: left;
+  width: 62px;
+  height: 29px;
+  border: solid 2px #4A91B5;
+  margin-top: -8px;
+  font-family: Avenir, Helvetica, sans-serif;
+  text-align: center;
+  cursor: pointer;
+  background-color: white;
+}
+p.escape {
+  float: right;
+  color: #4A91B5;
+  margin: 0;
+  cursor: pointer;
+}
+div.add-todo-list-button{
+  background-color: white;
 }
 
 /*<<<<<<< HEAD*/
