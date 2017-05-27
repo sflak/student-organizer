@@ -8,7 +8,7 @@ ul {
   list-style: none;
 }
 .drag-over-border{
-	border: #ff525b dashed 2px;
+	border: #D1496F dashed 1px;
 }
 .list-options-button{
   float: right;
@@ -172,8 +172,10 @@ i.fa {
 
 .label-input-form-holder {
   float: left;
-  background-color: #D5EEE0;
   padding: 5px;
+}
+.has-border{
+  border: solid 2px #6BC893;
 }
 div .addList{
   padding: 2px;
