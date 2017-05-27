@@ -196,6 +196,9 @@ button.list-options-button:focus, input[type="button"]:focus {
 .pink{
   background-color: #f200a3;
 }
+.checkbox-pink {
+  border: solid 1px #f200a3;
+}
 .blue{
   background-color: #33d4e0;
 }
