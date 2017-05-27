@@ -26,14 +26,15 @@
                  <div class="right option-buttons">
                    <i (click) = "deleteTodoItems(item.$key)" class="fa fa-trash-o" aria-hidden="true"></i>
                  </div>
-               <div [style.display]="editor.showEdit ? 'inline' : 'none'">
-                 <app-edit-event #editor [key] = item.$key></app-edit-event>
-               </div>
+
                  <div class="clear"></div>
                  <span *ngIf="item.startTime != '-1' " >
               <p>{{item.startTime}} - {{item.finishTime}}</p>
               </span>
 
+             </div>
+             <div [style.display]="editor.showEdit ? 'inline' : 'none'">
+               <app-edit-event #editor [key] = item.$key></app-edit-event>
              </div>
 	     		 </li>
 	     	</ul>
