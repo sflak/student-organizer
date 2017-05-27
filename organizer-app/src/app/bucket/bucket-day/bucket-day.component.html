@@ -13,24 +13,26 @@
                   [dragData]="item.$key">
                <div class="todo-item">
                  <div class="left">
-                   <input type="checkbox" value="true" [(ngModel)]="item.checkedOff" (click)="itemChecked(item.$key)">
+                   <input type="checkbox" value="true" [ngClass]="item.color" [(ngModel)]="item.checkedOff" (click)="itemChecked(item.$key)">
                  </div>
-                 <div class="left">
-                   {{item.Activity.name}}
+                 <div class="left todo-description">
+                   <p>{{item.Activity.name}}</p>
                  </div>
                </div>
 
+               <div class="clear"></div>
+
                 <div class="left option-buttons">
-                  <i (click)="editor.showEditBox()" class="fa fa-clock-o" aria-hidden="true"></i>
+                  <i (click)="editor.showEditBox()" class="fa fa-clock-o" aria-hidden="true" style="float:left; margin-right: 5px;"></i>
+                  <div class="time-info left" *ngIf="item.startTime != -1">
+                    <p>{{ item.startTime}} - {{ item.finishTime}}</p>
+                  </div>
                 </div>
                  <div class="right option-buttons">
                    <i (click) = "deleteTodoItems(item.$key)" class="fa fa-trash-o" aria-hidden="true"></i>
                  </div>
 
                  <div class="clear"></div>
-                 <span *ngIf="item.startTime != '-1' " >
-              <p>{{item.startTime}} - {{item.finishTime}}</p>
-              </span>
 
              </div>
              <div [style.display]="editor.showEdit ? 'inline' : 'none'">

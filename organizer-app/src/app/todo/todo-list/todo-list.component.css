@@ -22,12 +22,14 @@ ul {
 button.list-options-button:focus, input[type="button"]:focus {
   outline: none;
 }
-.item-delete-button {
+.right p {
+  color: black;
+  margin: 0;
+}
+
+i.fa {
   float: right;
-  margin-right: 5px;
-  width: 2px;
-  font-size: 16px;
-  /*background-color: #ff525b;*/
+  margin: 5px;
 }
 .list-label {
   margin-left: 20px;
@@ -85,7 +87,6 @@ button.list-options-button:focus, input[type="button"]:focus {
   top: -1px;
   *overflow: hidden;
   background-color: white;
-  border: solid 1px #4A91B5;
 
 }
 .todo-item input:checked:after {
@@ -94,7 +95,6 @@ button.list-options-button:focus, input[type="button"]:focus {
   position: absolute;
   top: -2px;
   left: 0;
-  color: #4A91B5;
 
 }
 .todo-item input:focus, input[type="checkbox"]:focus {
@@ -106,7 +106,6 @@ button.list-options-button:focus, input[type="button"]:focus {
   height: 34px;
   padding-top: 4px;
   background-color: white;
-  border-bottom: solid #4A91B5 1px;
 }
 
 .todo-item div.left{
@@ -174,7 +173,9 @@ button.list-options-button:focus, input[type="button"]:focus {
 .label-input-form-holder {
   margin-left: 52px;
 }
-
+button .add-list{
+  border-radius: 10px;
+}
 
 /*<<<<<<< HEAD*/
 .drag-target-border{ /* this is new 5/22/17*/
@@ -183,22 +184,41 @@ button.list-options-button:focus, input[type="button"]:focus {
 /*Custom list color styles*/
 .default {
   background-color: #4A91B5;
-}
-.checkbox-default {
-  border: solid 1px #4A91B5;
-}
-#myItem input.checkbox-default input:checked:after {
   color: #4A91B5;
+}
+.default-border {
+  border-bottom: solid 1px #4A91B5;
+}
+.default-checkbox {
+  border: solid 1px #4A91B5;
 }
 .green {
   background-color: #a4d400;
+  color: #a4d400;
+}
+.green-border{
+  border-bottom: solid 1px #a4d400;
+}
+.green-checkbox{
+  border: solid 1px #a4d400;
 }
 .pink{
   background-color: #f200a3;
+  color: #f200a3;
 }
-.checkbox-pink {
+.pink-border{
+  border-bottom: solid 1px #f200a3;
+}
+.pink-checkbox{
   border: solid 1px #f200a3;
 }
 .blue{
   background-color: #33d4e0;
+  color: #33d4e0;
+}
+.blue-border{
+  border-bottom: solid 1px #33d4e0;
+}
+.blue-checkbox{
+  border: solid 1px #33d4e0;
 }

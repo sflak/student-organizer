@@ -19,14 +19,14 @@
             <li draggable *ngFor="let todo of items | async" [dragOverClass]="'drag-over-border'"
                       [dragData]="todo.$key">
                 <span  *ngIf= "todo.listname == list.listName" >
-                  <div id="myItem" class="todo-item">
+                  <div class="todo-item" [ngClass]="list.color + '-border'">
                     <div class="left">
-                   <input [ngClass]="list.checkboxStyle" type="checkbox" value="true" [(ngModel)]="todo.checkedOff" (click)="itemChecked(todo.$key)">
-                 </div>
-                 <div class="right">
-                   {{todo.Activity.name}}
-                 </div>
-                 <p class="item-delete-button" (click) = "deleteTodoItems(todo.$key)">&#8942;</p>
+                      <input [ngClass]="list.color + '-checkbox'" type="checkbox" value="true" [(ngModel)]="todo.checkedOff" (click)="itemChecked(todo.$key)">
+                    </div>
+                  <div class="right">
+                   <p>{{todo.Activity.name}}</p>
+                  </div>
+                    <i (click) = "deleteTodoItems(todo.$key)" class="fa fa-trash-o item-delete-button" aria-hidden="true"></i>
                </div>
               </span>
             </li>
@@ -52,6 +52,7 @@
 <div class="label-input-form-holder">
   <form  (submit)="addTodoList()" *ngIf="needName" #nameInput  >
     <input placeholder="Add list label..." id="listLabelInput" type="text" [(ngModel)]="tex4" name="test">
+    <!--<button class="addList" (click)="addTodoList()">Create</button>-->
   </form>
   <div class="add-todo-list-button" (click) = 'showInput();' ><p>+</p></div>
 </div>

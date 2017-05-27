@@ -32,7 +32,6 @@ export class TodolistComponent implements OnInit {
    tempActivity = '';
    // custom color
     color = 'default';
-    checkboxStyle = 'checkbox-' + this.color;
 
 
 
@@ -153,11 +152,12 @@ export class TodolistComponent implements OnInit {
   }
   setBackground(className, key) {
     this.color = className;
-    this.checkboxStyle = 'checkbox-' + className;
-    console.log(this.checkboxStyle);
-     this.todoLists.update(key, {
+    this.todoLists.update(key, {
         color: this.color
       });
+    this.items.update(key, {
+      color: this.color
+    });
 
     this.todoLists.update(key, {
       showDropdown: false
