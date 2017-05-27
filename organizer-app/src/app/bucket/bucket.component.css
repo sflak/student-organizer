@@ -8,13 +8,16 @@ h1 {
 }
 
 .prevWeekButton{
-    position: relative;
-    float:left;
+  position: relative;
+  float:left;
+  cursor: pointer;
+  color: #EE9BB2;
 }
-
 .nextWeekButton{
     position: relative;
     float:right;
+  cursor: pointer;
+  color: #EE9BB2;
 }
 
 div .clear {
