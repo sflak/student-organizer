@@ -172,7 +172,7 @@ i.fa {
 
 .label-input-form-holder {
   float: left;
-  background-color: aliceblue;
+  background-color: #D5EEE0;
   padding: 5px;
 }
 div .addList{
@@ -180,7 +180,7 @@ div .addList{
   float: left;
   width: 62px;
   height: 29px;
-  border: solid 2px #4A91B5;
+  border: solid 2px #EE9BB2;
   margin-top: -8px;
   font-family: Avenir, Helvetica, sans-serif;
   text-align: center;
@@ -189,7 +189,7 @@ div .addList{
 }
 p.escape {
   float: right;
-  color: #4A91B5;
+  color: #EE9BB2;
   margin: 0;
   cursor: pointer;
 }
