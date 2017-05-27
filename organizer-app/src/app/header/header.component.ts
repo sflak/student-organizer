@@ -9,6 +9,10 @@ import { Router } from "@angular/router";
 })
 export class HeaderComponent{
   public isLoggedIn: boolean;
+
+  showDropdown = false;
+
+
   userData = JSON.parse(localStorage.getItem('userData'));
   photoURL = this.userData.photoURL;
   constructor(public afService: AF, private router: Router) {
@@ -16,6 +20,10 @@ export class HeaderComponent{
   logout() {
     localStorage.setItem('userData', '');
     this.afService.logout();
+  }
+  showDropdownMenu(){
+     this.showDropdown = !this.showDropdown; 
+     console.log(this.showDropdown);
   }
 
 }

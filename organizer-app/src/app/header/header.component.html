@@ -24,14 +24,21 @@
     <div class="logo">
       <img style="width: 108px; margin: 5px;" src="../../assets/logo.png" alt="logo">
     </div>
+
     <div class="buttons">
-    {{userData.displayName}}
-      <a href="#" class="user">
+    <a (click)="showDropdownMenu()" class="user">
+        {{userData.displayName}}
         <img style="width: 40px; margin-top: 2px; border-radius: 20px " src={{photoURL}} alt="user-icon">
       </a>
-      <a class="btn btn-default logout" (click)="logout()">Logout</a>
+    <div *ngIf="showDropdown" >
+    <ul class="dropdown dropdown-menu-center">
+    <li> <button type="button" class="button-logout" (click) = "logout()" class="btn btn-default">Logout</button> </li>
+    </ul>
+</div>
+
+
+
     </div>
 
   </div>
 </div>
-

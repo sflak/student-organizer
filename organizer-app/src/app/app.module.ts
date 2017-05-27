@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { TodoComponent } from './todo/todo.component';
 import { TodolistComponent } from './todo/todo-list/todo-list.component';

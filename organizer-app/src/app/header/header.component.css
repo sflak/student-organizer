@@ -16,3 +16,31 @@ div .buttons {
 div .buttons, a {
   margin: 3px 12px -1px 6px;
 }
+
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #f00;
+}
+
+
+div .dropdown{
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    min-height: 50px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.button-logout{
+  text-align: center;
+}
+
+
+ul {
+  list-style-type: none;
+}
+
