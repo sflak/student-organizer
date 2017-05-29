@@ -172,3 +172,11 @@ export interface AngularFireObject {
   $key: string;
   $value?: any;
 }
+// TODO
+// Double check bug (need to check the box twice for it to work)
+// Todo items in calendar should change color when the list its assigned to changes color
+// Add more list color options
+// Style time edit component
+// Should window reload on resize?
+// strike through todo when checked
+
