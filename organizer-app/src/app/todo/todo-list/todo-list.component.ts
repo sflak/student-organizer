@@ -25,7 +25,7 @@ export class TodolistComponent implements OnInit {
 
   // checkedOff should be a property of the item
   // itemsChecked should be a global counter
-   checkedOff = false;
+   checkedOff:boolean;
    itemsChecked = 0;
 
    inputField = '';

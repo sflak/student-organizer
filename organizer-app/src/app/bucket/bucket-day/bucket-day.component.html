@@ -13,7 +13,7 @@
                   [dragData]="item.$key">
                <div class="todo-item">
                  <div class="left">
-                   <input type="checkbox" value="true" [ngClass]="item.color" [(ngModel)]="item.checkedOff" (click)="itemChecked(item.$key)">
+                   <input type="checkbox" [ngClass]="item.color" (change)="itemChecked(item.$key)" [(ngModel)]="item.checkedOff" >
                  </div>
                  <div class="left todo-description">
                    <p>{{item.Activity.name}}</p>

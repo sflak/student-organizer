@@ -27,7 +27,7 @@ export class BucketDayComponent implements OnInit {
   temp5: string;
 
   showEditor = false;
-  checkedOff = false;
+  checkedOff: boolean;
   showDropdown = false;
 
   constructor(af: AngularFireDatabase) {
@@ -69,15 +69,9 @@ onTodoDrop(e: any) {
   itemChecked(key) {
     this.checkedOff = !this.checkedOff;
     console.log(this.checkedOff);
-    if (this.checkedOff) {
-      this.items.update(key, {
+    this.items.update(key, {
         checkedOff: this.checkedOff
       });
-    } else {
-      this.items.update(key, {
-        checkedOff: this.checkedOff
-      });
-    }
   }
   showOptions() {
     this.showDropdown = !this.showDropdown;
