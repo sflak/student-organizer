@@ -21,7 +21,7 @@
                 <span  *ngIf= "todo.listname == list.listName" >
                   <div class="todo-item" [ngClass]="list.color + '-border'">
                     <div class="left">
-                      <input [ngClass]="list.color + '-checkbox'" type="checkbox" (change)="itemChecked(todo.$key)" [(ngModel)]="todo.checkedOff">
+                      <input [ngClass]="list.color + '-checkbox'" type="checkbox" (change)="itemChecked(todo.$key,this.todo.checkedOff)" [(ngModel)]="this.todo.checkedOff">
                     </div>
                   <div class="right">
                    <p>{{todo.Activity.name}}</p>

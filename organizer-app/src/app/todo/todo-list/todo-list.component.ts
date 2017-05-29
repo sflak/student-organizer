@@ -128,21 +128,20 @@ export class TodolistComponent implements OnInit {
   // *** the true/false sent to database works but clicking check sometimes doesn't
   // visually show the check and also refresh doesn't save the checked state
   // so there is a small bug.
-  itemChecked(key) {
-    console.log("before switch: " + this.checkedOff);
-    this.checkedOff = !this.checkedOff;
-    console.log(this.checkedOff);
-    if (this.checkedOff) {
-      this.itemsChecked += 1; // not needed since we query from firebase
-      this.items.update(key, {
-        checkedOff: this.checkedOff
-      });
-    } else {
-      this.itemsChecked -= 1; // not needed since we query from firebase
-      this.items.update(key, {
-        checkedOff: this.checkedOff
+  itemChecked(key,checkedOff) {
+    console.log(checkedOff);
+    if(checkedOff){
+        this.items.update(key, {
+        checkedOff: true
       });
     }
+    else{
+        this.items.update(key, {
+        checkedOff: false
+      });
+
+    }
+
   }
   displayDropdown(key) {
       this.showDropdown = !this.showDropdown;
