@@ -4,9 +4,8 @@
 
 
 
-
  <ul>
-    <li *ngFor="let list of todoLists | async">
+    <li *ngFor="let list of todoLists | async" class = "wholeEvent">
       <div class="todo-list-box" [ngClass]="list.color">
         <div class="list-label"> 
           <i class="fa fa-question-circle-o" aria-hidden="true">
@@ -43,7 +42,8 @@
           </ul>
         </div>
       </div>
-      <div class="dropdown" *ngIf="list.showDropdown">
+      <!--<div class="dropdown" *ngIf="list.showDropdown">-->
+        <div class = "dropdown" [style.position]="list.showDropdown ? 'relative' : 'absolute'">
         <div id="myDropdown" class="dropdown-content">
           <div class="color-button" (click)="setBackground('default',list.$key)"><div class="circle default"></div><p>Default</p></div>
           <div class="color-button" (click)="setBackground('green',list.$key)"><div class="circle green"></div><p>Bright Green</p></div>
@@ -55,10 +55,7 @@
     </li>
   </ul>
 
-
-
-
-<div class="label-input-form-holder">
+<div class="label-input-form-holder" >
   <form  (submit)="addTodoList()" *ngIf="needName" #nameInput  >
     <input placeholder="Add list label..." id="listLabelInput" type="text" [(ngModel)]="tex4" name="test">
   </form>

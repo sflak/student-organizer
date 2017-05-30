@@ -45,6 +45,10 @@ button.list-options-button:focus, input[type="button"]:focus {
   float: left;
   background-color: #4A91B5;
   margin-bottom: 20px;
+
+  position:relative;
+  z-index: 0;
+  display:inline;
 }
 .list-item-box {
   background-color: white;
@@ -52,6 +56,9 @@ button.list-options-button:focus, input[type="button"]:focus {
   overflow: scroll;
   height: 150px;
   width: 236px;
+
+  position: relative;
+  z-index: 0;
 }
 .list-item-box ul {
   padding: 4px;
@@ -66,6 +73,9 @@ button.list-options-button:focus, input[type="button"]:focus {
   border: solid #9B9B9B 4px;
   float: left;
   cursor: pointer;
+
+  position:relative;
+  display:inline;
 }
 .add-todo-list-button p {
   font-size: 40px;
@@ -120,6 +130,18 @@ button.list-options-button:focus, input[type="button"]:focus {
   background-color: white;
   float: left;
   box-shadow: 1px 1px 7px #888888;
+
+  position: relative;
+  z-index: 1;
+  /*bottom: 125%;*/
+    /*left: 100%;*/
+    /*margin-left: -60px;*/
+    /*opacity: 1;*/
+}
+
+.dropdown-content{
+  position: relative;
+  z-index: 1;
 }
 
 .dropdown-content p {
@@ -205,7 +227,6 @@ button.list-options-button:focus, input[type="button"]:focus {
     opacity: 1;
 }
 
-/*<<<<<<< HEAD*/
 .drag-target-border{ /* this is new 5/22/17*/
   border: black solid 2px;
 }
@@ -223,6 +244,12 @@ button.list-options-button:focus, input[type="button"]:focus {
 .blue{
   background-color: #33d4e0;
 }
-/*>>>>>>> cc1e482aa4b2e89c49dae5b90866baa1bab50fa4
-*/
+
+.wholeBox{
+  position:relative;
+  z-index: 0;
+  /*display:inline;*/
+  /*background-attachment: initial;*/
+}
+
 
