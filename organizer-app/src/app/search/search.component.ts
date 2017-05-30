@@ -85,5 +85,13 @@ console.log(month);
       return;
    }
    }
+   testing(){
+   console.log("apple");
+   }
+   clearSearch(){
+   console.log("apple");
+   this.searchItem = "";
+   this.searchItem2 = " ";
 
+   }
 }
