@@ -153,6 +153,7 @@ export class TodolistComponent implements OnInit {
         showDropdown: this.showDropdown
       });
   }
+  /*
   setBackground(className, key) {
     this.color = className;
     this.todoLists.update(key, {
@@ -166,6 +167,7 @@ export class TodolistComponent implements OnInit {
       showDropdown: false
     });
   }
+  */
 
 }
 
