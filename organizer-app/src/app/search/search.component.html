@@ -1,0 +1,38 @@
+<form autocomplete="off" (submit)="searchMethod(searchItem)">
+              <input placeholder="Search To-Dos Here!" type="text" [(ngModel)]="searchItem" name="test">
+</form>
+
+<ul>
+
+
+<li  *ngFor="let todo of items | async" >
+
+
+
+  <span  *ngIf= "todo.Activity.name == searchItem2" >
+    Found at List:
+
+    {{parseListName(todo.listname, todo.inList)}}
+    {{List_Name}}
+
+<br />
+Done:
+  {{  todo.checkedOff}}
+<br />
+
+</span>
+
+
+
+
+
+
+            </li>
+
+          </ul>
+        <!--
+{{markFalse()}}
+          <span  *ngIf= "FoundChecker == 'false' " >
+          Not Found! :(
+        </span>
+-->

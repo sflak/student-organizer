@@ -27,7 +27,6 @@ export class BucketDayComponent implements OnInit {
   temp5: string;
 
   showEditor = false;
-  checkedOff = false;
   showDropdown = false;
 
   constructor(af: AngularFireDatabase) {
@@ -53,7 +52,8 @@ onTodoDrop(e: any) {
   //  this.todolist3.push({ Activity: temp})   ;
   // this.todoBucket.push({ Activity: temp})   ;
 
-  this.temp5 = "" + this.today.getFullYear() + this.today.getMonth() +this.today.getDate()
+//  this.temp5 = "" + this.today.getFullYear() + this.today.getMonth() +this.today.getDate()
+this.temp5 = "" + this.today.getFullYear() + ' '  + this.today.getMonth() + ' ' +this.today.getDate();
   // var my =  this.today.charAt(2);
     // let temp2 = new Activity(e.dragData, "test_list", "foo");
    console.log(this.temp5);
@@ -63,21 +63,27 @@ onTodoDrop(e: any) {
     listname: this.temp5
   });
 
+  this.items.update(e.dragData, {
+    inList: false
+  });
+
 
 }
 
-  itemChecked(key) {
-    this.checkedOff = !this.checkedOff;
-    console.log(this.checkedOff);
-    if (this.checkedOff) {
-      this.items.update(key, {
-        checkedOff: this.checkedOff
-      });
-    } else {
-      this.items.update(key, {
-        checkedOff: this.checkedOff
+  itemChecked(key,checkedOff) {
+    console.log(checkedOff);
+    if(checkedOff){
+        this.items.update(key, {
+        checkedOff: true
       });
     }
+    else{
+        this.items.update(key, {
+        checkedOff: false
+      });
+
+    }
+
   }
   showOptions() {
     this.showDropdown = !this.showDropdown;

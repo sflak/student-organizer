@@ -9,11 +9,11 @@
     <div droppable class="droppable" [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event)">
 	      	<ul>
 	     		 <li draggable *ngFor="let item of items | async"  >
-             <div class="item-container" [ngClass]="item.color" draggable *ngIf= "item.listname == '' + today.getFullYear() + today.getMonth() + today.getDate()"   [dragOverClass]="'drag-over-border'"
+             <div class="item-container" [ngClass]="item.color" draggable *ngIf= "item.listname == '' + today.getFullYear() + ' ' + today.getMonth() + ' ' + today.getDate()"   [dragOverClass]="'drag-over-border'"
                   [dragData]="item.$key">
                <div class="todo-item">
                  <div class="left">
-                   <input type="checkbox" value="true" [ngClass]="item.color" [(ngModel)]="item.checkedOff" (click)="itemChecked(item.$key)">
+                   <input type="checkbox" [ngClass]="item.color" (change)="itemChecked(item.$key,this.item.checkedOff)" [(ngModel)]="this.item.checkedOff" >
                  </div>
                  <div class="left todo-description">
                    <p>{{item.Activity.name}}</p>

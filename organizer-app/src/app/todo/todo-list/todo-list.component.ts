@@ -25,7 +25,7 @@ export class TodolistComponent implements OnInit {
 
   // checkedOff should be a property of the item
   // itemsChecked should be a global counter
-   checkedOff = false;
+   checkedOff:boolean;
    itemsChecked = 0;
 
    inputField = '';
@@ -106,6 +106,9 @@ export class TodolistComponent implements OnInit {
       listname: nameOfList
     });
 
+    this.items.update(e.dragData, {
+      inList: true
+    });
 
   }
   addTodoItems(listName, activityName, color) {
@@ -119,7 +122,8 @@ export class TodolistComponent implements OnInit {
         listname: listName,
         checkedOff: false,
         Activity: temp,
-        color: color
+        color: color,
+        inList: true // true if in one of the todolists. false if in one of buckets
     });
     this.inputField = '';
   }
@@ -128,21 +132,20 @@ export class TodolistComponent implements OnInit {
   // *** the true/false sent to database works but clicking check sometimes doesn't
   // visually show the check and also refresh doesn't save the checked state
   // so there is a small bug.
-  itemChecked(key) {
-    console.log("before switch: " + this.checkedOff);
-    this.checkedOff = !this.checkedOff;
-    console.log(this.checkedOff);
-    if (this.checkedOff) {
-      this.itemsChecked += 1; // not needed since we query from firebase
-      this.items.update(key, {
-        checkedOff: this.checkedOff
-      });
-    } else {
-      this.itemsChecked -= 1; // not needed since we query from firebase
-      this.items.update(key, {
-        checkedOff: this.checkedOff
+  itemChecked(key,checkedOff) {
+    console.log(checkedOff);
+    if(checkedOff){
+        this.items.update(key, {
+        checkedOff: true
       });
     }
+    else{
+        this.items.update(key, {
+        checkedOff: false
+      });
+
+    }
+
   }
   displayDropdown(key) {
       this.showDropdown = !this.showDropdown;
@@ -150,6 +153,7 @@ export class TodolistComponent implements OnInit {
         showDropdown: this.showDropdown
       });
   }
+  /*
   setBackground(className, key) {
     this.color = className;
     this.todoLists.update(key, {
@@ -163,6 +167,7 @@ export class TodolistComponent implements OnInit {
       showDropdown: false
     });
   }
+  */
 
 }
 
