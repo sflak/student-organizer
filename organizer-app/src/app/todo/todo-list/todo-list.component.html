@@ -3,7 +3,7 @@
 
 
   <ul>
-    <li droppable class="droppable" *ngFor="let list of todoLists | async" (onDrop)="onTodoDrop($event,list.listName)">
+    <li droppable class="droppable" *ngFor="let list of todoLists | async" (onDrop)="onTodoDrop($event,list.listName,list.$key)">
       <div class="todo-list-box" [ngClass]="list.color">
         <div class="list-label"> <h3>	{{list.listName}} </h3>
           <button class="list-options-button" (click)="displayDropdown(list.$key)">&#8230;</button>

@@ -97,13 +97,14 @@ export class TodolistComponent implements OnInit {
 
 
 
-  onTodoDrop(e: any,nameOfList: any) {
+  onTodoDrop(e: any,nameOfList: any,listKey) {
 
-
+    console.log(listKey);
     let LISTNAME = "" + nameOfList;
 
     this.items.update(e.dragData, {
       listname: nameOfList,
+      prevListKey: listKey
     });
 
     this.items.update(e.dragData, {
