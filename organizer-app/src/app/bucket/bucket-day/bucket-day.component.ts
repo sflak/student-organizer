@@ -52,7 +52,8 @@ onTodoDrop(e: any) {
   //  this.todolist3.push({ Activity: temp})   ;
   // this.todoBucket.push({ Activity: temp})   ;
 
-  this.temp5 = "" + this.today.getFullYear() + this.today.getMonth() +this.today.getDate()
+//  this.temp5 = "" + this.today.getFullYear() + this.today.getMonth() +this.today.getDate()
+this.temp5 = "" + this.today.getFullYear() + ' '  + this.today.getMonth() + ' ' +this.today.getDate();
   // var my =  this.today.charAt(2);
     // let temp2 = new Activity(e.dragData, "test_list", "foo");
    console.log(this.temp5);
@@ -60,6 +61,10 @@ onTodoDrop(e: any) {
   // today
   this.items.update(e.dragData,{
     listname: this.temp5
+  });
+
+  this.items.update(e.dragData, {
+    inList: false
   });
 
 

@@ -106,6 +106,9 @@ export class TodolistComponent implements OnInit {
       listname: nameOfList
     });
 
+    this.items.update(e.dragData, {
+      inList: true
+    });
 
   }
   addTodoItems(listName, activityName, color) {
@@ -119,7 +122,8 @@ export class TodolistComponent implements OnInit {
         listname: listName,
         checkedOff: false,
         Activity: temp,
-        color: color
+        color: color,
+        inList: true // true if in one of the todolists. false if in one of buckets
     });
     this.inputField = '';
   }

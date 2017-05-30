@@ -36,6 +36,7 @@ import {Ng2DragDropModule} from "ng2-drag-drop";
 import { EditEventComponent } from './todo/todo-list/todo-item/edit-event/edit-event.component';
 
 import { GlobalDataService } from './shared/globaldata.service';
+import { SearchComponent } from './search/search.component';
 
 
 export const firebaseConfig = {
@@ -74,7 +75,9 @@ const routes: Routes = [
 
     ProgressBarComponent,
 
-    EditEventComponent
+    EditEventComponent,
+
+    SearchComponent
   ],
   providers: [AF,GlobalDataService],
   imports: [
