@@ -12,7 +12,7 @@
         <div class="clear"></div>
         <div class="list-item-box">
           <ul>
-            <form autocomplete="off" (submit)="addTodoItems(list.listName, list.tempActivity, list.color)">
+            <form autocomplete="off" (submit)="addTodoItems(list.listName, list.tempActivity, list.color, list.$key)">
               <input placeholder="Add to-do" type="text" [(ngModel)]="list.tempActivity" name="test">
             </form>
 

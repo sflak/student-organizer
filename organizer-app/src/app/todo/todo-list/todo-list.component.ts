@@ -103,7 +103,7 @@ export class TodolistComponent implements OnInit {
     let LISTNAME = "" + nameOfList;
 
     this.items.update(e.dragData, {
-      listname: nameOfList
+      listname: nameOfList,
     });
 
     this.items.update(e.dragData, {
@@ -111,7 +111,7 @@ export class TodolistComponent implements OnInit {
     });
 
   }
-  addTodoItems(listName, activityName, color) {
+  addTodoItems(listName, activityName, color, listKey) {
       console.log('test' + listName + activityName);
       this.tex3 = ''; // placeholder for edit button later
       let temp = new Activity(activityName, listName, this.tex3);
@@ -121,6 +121,7 @@ export class TodolistComponent implements OnInit {
         finishTime: '',
         listname: listName,
         checkedOff: false,
+        prevListKey: listKey,
         Activity: temp,
         color: color,
         inList: true // true if in one of the todolists. false if in one of buckets
@@ -163,6 +164,18 @@ export class TodolistComponent implements OnInit {
     this.todoLists.update(key, {
       showDropdown: false
     });
+
+
+   this.items.take(1).subscribe(items => {
+
+    items.forEach(item => {if (item.prevListKey === key) {
+      this.items.update(item.$key,{ 
+        color: className
+      });
+      }
+    });
+    });
+
   }
 
 
