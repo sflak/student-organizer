@@ -97,13 +97,14 @@ export class TodolistComponent implements OnInit {
 
 
 
-  onTodoDrop(e: any,nameOfList: any) {
+  onTodoDrop(e: any,nameOfList: any,listKey) {
 
-
+    console.log(listKey);
     let LISTNAME = "" + nameOfList;
 
     this.items.update(e.dragData, {
-      listname: nameOfList
+      listname: nameOfList,
+      prevListKey: listKey
     });
 
     this.items.update(e.dragData, {
@@ -111,7 +112,7 @@ export class TodolistComponent implements OnInit {
     });
 
   }
-  addTodoItems(listName, activityName, color) {
+  addTodoItems(listName, activityName, color, listKey) {
       console.log('test' + listName + activityName);
       this.tex3 = ''; // placeholder for edit button later
       let temp = new Activity(activityName, listName, this.tex3);
@@ -121,6 +122,7 @@ export class TodolistComponent implements OnInit {
         finishTime: '',
         listname: listName,
         checkedOff: false,
+        prevListKey: listKey,
         Activity: temp,
         color: color,
         inList: true // true if in one of the todolists. false if in one of buckets
@@ -153,21 +155,30 @@ export class TodolistComponent implements OnInit {
         showDropdown: this.showDropdown
       });
   }
-  /*
+
   setBackground(className, key) {
     this.color = className;
     this.todoLists.update(key, {
         color: this.color
       });
-    this.items.update(key, {
-      color: this.color
-    });
 
     this.todoLists.update(key, {
       showDropdown: false
     });
+
+
+   this.items.take(1).subscribe(items => {
+
+    items.forEach(item => {if (item.prevListKey === key) {
+      this.items.update(item.$key,{ 
+        color: className
+      });
+      }
+    });
+    });
+
   }
-  */
+
 
 }
 
@@ -177,3 +188,11 @@ export interface AngularFireObject {
   $key: string;
   $value?: any;
 }
+// TODO
+// Double check bug (need to check the box twice for it to work)
+// Todo items in calendar should change color when the list its assigned to changes color
+// Add more list color options
+// Style time edit component
+// Should window reload on resize?
+// strike through todo when checked
+
