@@ -16,38 +16,30 @@ export class SearchComponent implements OnInit {
         const path = `/users/${this.userData.uid}`; // access user data
         this.items = af.list(path + `/items`);  // all items of every todolist
 
-this.FoundChecker = 'false';
+
 
 
        }
-       console(e:any){
-       console.log(e);
-       }
-searchItem; // text editor for search item in form
-searchItem2;
+
+       searchItem; // text editor for search item in form
+       searchItem2;
   ngOnInit() {
   }
-FoundChecker :string;
+
   searchMethod(e:any){
 
 
 
   this.searchItem2= "" + e;
-  console.log(this.searchItem);
+
   }
-   markFound(){
-   this.FoundChecker = 'true';
-   }
-   markFalse(){
-   this.FoundChecker = 'false';
-   }
+
+
    List_Name:string;
 
    parseListName(e:string, listChecker:boolean){
-   console.log(listChecker);
-  let num1: number = 9;
-  let num2:number = 8;
-  if(/*e.length == num1 || e.length == num2 */ listChecker == false){
+
+  if( listChecker == false){
   var str = "" + e;
   var splitted = str.split(" ", 3);
 
@@ -56,28 +48,28 @@ FoundChecker :string;
     month = "January";
     if(splitted[1] == "1")
       month = "February";
-      if(splitted[1] == "2")
+    if(splitted[1] == "2")
         month = "March";
-        if(splitted[1] == "3")
-          month = "April";
-          if(splitted[1] == "4")
-            month = "May";
-            if(splitted[1] == "5")
-              month = "June";
-              if(splitted[1] == "6")
-                month = "July";
-                if(splitted[1] == "7")
-                  month = "August";
-                  if(splitted[1] == "8")
-                    month = "September";
-                    if(splitted[1] == "9")
-                      month = "October";
-                      if(splitted[1] == "10")
-                        month = "Novemember";
-                        if(splitted[1] == "11")
-                          month = "December";
+    if(splitted[1] == "3")
+        month = "April";
+    if(splitted[1] == "4")
+        month = "May";
+    if(splitted[1] == "5")
+        month = "June";
+    if(splitted[1] == "6")
+        month = "July";
+    if(splitted[1] == "7")
+        month = "August";
+    if(splitted[1] == "8")
+        month = "September";
+    if(splitted[1] == "9")
+        month = "October";
+    if(splitted[1] == "10")
+        month = "Novemember";
+    if(splitted[1] == "11")
+        month = "December";
 
-console.log(month);
+
  this.List_Name = "" + month + " " + splitted[2] +" " +  splitted[0];
   }
   else{
@@ -85,13 +77,11 @@ console.log(month);
       return;
    }
    }
-   testing(){
-   console.log("apple");
-   }
+
    clearSearch(){
-   console.log("apple");
+
    this.searchItem = "";
-   this.searchItem2 = " ";
+   this.searchItem2 = "";
 
    }
 }
