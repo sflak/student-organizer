@@ -1,8 +1,3 @@
-
-
-
-
-
   <ul>
     <li droppable class="droppable" *ngFor="let list of todoLists | async" (onDrop)="onTodoDrop($event,list.listName,list.$key)">
       <div class="todo-list-box" [ngClass]="list.color">
@@ -13,7 +8,8 @@
           <h3>  {{list.listName}} </h3>
           <button class="list-options-button" (click)="displayDropdown(list.$key)">&#8230;</button>
 
-           </div>
+          
+        </div>
         <div class="clear"></div>
         <div class="list-item-box">
           <ul>
@@ -49,8 +45,8 @@
           </ul>
         </div>
       </div>
-      <!--<div class="dropdown" *ngIf="list.showDropdown">-->
-        <div class = "dropdown" [style.position]="list.showDropdown ? 'relative' : 'absolute'">
+      <div class="dropdown" *ngIf="list.showDropdown">
+        <!--<div class = "dropdown" [style.position]="list.showDropdown ? 'relative' : 'absolute'">-->
         <div id="myDropdown" class="dropdown-content">
           <div class="color-button" (click)="setBackground('default',list.$key)"><div class="circle default"></div><p>Default</p></div>
           <div class="color-button" (click)="setBackground('green',list.$key)"><div class="circle green"></div><p>Bright Green</p></div>

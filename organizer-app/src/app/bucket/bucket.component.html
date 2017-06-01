@@ -1,5 +1,5 @@
 <div class = "container">
-  <button
+  <!--<button
     type="button"
     class="prevWeekButton"
     (click)="prevWeek()">prev
@@ -17,12 +17,10 @@
     (click)="nextWeek()">next
       <span class="tooltiptext">Next Week</span>
   </button>
-  <h1>{{getMonth()}}</h1>
-  <h4>{{getYear()}}</h4>
 </div>
 <div class="clear"></div>
 <div [ngStyle] = "bucketDiv">
-<div>
+<div>-->
   <div class="month-header">
     <div class="month-info container">
       <p
@@ -32,7 +30,9 @@
       <p
         class="nextWeekButton"
         (click)="nextWeek()"><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></p>
-      <h1>{{ today | date:"MMMM" }}</h1>
+      <!--<h1>{{ today | date:"MMMM" }}</h1>-->
+      <h1  (click)="returnToToday()">{{getMonth()}}</h1>
+      <h4>{{getYear()}}</h4>
     </div>
   </div>
 

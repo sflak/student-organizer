@@ -30,10 +30,11 @@ button.list-options-button:focus, input[type="button"]:focus {
   margin: 0;
 }
 
-i.fa {
+.fa-trash-o{
   float: right;
   margin: 5px;
 }
+
 .list-label {
   /*margin-left: 20px;*/
   text-align: center;
@@ -47,10 +48,6 @@ i.fa {
   float: left;
   background-color: #4A91B5;
   margin-bottom: 20px;
-
-  position:relative;
-  z-index: 0;
-  display:inline;
 }
 .list-item-box {
   background-color: white;
@@ -58,9 +55,6 @@ i.fa {
   overflow: scroll;
   height: 150px;
   width: 236px;
-
-  position: relative;
-  z-index: 0;
 }
 .list-item-box ul {
   padding: 4px;
@@ -75,9 +69,6 @@ i.fa {
   border: solid #9B9B9B 4px;
   float: left;
   cursor: pointer;
-
-  position:relative;
-  display:inline;
 }
 .add-todo-list-button p {
   font-size: 40px;
@@ -145,13 +136,6 @@ i.fa {
   background-color: white;
   float: left;
   box-shadow: 1px 1px 7px #888888;
-
-  position: relative;
-  z-index: 1;
-  /*bottom: 125%;*/
-    /*left: 100%;*/
-    /*margin-left: -60px;*/
-    /*opacity: 1;*/
 }
 
 .dropdown-content{
@@ -230,6 +214,7 @@ div.add-todo-list-button{
   padding-left: 5px;
   padding-top:5px;
   float:left;
+  display:inline;
   /*margin-top: 10%;*/
 }
 
@@ -312,12 +297,3 @@ div.add-todo-list-button{
 .blue-checkbox{
   border: solid 1px #33d4e0;
 }
-
-.wholeBox{
-  position:relative;
-  z-index: 0;
-  /*display:inline;*/
-  /*background-attachment: initial;*/
-}
-
-
