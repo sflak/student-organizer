@@ -101,4 +101,7 @@ export class SearchComponent implements OnInit {
    this.searchedToggle = false; // reset toggle
 
   }
+  removeItem(key) {
+    this.items.remove(key);
+  }
 }

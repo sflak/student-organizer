@@ -1,5 +1,5 @@
 <form autocomplete="off" (submit)="searchMethod(searchItem)">
-              <input placeholder="Quick search" type="text" [(ngModel)]="searchItem" name="test">        
+              <input placeholder="Quick search" type="text" [(ngModel)]="searchItem" name="test">
 </form>
 <button (click)="clearSearch()">Clear</button>
 <ul>
@@ -17,6 +17,10 @@
         <span *ngIf = "todo.checkedOff == false" >
           Item not done
         </span>
+          <br />
+          <button (click)="removeItem(todo.$key)">Remove Item</button>
+          <br />
+        ----------------------------------------------------
       <br />
     </span>
   </li>
@@ -29,12 +33,3 @@
     {{message}}
   </span>
 </span>
-
-
-
-        <!--
-{{markFalse()}}
-          <span  *ngIf= "FoundChecker == 'false' " >
-          Not Found! :(
-        </span>
--->
