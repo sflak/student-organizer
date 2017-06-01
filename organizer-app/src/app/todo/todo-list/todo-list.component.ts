@@ -155,7 +155,12 @@ export class TodolistComponent implements OnInit {
         showDropdown: this.showDropdown
       });
   }
-
+  editItem(key,editedName) {
+  let temp = new Activity(editedName, " ", " ");
+  this.items.update(key,{
+    Activity: temp
+  });
+  }
   setBackground(className, key) {
     this.color = className;
     this.todoLists.update(key, {
@@ -170,7 +175,7 @@ export class TodolistComponent implements OnInit {
    this.items.take(1).subscribe(items => {
 
     items.forEach(item => {if (item.prevListKey === key) {
-      this.items.update(item.$key,{ 
+      this.items.update(item.$key,{
         color: className
       });
       }
@@ -195,4 +200,3 @@ export interface AngularFireObject {
 // Style time edit component
 // Should window reload on resize?
 // strike through todo when checked
-
