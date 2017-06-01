@@ -1,35 +1,37 @@
 <form autocomplete="off" (submit)="searchMethod(searchItem)">
-              <input placeholder="Search To-Dos Here!" type="text" [(ngModel)]="searchItem" name="test">
+              <input placeholder="Quick search" type="text" [(ngModel)]="searchItem" name="test">        
 </form>
-  <button (click)="clearSearch()">Clear Search!</button>
+<button (click)="clearSearch()">Clear</button>
 <ul>
+  <li  *ngFor="let todo of items | async" >
+    <span *ngIf = "todo.Activity.name == searchItem2" >
+      {{itemFound()}} <!-- an item has been found -->
+      Found at List:
 
+      {{parseListName(todo.listname, todo.inList)}}
+      {{List_Name}}
+      <br />
+        <span *ngIf = "todo.checkedOff == true" >
+          Item completed
+        </span>
+        <span *ngIf = "todo.checkedOff == false" >
+          Item not done
+        </span>
+      <br />
+    </span>
+  </li>
+</ul>
 
-<li  *ngFor="let todo of items | async" >
-
-
-
-  <span  *ngIf= "todo.Activity.name == searchItem2" >
-    Found at List:
-
-    {{parseListName(todo.listname, todo.inList)}}
-    {{List_Name}}
-
-<br />
-Done:
-  {{  todo.checkedOff}}
-<br />
-
+<!-- this will happen when no searches come up -->
+<span *ngIf = "searchedToggle == true" > <!-- if the search has been conducted -->
+  <span *ngIf = "itemFoundToggle == false"> <!-- and no items have been found -->
+    {{errorMessage()}} <!-- print message  -->
+    {{message}}
+  </span>
 </span>
 
 
 
-
-
-
-            </li>
-
-          </ul>
         <!--
 {{markFalse()}}
           <span  *ngIf= "FoundChecker == 'false' " >
