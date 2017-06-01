@@ -2,9 +2,19 @@ div {
   text-align: center;
 
 }
+div .month-header{
+  width: 100vw;
+  height: 46px;
+  font-size: 20px;
+  background-color: #A5EBC3;
+  color: white;
+}
 h1 {
   margin: 20px auto 0px auto;
+  margin: 0 auto 20px auto;
+  padding: 5px  0 10px 0;
   font-weight: 400;
+  font-size: 30px;
 }
 
 h4 {
@@ -13,17 +23,20 @@ h4 {
 }
 
 .prevWeekButton{
-    position: relative;
-    float:left;
+  position: relative;
+  float:left;
+  cursor: pointer;
 }
 
 .returnToTodayButton{
     position: relative;
 }
 
+
 .nextWeekButton{
     position: relative;
     float:right;
+  cursor: pointer;
 }
 
 div .clear {

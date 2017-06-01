@@ -23,11 +23,11 @@ export class BucketDayComponent implements OnInit {
   Activity;
 
   userData = JSON.parse(localStorage.getItem('userData')); // used for UID
-  items: FirebaseListObservable<any[]>; 
+  items: FirebaseListObservable<any[]>;
   temp5: string;
 
-  showEditor: boolean = false;
-  checkedOff = false;
+  showEditor = false;
+  showDropdown = false;
 
   constructor(af: AngularFireDatabase) {
     const path = `/users/${this.userData.uid}`; // access user data
@@ -37,9 +37,6 @@ export class BucketDayComponent implements OnInit {
   ngOnInit() {
   }
 
-todoBucket = [
-];
-
 
   deleteTodoItems(key) {
     this.items.remove(key);
@@ -47,39 +44,50 @@ todoBucket = [
 
 
 onTodoDrop(e: any) {
-//console.log(e.dragData);
-//console.log("apple");
+// console.log(e.dragData);
+// console.log("apple");
 //  this.todoBucket.push(e.dragData);
-//console.log(e.dragData);
-//let temp = new Activity("recycle", "test_list", "foo");
+// console.log(e.dragData);
+// let temp = new Activity("recycle", "test_list", "foo");
   //  this.todolist3.push({ Activity: temp})   ;
-  //this.todoBucket.push({ Activity: temp})   ;
+  // this.todoBucket.push({ Activity: temp})   ;
 
-  this.temp5 = "" + this.today.getFullYear() + this.today.getMonth() +this.today.getDate()
-  //var my =  this.today.charAt(2);
-    //let temp2 = new Activity(e.dragData, "test_list", "foo");
+//  this.temp5 = "" + this.today.getFullYear() + this.today.getMonth() +this.today.getDate()
+this.temp5 = "" + this.today.getFullYear() + ' '  + this.today.getMonth() + ' ' +this.today.getDate();
+  // var my =  this.today.charAt(2);
+    // let temp2 = new Activity(e.dragData, "test_list", "foo");
    console.log(this.temp5);
    console.log(e.dragData);
-  //  today
+  // today
   this.items.update(e.dragData,{
     listname: this.temp5
+  });
+
+  this.items.update(e.dragData, {
+    inList: false
   });
 
 
 }
 
-  itemChecked(key) {
-    this.checkedOff = !this.checkedOff;
-    console.log(this.checkedOff);
-    if (this.checkedOff) {
-      this.items.update(key, {
-        checkedOff: this.checkedOff
-      });
-    } else {
-      this.items.update(key, {
-        checkedOff: this.checkedOff
+  itemChecked(key,checkedOff) {
+    console.log(checkedOff);
+    if(checkedOff){
+        this.items.update(key, {
+        checkedOff: true
       });
     }
+    else{
+        this.items.update(key, {
+        checkedOff: false
+      });
+
+    }
+
+  }
+  showOptions() {
+    this.showDropdown = !this.showDropdown;
+    console.log("showDropdown= ", this.showDropdown);
   }
 
 

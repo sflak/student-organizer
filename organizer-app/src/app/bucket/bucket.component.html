@@ -22,9 +22,30 @@
 </div>
 <div class="clear"></div>
 <div [ngStyle] = "bucketDiv">
+<div>
+  <div class="month-header">
+    <div class="month-info container">
+      <p
+        class="prevWeekButton"
+        (click)="prevWeek()"><i class="fa fa-angle-left fa-2x" aria-hidden="true"></i></p>
 
-  <app-bucket-day *ngFor="let day of days"
-                  [today] = day.theDate
-                  [todos] = day.todoItems></app-bucket-day>  
+      <p
+        class="nextWeekButton"
+        (click)="nextWeek()"><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></p>
+      <h1>{{ today | date:"MMMM" }}</h1>
+    </div>
+  </div>
+
+  <div class="clear"></div>
+
+  <div>
+
+    <app-bucket-day *ngFor="let day of days"
+                    [today] = day.theDate
+                    [todos] = day.todoItems>
+
+    </app-bucket-day>
+
+  </div>
 
 </div>

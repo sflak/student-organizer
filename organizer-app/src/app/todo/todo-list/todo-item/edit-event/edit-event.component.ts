@@ -48,7 +48,7 @@ export class EditEventComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("showEdit: "+this.showEdit);
+
   }
 
   showEditBox(){

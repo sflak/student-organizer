@@ -21,17 +21,17 @@ export class TodolistComponent implements OnInit {
    key;
 
    needName = false;
-   showDropdown = true;
+   showDropdown = false;
 
   // checkedOff should be a property of the item
   // itemsChecked should be a global counter
-   checkedOff = false;
+   checkedOff:boolean;
    itemsChecked = 0;
 
    inputField = '';
    tempActivity = '';
    // custom color
-  color: 'default';
+    color = 'default';
 
 
 
@@ -97,18 +97,22 @@ export class TodolistComponent implements OnInit {
 
 
 
-  onTodoDrop(e: any,nameOfList: any) {
+  onTodoDrop(e: any,nameOfList: any,listKey) {
 
-
+    console.log(listKey);
     let LISTNAME = "" + nameOfList;
 
     this.items.update(e.dragData, {
-      listname: nameOfList
+      listname: nameOfList,
+      prevListKey: listKey
     });
 
+    this.items.update(e.dragData, {
+      inList: true
+    });
 
   }
-  addTodoItems(listName, activityName) {
+  addTodoItems(listName, activityName, color, listKey) {
       console.log('test' + listName + activityName);
       this.tex3 = ''; // placeholder for edit button later
       let temp = new Activity(activityName, listName, this.tex3);
@@ -118,7 +122,10 @@ export class TodolistComponent implements OnInit {
         finishTime: '',
         listname: listName,
         checkedOff: false,
-        Activity: temp
+        prevListKey: listKey,
+        Activity: temp,
+        color: color,
+        inList: true // true if in one of the todolists. false if in one of buckets
     });
     this.inputField = '';
   }
@@ -127,21 +134,20 @@ export class TodolistComponent implements OnInit {
   // *** the true/false sent to database works but clicking check sometimes doesn't
   // visually show the check and also refresh doesn't save the checked state
   // so there is a small bug.
-  itemChecked(key) {
-    console.log("before switch: " + this.checkedOff);
-    this.checkedOff = !this.checkedOff;
-    console.log(this.checkedOff);
-    if (this.checkedOff) {
-      this.itemsChecked += 1; // not needed since we query from firebase
-      this.items.update(key, {
-        checkedOff: this.checkedOff
-      });
-    } else {
-      this.itemsChecked -= 1; // not needed since we query from firebase
-      this.items.update(key, {
-        checkedOff: this.checkedOff
+  itemChecked(key,checkedOff) {
+    console.log(checkedOff);
+    if(checkedOff){
+        this.items.update(key, {
+        checkedOff: true
       });
     }
+    else{
+        this.items.update(key, {
+        checkedOff: false
+      });
+
+    }
+
   }
   displayDropdown(key) {
       this.showDropdown = !this.showDropdown;
@@ -149,16 +155,30 @@ export class TodolistComponent implements OnInit {
         showDropdown: this.showDropdown
       });
   }
+
   setBackground(className, key) {
     this.color = className;
-     this.todoLists.update(key, {
+    this.todoLists.update(key, {
         color: this.color
       });
 
     this.todoLists.update(key, {
       showDropdown: false
     });
+
+
+   this.items.take(1).subscribe(items => {
+
+    items.forEach(item => {if (item.prevListKey === key) {
+      this.items.update(item.$key,{ 
+        color: className
+      });
+      }
+    });
+    });
+
   }
+
 
 }
 
@@ -168,3 +188,11 @@ export interface AngularFireObject {
   $key: string;
   $value?: any;
 }
+// TODO
+// Double check bug (need to check the box twice for it to work)
+// Todo items in calendar should change color when the list its assigned to changes color
+// Add more list color options
+// Style time edit component
+// Should window reload on resize?
+// strike through todo when checked
+

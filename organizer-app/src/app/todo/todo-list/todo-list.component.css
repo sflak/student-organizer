@@ -11,7 +11,7 @@ ul {
   list-style: none;
 }
 .drag-over-border{
-	border: #ff525b dashed 2px;
+	border: #D1496F dashed 1px;
 }
 .list-options-button{
   float: right;
@@ -25,12 +25,14 @@ ul {
 button.list-options-button:focus, input[type="button"]:focus {
   outline: none;
 }
-.item-delete-button {
+.right p {
+  color: black;
+  margin: 0;
+}
+
+i.fa {
   float: right;
-  margin-right: 5px;
-  width: 2px;
-  font-size: 16px;
-  /*background-color: #ff525b;*/
+  margin: 5px;
 }
 .list-label {
   /*margin-left: 20px;*/
@@ -88,14 +90,28 @@ button.list-options-button:focus, input[type="button"]:focus {
 
 }
 .todo-item input {
+  -webkit-appearance: none;
   width: 13px;
-  height: 17px;
+  height: 13px;
   padding: 3px 0 0 0;
   margin:3px 5px 0 5px;
   vertical-align: bottom;
   position: relative;
   top: -1px;
   *overflow: hidden;
+  background-color: white;
+
+}
+.todo-item input:checked:after {
+  content: '\2714';
+  font-size: 14px;
+  position: absolute;
+  top: -2px;
+  left: 0;
+
+}
+.todo-item input:focus, input[type="checkbox"]:focus {
+  outline: none;
 }
 .todo-item {
   margin: 1px 0 auto 0;
@@ -103,7 +119,6 @@ button.list-options-button:focus, input[type="button"]:focus {
   height: 34px;
   padding-top: 4px;
   background-color: white;
-  border-bottom: solid #4A91B5 1px;
 }
 
 .todo-item div.left{
@@ -181,7 +196,32 @@ button.list-options-button:focus, input[type="button"]:focus {
 }
 
 .label-input-form-holder {
-  margin-left: 52px;
+  float: left;
+  padding: 5px;
+}
+.has-border{
+  border: solid 2px #6BC893;
+}
+div .addList{
+  padding: 2px;
+  float: left;
+  width: 62px;
+  height: 29px;
+  border: solid 2px #EE9BB2;
+  margin-top: -8px;
+  font-family: Avenir, Helvetica, sans-serif;
+  text-align: center;
+  cursor: pointer;
+  background-color: white;
+}
+p.escape {
+  float: right;
+  color: #EE9BB2;
+  margin: 0;
+  cursor: pointer;
+}
+div.add-todo-list-button{
+  background-color: white;
 }
 
 .fa-question-circle-o{
@@ -234,15 +274,43 @@ button.list-options-button:focus, input[type="button"]:focus {
 /*Custom list color styles*/
 .default {
   background-color: #4A91B5;
+  color: #4A91B5;
+}
+.default-border {
+  border-bottom: solid 1px #4A91B5;
+}
+.default-checkbox {
+  border: solid 1px #4A91B5;
 }
 .green {
   background-color: #a4d400;
+  color: #a4d400;
+}
+.green-border{
+  border-bottom: solid 1px #a4d400;
+}
+.green-checkbox{
+  border: solid 1px #a4d400;
 }
 .pink{
   background-color: #f200a3;
+  color: #f200a3;
+}
+.pink-border{
+  border-bottom: solid 1px #f200a3;
+}
+.pink-checkbox{
+  border: solid 1px #f200a3;
 }
 .blue{
   background-color: #33d4e0;
+  color: #33d4e0;
+}
+.blue-border{
+  border-bottom: solid 1px #33d4e0;
+}
+.blue-checkbox{
+  border: solid 1px #33d4e0;
 }
 
 .wholeBox{

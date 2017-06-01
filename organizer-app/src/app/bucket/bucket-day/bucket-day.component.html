@@ -8,22 +8,36 @@
 
     <div droppable class="droppable" [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event)">
 	      	<ul>
-	     		 <li *ngFor="let item of items | async"  >
-              <div draggable class="draggable" [dragOverClass]="'drag-over-border'" [dragData]="item.$key" >
-                  <span *ngIf= "item.listname == '' + today.getFullYear() + today.getMonth() + today.getDate()">
-                      {{item.Activity.name}} <br>
-                        <span *ngIf="item.startTime != '-1' " >
-                          start {{item.startTime}} <br>
-                          finish {{item.finishTime}}
-                        </span>
-                        <button  (click) = "deleteTodoItems(item.$key)"> X </button>
-                        <button (click)="editor.showEditBox()">E</button>
-                        <div [style.display]="editor.showEdit ? 'inline' : 'none'">
-                          <app-edit-event #editor [key] = item.$key></app-edit-event>
-                        </div>
-                        <input type="checkbox" value="true" [(ngModel)]="item.checkedOff" (click)="itemChecked(item.$key)">
-          		    </span>
-              </div>
+	     		 <li draggable *ngFor="let item of items | async"  >
+             <div class="item-container" [ngClass]="item.color" draggable *ngIf= "item.listname == '' + today.getFullYear() + ' ' + today.getMonth() + ' ' + today.getDate()"   [dragOverClass]="'drag-over-border'"
+                  [dragData]="item.$key">
+               <div class="todo-item">
+                 <div class="left">
+                   <input type="checkbox" [ngClass]="item.color" (change)="itemChecked(item.$key,this.item.checkedOff)" [(ngModel)]="this.item.checkedOff" >
+                 </div>
+                 <div class="left todo-description">
+                   <p>{{item.Activity.name}}</p>
+                 </div>
+               </div>
+
+               <div class="clear"></div>
+
+                <div class="left option-buttons">
+                  <i (click)="editor.showEditBox()" class="fa fa-clock-o" aria-hidden="true" style="float:left; margin-right: 5px;"></i>
+                  <div class="time-info left" *ngIf="item.startTime != -1">
+                    <p>{{ item.startTime}} - {{ item.finishTime}}</p>
+                  </div>
+                </div>
+                 <div class="right option-buttons">
+                   <i (click) = "deleteTodoItems(item.$key)" class="fa fa-trash-o" aria-hidden="true"></i>
+                 </div>
+
+                 <div class="clear"></div>
+
+             </div>
+             <div [style.display]="editor.showEdit ? 'inline' : 'none'">
+               <app-edit-event #editor [key] = item.$key></app-edit-event>
+             </div>
 	     		 </li>
 	     	</ul>
     </div>
