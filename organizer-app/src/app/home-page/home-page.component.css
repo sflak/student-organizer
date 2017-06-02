@@ -18,7 +18,7 @@ app-todolist {
     border-bottom-color: white;
 
     overflow: auto;
-    }
+}
 div .clear {
   clear: both;
 }

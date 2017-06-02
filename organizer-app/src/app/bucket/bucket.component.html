@@ -1,17 +1,16 @@
-<div class = "container">
+<div>
   <!--<button
     type="button"
     class="prevWeekButton"
     (click)="prevWeek()">prev
       <span class="tooltiptext">Previous Week</span>
-  </button>
+  </button>-->
   <button
     type="button"
     class="returnToTodayButton"
     (click)="returnToToday()">today
-      <span class="tooltiptext">This Week</span>
   </button>
-  <button
+  <!--<button
     type="button"
     class="nextWeekButton"
     (click)="nextWeek()">next
@@ -30,8 +29,7 @@
       <p
         class="nextWeekButton"
         (click)="nextWeek()"><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></p>
-      <!--<h1>{{ today | date:"MMMM" }}</h1>-->
-      <h1  (click)="returnToToday()">{{getMonth()}}</h1>
+      <h1>{{getMonth()}}</h1>
       <h4>{{getYear()}}</h4>
     </div>
   </div>
