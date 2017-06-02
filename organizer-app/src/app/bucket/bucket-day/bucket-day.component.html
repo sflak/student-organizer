@@ -18,7 +18,7 @@
                  <div class="left todo-description">
                           <!--  <p>{{todo.Activity.name}}</p> -->
                    <form autocomplete="off" (submit)="editItem(item.$key,item.Activity.name)">
-                                 <input placeholder="Edit Item" type="text" [(ngModel)]="item.Activity.name" name="test">
+                     <input class="edit-activity" placeholder="Edit Item" type="text" [(ngModel)]="item.Activity.name" name="test">
                    </form>
                  </div>
                </div>
