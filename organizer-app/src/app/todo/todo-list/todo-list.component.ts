@@ -186,8 +186,23 @@ export class TodolistComponent implements OnInit {
   }
 
   editListName(key,name,newListName) {
-  console.log(name);
+   this.todoLists.subscribe(items => {
+    items.forEach(item => {if (item.listName === newListName) {
+      this.duplicateName = true;
+      }
+    });
+    });
+    if (this.duplicateName){
+       console.log('duplicate list name');
+       this.todoLists.subscribe(items => {
+         items.forEach(item => {if (item.listName != newListName) {
+           this.duplicateName = false;
+           }
+        });
+        });
+    }
 
+    else{
     this.items.take(1).subscribe(items => {
 
     items.forEach(item => {if (item.listname === name) {
@@ -203,6 +218,8 @@ export class TodolistComponent implements OnInit {
 
 
     });
+  }
+  
   }
   setBackground(className, key) {
     this.color = className;
