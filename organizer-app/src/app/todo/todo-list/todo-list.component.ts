@@ -41,6 +41,11 @@ export class TodolistComponent implements OnInit {
    tex4; // hold listname
 
    Activity;
+   TextEditorListName = '';
+   setTextEditorforListName(name: any){
+
+    this.TextEditorListName = "" + name;
+   }
 
   constructor(af: AngularFireDatabase,gd: GlobalDataService) {
     const path = `/users/${this.userData.uid}`; // access user data
@@ -161,9 +166,10 @@ export class TodolistComponent implements OnInit {
     Activity: temp
   });
   }
-/*
-  editListName(key,name) {
 
+  editListName(key,name) {
+  console.log("Testing editListName function");
+/*
     this.todoLists.update(key,{
       Activity: name // ???????????????? not really sure want to do lol
     });
@@ -178,8 +184,8 @@ export class TodolistComponent implements OnInit {
       }
     });
     });
-
-  }*/
+*/
+  }
   setBackground(className, key) {
     this.color = className;
     this.todoLists.update(key, {
