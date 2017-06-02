@@ -2,10 +2,9 @@
   <ul>
     <li droppable class="droppable" *ngFor="let list of todoLists | async" (onDrop)="onTodoDrop($event,list.listName,list.$key)">
       <div class="todo-list-box" [ngClass]="list.color">
-
-        {{ setTextEditorforListName(list.listName) }}
-        <form autocomplete="off" (submit)="editListName(list.$key, TextEditorListName)">
-                      <input placeholder="Edit List Name" type="text" [(ngModel)]="TextEditorListName" name="test">
+          <div class="list-label"> <h3>  {{list.listName}} </h3> </div>
+        <form autocomplete="off" (submit)="editListName(list.$key, list.listName,list.tempListName)">
+                      <input placeholder="Edit List Name" type="text" [(ngModel)]="list.tempListName" name="test">
         </form>
 
         <div class="list-label">

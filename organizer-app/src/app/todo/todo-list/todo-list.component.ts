@@ -167,24 +167,24 @@ export class TodolistComponent implements OnInit {
   });
   }
 
-  editListName(key,name) {
-  console.log("Testing editListName function");
-/*
-    this.todoLists.update(key,{
-      Activity: name // ???????????????? not really sure want to do lol
-    });
+  editListName(key,name,newListName) {
+  console.log(name);
 
     this.items.take(1).subscribe(items => {
 
     items.forEach(item => {if (item.listname === name) {
 
-      this.update(item.$key,{
-        listname: name
+      this.items.update(item.$key,{
+        listname: newListName
       });
       }
     });
+   this.todoLists.update(key,{
+      listName: newListName // ???????????????? not really sure want to do lol
     });
-*/
+
+
+    });
   }
   setBackground(className, key) {
     this.color = className;
