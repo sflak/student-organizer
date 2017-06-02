@@ -39,7 +39,14 @@ img .user-pic{
   border-top: 8px solid #f00;
 }
 
-
+div.search-bar{
+  margin: 13px 0 0 0;
+  float: left;
+  width: 78%;
+}
+.search-bar app-search{
+  float: right;
+}
 div .dropdown{
     position: absolute;
     background-color: #f9f9f9;
