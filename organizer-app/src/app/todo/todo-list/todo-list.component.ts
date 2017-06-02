@@ -32,7 +32,7 @@ export class TodolistComponent implements OnInit {
    tempActivity = '';
    // custom color
     color = 'default';
-
+  duplicateName:boolean;
 
 
    tex; // holds activity name for user input
@@ -68,11 +68,29 @@ export class TodolistComponent implements OnInit {
 
 
   addTodoList() {
+    this.todoLists.subscribe(items => {
+    items.forEach(item => {if (item.listName === this.tex4) {
+      this.duplicateName = true;
+      }
+    });
+    });
     this.tex4 = this.toTitleCase(this.tex4);
+    if (this.duplicateName){
+       console.log('duplicate list name');
+       this.todoLists.subscribe(items => {
+         items.forEach(item => {if (item.listName != this.tex4) {
+           this.duplicateName = false;
+           }
+        });
+        });
+    }
+    else{
     const todo = new Todolist(this.tex4,this.showDropdown,this.color);
     this.tex4 = '';
     this.needName = !this.needName;
     this.todoLists.push(todo);
+    this.duplicateName = false; // reset boolean
+  }
   }
   toTitleCase(str) {
     return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
