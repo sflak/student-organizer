@@ -161,7 +161,7 @@ export class TodolistComponent implements OnInit {
     Activity: temp
   });
   }
-
+/*
   editListName(key,name) {
 
     this.todoLists.update(key,{
@@ -171,7 +171,7 @@ export class TodolistComponent implements OnInit {
     this.items.take(1).subscribe(items => {
 
     items.forEach(item => {if (item.listname === name) {
-      
+
       this.update(item.$key,{
         listname: name
       });
@@ -179,7 +179,7 @@ export class TodolistComponent implements OnInit {
     });
     });
 
-  }
+  }*/
   setBackground(className, key) {
     this.color = className;
     this.todoLists.update(key, {
