@@ -42,6 +42,11 @@ div .item-container {
 .item-options-button:hover {
   cursor: pointer;
 }
+.todo-item input.edit-activity{
+  width: 133px;
+  height: 23px;
+  /*border: none;*/
+}
 .todo-item input {
   -webkit-appearance: none;
   width: 13px;
@@ -100,6 +105,7 @@ i.fa .fa-clock-o {
 .time-info p {
   margin: 0;
 }
+
 
 .option-buttons {
   cursor: pointer;

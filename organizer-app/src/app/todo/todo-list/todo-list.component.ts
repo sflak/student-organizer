@@ -32,7 +32,7 @@ export class TodolistComponent implements OnInit {
    tempActivity = '';
    // custom color
     color = 'default';
-
+  duplicateName:boolean;
 
 
    tex; // holds activity name for user input
@@ -41,6 +41,11 @@ export class TodolistComponent implements OnInit {
    tex4; // hold listname
 
    Activity;
+   TextEditorListName = '';
+   setTextEditorforListName(name: any){
+
+    this.TextEditorListName = "" + name;
+   }
 
   constructor(af: AngularFireDatabase,gd: GlobalDataService) {
     const path = `/users/${this.userData.uid}`; // access user data
@@ -63,11 +68,29 @@ export class TodolistComponent implements OnInit {
 
 
   addTodoList() {
+    this.todoLists.subscribe(items => {
+    items.forEach(item => {if (item.listName === this.tex4) {
+      this.duplicateName = true;
+      }
+    });
+    });
     this.tex4 = this.toTitleCase(this.tex4);
+    if (this.duplicateName){
+       console.log('duplicate list name');
+       this.todoLists.subscribe(items => {
+         items.forEach(item => {if (item.listName != this.tex4) {
+           this.duplicateName = false;
+           }
+        });
+        });
+    }
+    else{
     const todo = new Todolist(this.tex4,this.showDropdown,this.color);
     this.tex4 = '';
     this.needName = !this.needName;
     this.todoLists.push(todo);
+    this.duplicateName = false; // reset boolean
+  }
   }
   toTitleCase(str) {
     return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
@@ -155,7 +178,32 @@ export class TodolistComponent implements OnInit {
         showDropdown: this.showDropdown
       });
   }
+  editItem(key,editedName) {
+  let temp = new Activity(editedName, " ", " ");
+  this.items.update(key,{
+    Activity: temp
+  });
+  }
 
+  editListName(key,name,newListName) {
+  console.log(name);
+
+    this.items.take(1).subscribe(items => {
+
+    items.forEach(item => {if (item.listname === name) {
+
+      this.items.update(item.$key,{
+        listname: newListName
+      });
+      }
+    });
+   this.todoLists.update(key,{
+      listName: newListName // ???????????????? not really sure want to do lol
+    });
+
+
+    });
+  }
   setBackground(className, key) {
     this.color = className;
     this.todoLists.update(key, {
@@ -170,7 +218,7 @@ export class TodolistComponent implements OnInit {
    this.items.take(1).subscribe(items => {
 
     items.forEach(item => {if (item.prevListKey === key) {
-      this.items.update(item.$key,{ 
+      this.items.update(item.$key,{
         color: className
       });
       }
@@ -195,4 +243,3 @@ export interface AngularFireObject {
 // Style time edit component
 // Should window reload on resize?
 // strike through todo when checked
-
