@@ -22,7 +22,7 @@
                     </div>
                   <div class="right">
                     <form autocomplete="off" (submit)="editItem(todo.$key,todo.Activity.name)">
-                                  <input placeholder="Edit Item" type="text" [(ngModel)]="todo.Activity.name" name="test">
+                                  <input class="edit-activity" placeholder="Edit Item" type="text" [(ngModel)]="todo.Activity.name" name="test">
                     </form>
                   </div>
                     <i (click) = "deleteTodoItems(todo.$key)" class="fa fa-trash-o item-delete-button" aria-hidden="true"></i>

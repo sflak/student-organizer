@@ -76,6 +76,11 @@ i.fa {
   margin-right: 5px;
 
 }
+.todo-item input.edit-activity{
+  width: 160px;
+  height: 22px;
+  /*border: none;*/
+}
 .todo-item input {
   -webkit-appearance: none;
   width: 13px;
