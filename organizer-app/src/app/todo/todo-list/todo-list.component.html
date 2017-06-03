@@ -1,21 +1,19 @@
 <ul>
     <li droppable class="droppable" *ngFor="let list of todoLists | async" (onDrop)="onTodoDrop($event,list.listName,list.$key)">
       <div class="todo-list-box" [ngClass]="list.color">
-        <div class="list-label"> 
+        <div class="list-label">
           <i class="fa fa-question-circle-o" aria-hidden="true">
             <span class="tooltiptext">Use list to organize your task into categories, then drag them to the calendar to plan them out</span>
           </i>
           <h3>  {{list.listName}} </h3>
         </div>
-        <form autocomplete="off" (submit)="editListName(list.$key, list.listName,list.tempListName)">
-            <input placeholder="Edit List Name" type="text" [(ngModel)]="list.tempListName" name="test">
-        </form>
+
 
         <div class="list-label">
 
           <button class="list-options-button" (click)="displayDropdown(list.$key)">&#8230;</button>
 
-          
+
         </div>
         <div class="clear"></div>
         <div class="list-item-box">
@@ -32,7 +30,7 @@
                       <input [ngClass]="list.color + '-checkbox'" type="checkbox" (change)="itemChecked(todo.$key,this.todo.checkedOff)" [(ngModel)]="this.todo.checkedOff">
                     </div>
                   <div class="right">
-                    <form autocomplete="off" (submit)="editItem(todo.$key,todo.Activity.name)">
+                    <form autocomplete="off" (submit)="editItem(todo.$key,todo.Activity.name)" >
                                   <input class="edit-activity" placeholder="Edit Item" type="text" [(ngModel)]="todo.Activity.name" name="test">
                     </form>
                   </div>
@@ -44,11 +42,16 @@
           </ul>
           <div class="dropdown" *ngIf="list.showDropdown">
             <div id="myDropdown" class="dropdown-content">
+              <p class="list-option" (click) = "deleteTodoList(list.$key,list.listName)"><i class="fa fa-trash-o"></i>Delete</p>
+              <p class="list-option" (click) = "toggleShowListEdit(list.$key)" *ngIf="!showListEdit"><i class="fa fa-pencil"></i>Edit List Name</p>
+              <form autocomplete="off" (submit)="editListName(list.$key, list.listName,list.tempListName)" *ngIf="showListEdit">
+                <input placeholder="Edit List Name" type="text" [(ngModel)]="list.tempListName" name="test">
+              </form>
+              <div class="color-instruction"><p>Choose a list color:</p></div>
               <div class="color-button" (click)="setBackground('default',list.$key)"><div class="circle default"></div><p>Default</p></div>
               <div class="color-button" (click)="setBackground('green',list.$key)"><div class="circle green"></div><p>Bright Green</p></div>
               <div class="color-button" (click)="setBackground('pink',list.$key)"><div class="circle pink"></div><p>Bright Pink</p></div>
               <div class="color-button" (click)="setBackground('blue',list.$key)"><div class="circle blue"></div><p>Bright Blue</p></div>
-              <p (click) = "deleteTodoList(list.$key,list.listName)">Delete</p>
             </div>
           </div>
         </div>

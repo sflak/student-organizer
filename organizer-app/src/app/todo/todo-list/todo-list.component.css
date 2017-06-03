@@ -150,10 +150,32 @@ button.list-options-button:focus, input[type="button"]:focus {
   position: relative;
   z-index: 1;
 }
+.dropdown .fa-pencil {
+  float: right;
+  margin: 5px;
+}
+.dropdown .list-option{
+  border-bottom: solid 1px darkgrey;
+}
+.dropdown .color-instruction{
+  font-size: 10px;
+  background-color: #9B9B9B;
+  height: 15px;
+}
+.dropdown .color-instruction p{
+  margin: 0 0 0 7px;
+  padding: 0;
+  color: white;
+  font-family: Avenir, Helvetica, sans-serif;
+}
+.dropdown .color-instruction p:hover{
+  background-color: #9B9B9B;
+}
 
 .dropdown-content p {
+  margin: 0;
   cursor: pointer;
-  padding: 10px;
+  padding: 10px 10px 15px 10px;
   font-family: Helvetica, sans-serif;
 }
 .dropdown-content p:hover {
@@ -237,7 +259,7 @@ div.add-todo-list-button{
     position: absolute;
     z-index: 1;
     top: -5px;
-    left: 125%;  
+    left: 125%;
     /*margin-left: -60px;*/
     opacity: 0;
     transition: opacity 1s;

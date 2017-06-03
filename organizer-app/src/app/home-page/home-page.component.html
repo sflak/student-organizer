@@ -1,14 +1,17 @@
+<!--Moving divider functionality has been commented out-->
+
 <div class="whole-app">
   <div class = "topwindow"
-       [ngStyle] = "styleTop"
-       mwlResizable
-       [validateResize]="validateTop"
-       [resizeEdges]="{bottom: true, right: false, top: false, left: false}"
-       [enableGhostResize]="true"
-       [resizeSnapGrid]="{bottom: 1, top: 1}"
-       (resizeStart)="onResizeStartTop($event)"
-       (resizing)="onResizingTop($event)"
-       (resizeEnd)="onResizeEndTop($event)">
+       [ngStyle] = "styleTop">
+       <!--mwlResizable-->
+       <!--[validateResize]="validateTop"-->
+       <!--[resizeEdges]="{bottom: true, right: false, top: false, left: false}"-->
+       <!--[enableGhostResize]="true"-->
+       <!--[resizeSnapGrid]="{bottom: 1, top: 1}"-->
+       <!--(resizeStart)="onResizeStartTop($event)"-->
+       <!--(resizing)="onResizingTop($event)"-->
+       <!--(resizeEnd)="onResizeEndTop($event)">-->
+
     <app-header></app-header>
     <div class="clear"></div>
     <app-progress-bar></app-progress-bar>
@@ -16,15 +19,15 @@
     <app-bucket></app-bucket>
   </div>
   <div class="container"
-       class="bottomwindow"
-       [ngStyle]="styleBottom"
-       mwlResizable
-       [validateResize]="validateBottom"
-       [resizeEdges]="{bottom: false, right: false, top: true, left: false}"
-       [enableGhostResize]="true"
-       [resizeSnapGrid]="{bottom: 1, top: 1}"
-       (resizeEnd)="onResizeEndBottom($event)"
-       >
+       class="bottomwindow">
+       <!--[ngStyle]="styleBottom"-->
+       <!--mwlResizable-->
+       <!--[validateResize]="validateBottom"-->
+       <!--[resizeEdges]="{bottom: false, right: false, top: true, left: false}"-->
+       <!--[enableGhostResize]="true"-->
+       <!--[resizeSnapGrid]="{bottom: 1, top: 1}"-->
+       <!--(resizeEnd)="onResizeEndBottom($event)"-->
+
     <app-todo-list> </app-todo-list>
     <app-todo></app-todo>
 

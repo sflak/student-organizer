@@ -5,11 +5,7 @@
     (click)="prevWeek()">prev
       <span class="tooltiptext">Previous Week</span>
   </button>-->
-  <button
-    type="button"
-    class="returnToTodayButton"
-    (click)="returnToToday()">today
-  </button>
+
   <!--<button
     type="button"
     class="nextWeekButton"
@@ -22,15 +18,26 @@
 <div>-->
   <div class="month-header">
     <div class="month-info container">
-      <p
-        class="prevWeekButton"
-        (click)="prevWeek()"><i class="fa fa-angle-left fa-2x" aria-hidden="true"></i></p>
+      <div class="left-arrow arrow">
+        <p
+          class="prevWeekButton"
+          (click)="prevWeek()"><i class="fa fa-angle-left fa-2x" aria-hidden="true"></i></p>
+      </div>
+      <div class="right-arrow arrow">
+        <p
+          class="nextWeekButton"
+          (click)="nextWeek()"><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></p>
+      </div>
 
-      <p
-        class="nextWeekButton"
-        (click)="nextWeek()"><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></p>
-      <h1>{{getMonth()}}</h1>
-      <h4>{{getYear()}}</h4>
+
+      <div class="month-year">
+
+        <h1>{{getMonth()}}<span class="year">{{getYear()}}</span></h1>
+
+      </div>
+
+
+
     </div>
   </div>
 
@@ -44,6 +51,10 @@
 
     </app-bucket-day>
 
-  </div>
 
+  </div>
+  <p
+    class="returnToTodayButton"
+    (click)="returnToToday()">Today
+  </p>
 </div>

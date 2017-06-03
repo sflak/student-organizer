@@ -10,36 +10,72 @@ div .month-header{
   background-color: #A5EBC3;
   color: white;
 }
+div.arrow{
+  width: 7%;
+  position: relative;
+  cursor: pointer;
+  padding-top: 8px;
+}
+div.left-arrow{
+  float:left;
+  /*width: 40px;*/
+}
+div.month-year{
+  width: 48%;
+  float: left;
+}
+div.month-year h1 .year{
+  font-size: 13px;
+  margin: 0 0 0 4px;
+}
+div.right-arrow{
+  float:right;
+  /*width: 40px;*/
+}
 h1 {
   margin: 0px auto 0px auto;
   padding: 5px  0 0px 0;
   font-weight: 400;
   font-size: 30px;
+  width: 100px;
+  float: right;
 }
 
 h4 {
     margin: 0px auto 0px auto;
     color: white;
+  float: right;
 }
-
-.prevWeekButton{
-  position: relative;
-  float:left;
+p.returnToTodayButton{
   cursor: pointer;
-  padding-top: 8px;
+  float: right;
+  color: #EE9BB2;
+  position: fixed;
+  bottom: 275px;
+  right: 25px;
+  border: solid 1px #EE9BB2;
+  padding: 2px;
+}
+p.returnToTodayButton:hover{
+  border: solid 1px #ff525b;
+  color: #ff525b;
 }
 
-.returnToTodayButton{
-    position: relative;
-}
+/*.prevWeekButton{*/
+  /*position: relative;*/
+  /*float:left;*/
+  /*cursor: pointer;*/
+  /*padding-top: 8px;*/
+  /*width: 40px;*/
+/*}*/
 
-
-.nextWeekButton{
-    position: relative;
-    float:right;
-    cursor: pointer;
-    padding-top: 8px;
-}
+/*.nextWeekButton{*/
+    /*position: relative;*/
+    /*float:right;*/
+    /*cursor: pointer;*/
+    /*padding-top: 8px;*/
+  /*width: 40px;*/
+/*}*/
 
 div .clear {
   clear: both;

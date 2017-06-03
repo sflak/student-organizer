@@ -22,6 +22,7 @@ export class TodolistComponent implements OnInit {
 
    needName = false;
    showDropdown = false;
+   showListEdit = false;
 
   // checkedOff should be a property of the item
   // itemsChecked should be a global counter
@@ -219,7 +220,10 @@ export class TodolistComponent implements OnInit {
 
     });
   }
-  
+
+  }
+  toggleShowListEdit() {
+     this.showListEdit = !this.showListEdit;
   }
   setBackground(className, key) {
     this.color = className;
