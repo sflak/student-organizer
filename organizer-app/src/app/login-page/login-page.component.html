@@ -1,10 +1,58 @@
-<div class="modal-dialog">
-  <div class="loginmodal-container">
-    <h1>Login to Your Social Account</h1><br>
-    <button md-raised-button class='google' (click)="socialLogin('google')">
+<head>
+  <title>Honey Do</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">	
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">HoneyDo</a>
+    </div>
+<div class="loginbox">
+    <button class='google' 	(click)="socialLogin('google')">
       <i class="fa fa-google" aria-hidden="true"></i> Login With Google</button>
    <button  class="facebook" (click)="socialLogin('facebook')" md-raised-button>
       <i class="fa fa-facebook" ></i> Login With Facebook
-  </button>
+</button>
+</div>
+</nav>
+
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center">
+  <h3 class="margin">What is this?</h3>
+  <h3>A To-do List Calendar App </h3>
+</div>
+
+
+<!-- Second Container (Grid) -->
+<div class="container-fluid bg-2 text-center">    
+  <h3 class="margin">Features</h3><br>
+  <div class="row">
+    <div class="col-sm-4">
+      <p> Drag and Drop Functionality </p>
+      <img src="birds1.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-4"> 
+      <p>Progress Bar</p>
+      <img src="birds2.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-4"> 
+      <p>Weekly View</p>
+      <img src="birds3.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+    </div>
   </div>
 </div>
+
+<!-- Footer -->
+<footer class="container-fluid bg-3 text-center">
+  <p> Created by Syndey Flak, Ryan Ho, David Ip, Anthony Nguyen, Michael Wong </p>
+  <p>2017</p> 
+</footer>
+
+</body>
+
