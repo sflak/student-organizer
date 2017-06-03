@@ -301,16 +301,137 @@ div.add-todo-list-button{
 }
 
 /*Custom list color styles*/
-.default {
-  background-color: #4A91B5;
-  color: #4A91B5;
+.vampire {
+  background-color: #D00120;
+  color: #D00120;
 }
-.default-border {
-  border-bottom: solid 1px #4A91B5;
+.vampire-border {
+  border-bottom: solid 1px #D00120;
 }
-.default-checkbox {
-  border: solid 1px #4A91B5;
+.vampire-checkbox{
+  border: solid 1px #D00120;
 }
+.clementine {
+  background-color: #FA8E47;
+  color: #FA8E47;
+}
+.clementine-border {
+  border-bottom: solid 1px #FA8E47;
+}
+.clementine-checkbox{
+  border: solid 1px #FA8E47;
+}
+.canary {
+  background-color: #F8D01B;
+  color: #F8D01B;
+}
+.canary-border {
+  border-bottom: solid 1px #F8D01B;
+}
+.canary-checkbox{
+  border: solid 1px #F8D01B;
+}
+.lime {
+  background-color: #A5D20C;
+  color: #A5D20C;
+}
+.lime-border {
+  border-bottom: solid 1px #A5D20C;
+}
+.lime-checkbox{
+  border: solid 1px #A5D20C;
+}
+.forest {
+  background-color: #198B08;
+  color: #198B08;
+}
+.forest-border {
+  border-bottom: solid 1px #198B08;
+}
+.forest-checkbox{
+  border: solid 1px #198B08;
+}
+.seafoam {
+  background-color: #03DD7D;
+  color: #03DD7D;
+}
+.seafoam-border {
+  border-bottom: solid 1px #03DD7D;
+}
+.seafoam-checkbox{
+  border: solid 1px #03DD7D;
+}
+.aqua {
+  background-color: #2CD0DC;
+  color: #2CD0DC;
+}
+.aqua-border {
+  border-bottom: solid 1px #2CD0DC;
+}
+.aqua-checkbox{
+  border: solid 1px #2CD0DC;
+}
+.calm {
+  background-color: #4A91B6;
+  color: #4A91B6;
+}
+.calm-border {
+  border-bottom: solid 1px #4A91B6;
+}
+.calm-checkbox{
+  border: solid 1px #4A91B6;
+}
+.spring {
+  background-color: #1271EB;
+  color: #1271EB;
+}
+.spring-border {
+  border-bottom: solid 1px #1271EB;
+}
+.spring-checkbox{
+  border: solid 1px #1271EB;
+}
+.lilac {
+   background-color: #8D53EE;
+   color: #8D53EE;
+ }
+.lilac-border {
+  border-bottom: solid 1px #8D53EE;
+}
+.lilac-checkbox{
+  border: solid 1px #8D53EE;
+}
+.orchid {
+  background-color: #D000E8;
+  color: #D000E8;
+}
+.orchid-border {
+  border-bottom: solid 1px #D000E8;
+}
+.orchid-checkbox{
+  border: solid 1px #D000E8;
+}
+.prettypink {
+  background-color: #F00AA2;
+  color: #F00AA2;
+}
+.prettypink-border {
+  border-bottom: solid 1px #F00AA2;
+}
+.prettypink-checkbox{
+  border: solid 1px #F00AA2;
+}
+.rosy {
+  background-color: #FE064A;
+  color: #FE064A;
+}
+.rosy-border {
+  border-bottom: solid 1px #FE064A;
+}
+.rosy-checkbox{
+  border: solid 1px #FE064A;
+}
+
 .green {
   background-color: #a4d400;
   color: #a4d400;
