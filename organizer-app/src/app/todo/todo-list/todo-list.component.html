@@ -37,17 +37,26 @@
             </li>
 
           </ul>
+          <div class="dropdown" *ngIf="list.showDropdown">
+            <div id="myDropdown" class="dropdown-content">
+              <div class="color-button" (click)="setBackground('default',list.$key)"><div class="circle default"></div><p>Default</p></div>
+              <div class="color-button" (click)="setBackground('green',list.$key)"><div class="circle green"></div><p>Bright Green</p></div>
+              <div class="color-button" (click)="setBackground('pink',list.$key)"><div class="circle pink"></div><p>Bright Pink</p></div>
+              <div class="color-button" (click)="setBackground('blue',list.$key)"><div class="circle blue"></div><p>Bright Blue</p></div>
+              <p (click) = "deleteTodoList(list.$key,list.listName)">Delete</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="dropdown" *ngIf="list.showDropdown">
-        <div id="myDropdown" class="dropdown-content">
-          <div class="color-button" (click)="setBackground('default',list.$key)"><div class="circle default"></div><p>Default</p></div>
-          <div class="color-button" (click)="setBackground('green',list.$key)"><div class="circle green"></div><p>Bright Green</p></div>
-          <div class="color-button" (click)="setBackground('pink',list.$key)"><div class="circle pink"></div><p>Bright Pink</p></div>
-          <div class="color-button" (click)="setBackground('blue',list.$key)"><div class="circle blue"></div><p>Bright Blue</p></div>
-          <p (click) = "deleteTodoList(list.$key,list.listName)">Delete</p>
-        </div>
-      </div>
+      <!--<div class="dropdown" *ngIf="list.showDropdown">-->
+        <!--<div id="myDropdown" class="dropdown-content">-->
+          <!--<div class="color-button" (click)="setBackground('default',list.$key)"><div class="circle default"></div><p>Default</p></div>-->
+          <!--<div class="color-button" (click)="setBackground('green',list.$key)"><div class="circle green"></div><p>Bright Green</p></div>-->
+          <!--<div class="color-button" (click)="setBackground('pink',list.$key)"><div class="circle pink"></div><p>Bright Pink</p></div>-->
+          <!--<div class="color-button" (click)="setBackground('blue',list.$key)"><div class="circle blue"></div><p>Bright Blue</p></div>-->
+          <!--<p (click) = "deleteTodoList(list.$key,list.listName)">Delete</p>-->
+        <!--</div>-->
+      <!--</div>-->
     </li>
   </ul>
 

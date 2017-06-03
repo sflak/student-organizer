@@ -130,13 +130,16 @@ i.fa {
 
 }
 .dropdown {
-  margin-left: -14px;
-  margin-right: 7px;
+  margin-left: 255px;
+  margin-top: -98px;
   width: 150px;
   min-height: 190px;
   background-color: white;
   float: left;
+  position: absolute;
   box-shadow: 1px 1px 7px #888888;
+  z-index: 1;
+  color: black;
 }
 
 .dropdown-content p {
