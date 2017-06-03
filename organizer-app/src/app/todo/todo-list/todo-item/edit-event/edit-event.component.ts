@@ -69,6 +69,12 @@ export class EditEventComponent implements OnInit {
       this.validSave = true;
       this.startTime = this.startHour + ":" + this.startMin + this.startAmPm;
       this.finishTime =  this.finishHour + ":" + this.finishMin + this.finishAmPm;
+      if(this.startHour == null){
+        this.startTime = "-1";
+      }
+      if(this.finishHour==null){
+        this.finishTime = "-1";
+      }
       console.log(this.startTime);
       this.updateTime();
       // uncomment for testing time and key is correct
@@ -117,7 +123,8 @@ export class EditEventComponent implements OnInit {
         if(this.temp1== null || this.temp2== null || this.temp3==null){
             return false;
         }
-    }else if(this.temp4!=null || this.temp5!=null || this.temp6!=null){
+    } 
+    if(this.temp4!=null || this.temp5!=null || this.temp6!=null){
         if(this.temp4==null || this.temp5==null || this.temp6==null){
             return false;
         } 
