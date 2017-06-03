@@ -1,5 +1,8 @@
 h3 {
   float: left;
+  display:inline;
+  padding-left: 25%;
+  position: relative;
 }
 .clear {
   clear: both;
@@ -27,12 +30,13 @@ button.list-options-button:focus, input[type="button"]:focus {
   margin: 0;
 }
 
-i.fa {
+.fa-trash-o{
   float: right;
   margin: 5px;
 }
+
 .list-label {
-  margin-left: 20px;
+  /*margin-left: 20px;*/
   text-align: center;
   width: auto;
   color: white;
@@ -142,6 +146,11 @@ i.fa {
   color: black;
 }
 
+.dropdown-content{
+  position: relative;
+  z-index: 1;
+}
+
 .dropdown-content p {
   cursor: pointer;
   padding: 10px;
@@ -207,10 +216,54 @@ div.add-todo-list-button{
   background-color: white;
 }
 
-/*<<<<<<< HEAD*/
+.fa-question-circle-o{
+  font-size: 14px;
+  position: relative;
+  padding-left: 5px;
+  padding-top:5px;
+  float:left;
+  display:inline;
+  /*margin-top: 10%;*/
+}
+
+.fa-question-circle-o .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 125%;  
+    /*margin-left: -60px;*/
+    opacity: 0;
+    transition: opacity 1s;
+    font-size: 15px;
+}
+
+.fa-question-circle-o .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.fa-question-circle-o:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
 .drag-target-border{ /* this is new 5/22/17*/
   border: black solid 2px;
 }
+
 /*Custom list color styles*/
 .default {
   background-color: #4A91B5;

@@ -7,7 +7,6 @@ app-todolist {
 
 .topwindow{
     position: relative;
-    resize: vertical;
     display: block;
     width: 100vw;
     height: 65vh;
@@ -19,14 +18,13 @@ app-todolist {
     border-bottom-color: white;
 
     overflow: auto;
-    }
+}
 div .clear {
   clear: both;
 }
 
 .bottomwindow{
     position: relative;
-    resize: vertical;
     display: block;
     width: 100vw;
     height: 35vh;

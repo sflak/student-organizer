@@ -21,17 +21,21 @@ export class TodoItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  oneTimePresent():boolean{
-      if(this.editComponent.startHour!=null && this.editComponent.startMin!=null && this.editComponent.startAmPm!=null
+  onlyStartTimePresent():boolean{
+        if(this.editComponent.startHour!=null && this.editComponent.startMin!=null && this.editComponent.startAmPm!=null
             && this.editComponent.finishHour==null  && this.editComponent.finishMin==null && this.editComponent.finishAmPm == null){
                 return true;
-      }else if(this.editComponent.startHour==null && this.editComponent.startMin==null && this.editComponent.startAmPm == null
+        }else{
+            return false;
+        }
+    }
+    onlyFinishTimePresent():boolean{
+        if(this.editComponent.startHour==null && this.editComponent.startMin==null && this.editComponent.startAmPm == null
             && this.editComponent.finishHour!=null && this.editComponent.finishMin!=null && this.editComponent.finishAmPm!=null){
                 return true;
-      }else{
+        }else{
                 return false;
-      }
-   
+        }
   }
 
   bothTimesPresent():boolean{

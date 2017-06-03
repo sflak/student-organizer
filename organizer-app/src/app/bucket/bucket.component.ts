@@ -13,6 +13,7 @@ export class BucketComponent implements OnInit {
   today: Date = new Date();
   d: Date = new Date();
   i: number =0;
+  offsetFromToday:number =0;
   todos: TodoItem [] = [
     new TodoItem('Buy sandwiches', false),
     new TodoItem('Eat stuff', false)
@@ -22,7 +23,8 @@ export class BucketComponent implements OnInit {
 
     BIGTEX; // probably will be deleted soon
 
-
+  Months: string[] = ["January", "February", "March", 
+    "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 
   dayslist: Date[] = [
@@ -62,10 +64,12 @@ export class BucketComponent implements OnInit {
 
   prevWeek():void{
       this.refreshDayList(-7);
+      this.offsetFromToday ++;
   }
 
   nextWeek():void{
       this.refreshDayList(7);
+      this.offsetFromToday --;
   }
 
   refreshDayList(offset):void{
@@ -77,15 +81,6 @@ export class BucketComponent implements OnInit {
       this.dayslist[5]=new Date(this.setDay(this.d,5));
       this.dayslist[6]=new Date(this.setDay(this.d,6));
 
-      //creating new object so will delete events
-      // this.days[0]=new BucketDay(this.dayslist[0],null);
-      // this.days[1]=new BucketDay(this.dayslist[1],null);
-      // this.days[2]=new BucketDay(this.dayslist[2],null);
-      // this.days[3]=new BucketDay(this.dayslist[3],null);
-      // this.days[4]=new BucketDay(this.dayslist[4],null);
-      // this.days[5]=new BucketDay(this.dayslist[5],null);
-      // this.days[6]=new BucketDay(this.dayslist[6],null);
-
       this.days[0].changeDate(this.dayslist[0]);
       this.days[1].changeDate(this.dayslist[1]);
       this.days[2].changeDate(this.dayslist[2]);
@@ -94,6 +89,19 @@ export class BucketComponent implements OnInit {
       this.days[5].changeDate(this.dayslist[5]);
       this.days[6].changeDate(this.dayslist[6]);
 
+  }
+
+  getMonth():string{
+    return this.Months[this.dayslist[0].getMonth()];
+  }
+
+  getYear():number{
+    return this.dayslist[0].getFullYear();
+  }
+
+  returnToToday():void{
+    this.refreshDayList(7*this.offsetFromToday);
+    this.offsetFromToday = 0;
   }
 
 }
