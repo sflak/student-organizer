@@ -135,15 +135,16 @@ button.list-options-button:focus, input[type="button"]:focus {
 }
 .dropdown {
   margin-left: 255px;
-  margin-top: -98px;
+  margin-top: -90px;
   width: 150px;
-  min-height: 190px;
+  max-height: 255px;
   background-color: white;
   float: left;
   position: absolute;
   box-shadow: 1px 1px 7px #888888;
   z-index: 1;
   color: black;
+  overflow: scroll;
 }
 
 .dropdown-content{
@@ -161,6 +162,7 @@ button.list-options-button:focus, input[type="button"]:focus {
   font-size: 12px;
   background-color: #9B9B9B;
   height: 17px;
+  cursor: none;
 }
 .dropdown .color-instruction p{
   margin: 0 0 0 7px;
