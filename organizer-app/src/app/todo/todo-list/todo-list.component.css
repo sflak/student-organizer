@@ -158,9 +158,9 @@ button.list-options-button:focus, input[type="button"]:focus {
   border-bottom: solid 1px darkgrey;
 }
 .dropdown .color-instruction{
-  font-size: 10px;
+  font-size: 12px;
   background-color: #9B9B9B;
-  height: 15px;
+  height: 17px;
 }
 .dropdown .color-instruction p{
   margin: 0 0 0 7px;
@@ -171,7 +171,19 @@ button.list-options-button:focus, input[type="button"]:focus {
 .dropdown .color-instruction p:hover{
   background-color: #9B9B9B;
 }
-
+.dropdown .exit {
+  height: 20px;
+  font-size: 15px;
+}
+.dropdown .dropdown-content p.exit{
+  text-align: center;
+  padding: 0;
+  margin: 5px;
+}
+.dropdown .dropdown-content p.exit:hover{
+  color: #ff525b;
+  background-color: transparent;
+}
 .dropdown-content p {
   margin: 0;
   cursor: pointer;

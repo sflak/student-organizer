@@ -187,6 +187,7 @@ export class TodolistComponent implements OnInit {
   }
 
   editListName(key,name,newListName) {
+    newListName = this.toTitleCase(newListName);
    this.todoLists.subscribe(items => {
     items.forEach(item => {if (item.listName === newListName) {
       this.duplicateName = true;
@@ -219,8 +220,9 @@ export class TodolistComponent implements OnInit {
 
 
     });
-  }
 
+  }
+    this.toggleShowListEdit();
   }
   toggleShowListEdit() {
      this.showListEdit = !this.showListEdit;

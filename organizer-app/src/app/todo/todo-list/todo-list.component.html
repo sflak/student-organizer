@@ -43,10 +43,12 @@
           <div class="dropdown" *ngIf="list.showDropdown">
             <div id="myDropdown" class="dropdown-content">
               <p class="list-option" (click) = "deleteTodoList(list.$key,list.listName)"><i class="fa fa-trash-o"></i>Delete</p>
-              <p class="list-option" (click) = "toggleShowListEdit(list.$key)" *ngIf="!showListEdit"><i class="fa fa-pencil"></i>Edit List Name</p>
+              <p class="list-option" (click) = "toggleShowListEdit()" *ngIf="!showListEdit"><i class="fa fa-pencil"></i>Edit List Name</p>
               <form autocomplete="off" (submit)="editListName(list.$key, list.listName,list.tempListName)" *ngIf="showListEdit">
-                <input placeholder="Edit List Name" type="text" [(ngModel)]="list.tempListName" name="test">
+                <input placeholder="{{list.listName}}" type="text" [(ngModel)]="list.tempListName" name="test" autofocus>
               </form>
+              <p class="exit" *ngIf="showListEdit" (click)="toggleShowListEdit()">Exit</p>
+              <div class="clear"></div>
               <div class="color-instruction"><p>Choose a list color:</p></div>
               <div class="color-button" (click)="setBackground('default',list.$key)"><div class="circle default"></div><p>Default</p></div>
               <div class="color-button" (click)="setBackground('green',list.$key)"><div class="circle green"></div><p>Bright Green</p></div>
