@@ -14,3 +14,37 @@ button {
   color: black;
 }
 
+.progress-bar .tooltiptext {
+    font-size: 16px;
+    visibility: hidden;
+    width: 75px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 100;
+    bottom: 82%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.progress-bar .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.progress-bar:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
