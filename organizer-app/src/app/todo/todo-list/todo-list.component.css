@@ -53,7 +53,7 @@ button.list-options-button:focus, input[type="button"]:focus {
   background-color: white;
   margin: 0 auto 8px auto;
   overflow: scroll;
-  height: 150px;
+  height: 175px;
   width: 236px;
 }
 .list-item-box ul {
@@ -115,6 +115,7 @@ button.list-options-button:focus, input[type="button"]:focus {
   height: 34px;
   padding-top: 4px;
   background-color: white;
+  float: left;
 }
 
 .todo-item div.left{

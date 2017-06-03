@@ -23,6 +23,7 @@ export class TodolistComponent implements OnInit {
    needName = false;
    showDropdown = false;
    showListEdit = false;
+   showEditItem = false;
 
   // checkedOff should be a property of the item
   // itemsChecked should be a global counter
