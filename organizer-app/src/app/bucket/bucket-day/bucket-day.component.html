@@ -16,7 +16,10 @@
                    <input type="checkbox" [ngClass]="item.color" (change)="itemChecked(item.$key,this.item.checkedOff)" [(ngModel)]="this.item.checkedOff" >
                  </div>
                  <div class="left todo-description">
-                   <p>{{item.Activity.name}}</p>
+                          <!--  <p>{{todo.Activity.name}}</p> -->
+                   <form autocomplete="off" (submit)="editItem(item.$key,item.Activity.name)">
+                     <input class="edit-activity" placeholder="Edit Item" type="text" [(ngModel)]="item.Activity.name" name="test">
+                   </form>
                  </div>
                </div>
 

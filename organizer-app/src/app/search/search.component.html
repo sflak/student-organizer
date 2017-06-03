@@ -1,35 +1,45 @@
-<form autocomplete="off" (submit)="searchMethod(searchItem)">
-              <input placeholder="Quick search" type="text" [(ngModel)]="searchItem" name="test">
+<form autocomplete="off" (submit)="searchMethod(searchItem)" (submit)="showDropdown = !showDropdown">
+              <input placeholder="Quick search..." type="text" [(ngModel)]="searchItem" name="test">
 </form>
-<button (click)="clearSearch()">Clear</button>
-<ul>
-  <li  *ngFor="let todo of items | async" >
-    <span *ngIf = "todo.Activity.name == searchItem2" >
+<p class="clear-button" (click)="clearSearch()">X</p>
+<div class="dropdown" *ngIf="showDropdown">
+  <ul>
+    <li  *ngFor="let todo of items | async" >
+      <p>
+      <span *ngIf = "todo.Activity.name == searchItem2" >
       {{itemFound()}} <!-- an item has been found -->
       Found at List:
 
       {{parseListName(todo.listname, todo.inList)}}
       {{List_Name}}
-      <br />
-        <span *ngIf = "todo.checkedOff == true" >
-          Item completed
-        </span>
-        <span *ngIf = "todo.checkedOff == false" >
-          Item not done
-        </span>
-          <br />
-          <button (click)="removeItem(todo.$key)">Remove Item</button>
-          <br />
-        ----------------------------------------------------
-      <br />
-    </span>
-  </li>
-</ul>
+        <br />
+          <span *ngIf = "todo.checkedOff == true" >
+            Item completed
+          </span>
+          <span *ngIf = "todo.checkedOff == false" >
+            Item not done
+          </span>
+            <br />
+            <button (click)="removeItem(todo.$key)">Remove Item</button>
+            <br />
+          ----------------------------------------------------
+        <br />
+      </span>
 
-<!-- this will happen when no searches come up -->
-<span *ngIf = "searchedToggle == true" > <!-- if the search has been conducted -->
+      </p>
+    </li>
+  </ul>
+
+  <!--this will happen when no searches come up -->
+
+  <span *ngIf = "searchedToggle == true" > <!-- if the search has been conducted -->
   <span *ngIf = "itemFoundToggle == false"> <!-- and no items have been found -->
+
     {{errorMessage()}} <!-- print message  -->
     {{message}}
   </span>
 </span>
+
+
+</div>
+

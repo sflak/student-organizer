@@ -41,6 +41,12 @@ export class BucketDayComponent implements OnInit {
   deleteTodoItems(key) {
     this.items.remove(key);
   }
+  editItem(key,editedName) {
+  let temp = new Activity(editedName, " ", " ");
+  this.items.update(key,{
+    Activity: temp
+  });
+  }
 
 
 onTodoDrop(e: any) {

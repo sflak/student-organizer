@@ -28,6 +28,7 @@ export class SearchComponent implements OnInit {
        itemFoundToggle: boolean = false; // this turns on (true) once at least one item is found
        message: string;
        notDone: string;
+       showDropdown = false;
   ngOnInit() {
   }
 
@@ -99,6 +100,7 @@ export class SearchComponent implements OnInit {
    this.searchItem2 = "";
    this.message = ""; // reset message
    this.searchedToggle = false; // reset toggle
+    this.showDropdown = false;
 
   }
   removeItem(key) {

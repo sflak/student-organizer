@@ -80,6 +80,11 @@ button.list-options-button:focus, input[type="button"]:focus {
   margin-right: 5px;
 
 }
+.todo-item input.edit-activity{
+  width: 160px;
+  height: 22px;
+  /*border: none;*/
+}
 .todo-item input {
   -webkit-appearance: none;
   width: 13px;
