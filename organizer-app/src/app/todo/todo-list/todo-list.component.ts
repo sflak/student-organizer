@@ -247,6 +247,7 @@ export class TodolistComponent implements OnInit {
       }
     });
     });
+   this.showDropdown = false;
 
   }
 

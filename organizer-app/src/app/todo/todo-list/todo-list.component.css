@@ -51,7 +51,7 @@ button.list-options-button:focus, input[type="button"]:focus {
 }
 .list-item-box {
   background-color: white;
-  margin: 0 auto 20px auto;
+  margin: 0 auto 8px auto;
   overflow: scroll;
   height: 150px;
   width: 236px;
