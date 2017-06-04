@@ -64,7 +64,7 @@
               <div class="color-button" (click)="setBackground('lime',list.$key)"><div class="circle lime"></div><p>Lime</p></div>
               <div class="color-button" (click)="setBackground('forest',list.$key)"><div class="circle forest"></div><p>Forest</p></div>
               <div class="color-button" (click)="setBackground('seafoam',list.$key)"><div class="circle seafoam"></div><p>Sea Foam</p></div>
-              <div class="color-button" (click)="setBackground('calm',list.$key)"><div class="circle calm"></div><p>calm</p></div>
+              <div class="color-button" (click)="setBackground('calm',list.$key)"><div class="circle calm"></div><p>Calm</p></div>
               <div class="color-button" (click)="setBackground('spring',list.$key)"><div class="circle spring"></div><p>Spring</p></div>
               <div class="color-button" (click)="setBackground('lilac',list.$key)"><div class="circle lilac"></div><p>Lilac</p></div>
               <div class="color-button" (click)="setBackground('orchid',list.$key)"><div class="circle orchid"></div><p>Orchid</p></div>
@@ -89,7 +89,7 @@
 
 
 <div class="label-input-form-holder" [ngClass]="{ 'has-border': needName == true }">
-  <form  (submit)="addTodoList()" *ngIf="needName" #nameInput  >
+  <form  (submit)="addTodoList()" *ngIf="needName" #nameInput>
     <input placeholder="Add Category..." id="listLabelInput" type="text" [(ngModel)]="tex4" name="test">
     <br>
     <br>

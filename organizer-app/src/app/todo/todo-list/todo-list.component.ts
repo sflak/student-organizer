@@ -34,7 +34,7 @@ export class TodolistComponent implements OnInit {
    inputField = '';
    tempActivity = '';
    // custom color
-    color = 'default';
+  color = 'orchid';
   duplicateName:boolean;
 
 
@@ -88,7 +88,7 @@ export class TodolistComponent implements OnInit {
         });
     }
     else{
-    const todo = new Todolist(this.tex4,this.showDropdown,this.color);
+    const todo = new Todolist(this.tex4, this.showDropdown, this.color);
     this.tex4 = '';
     this.needName = !this.needName;
     this.todoLists.push(todo);

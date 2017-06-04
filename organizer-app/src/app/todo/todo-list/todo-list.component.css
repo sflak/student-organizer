@@ -284,6 +284,7 @@ div.add-todo-list-button{
     opacity: 0;
     transition: opacity 1s;
     font-size: 15px;
+    font-family: Avenir, Helvetica, sans-serif;
 }
 
 .fa-question-circle-o .tooltiptext::after {
