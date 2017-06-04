@@ -26,4 +26,8 @@ export class HeaderComponent{
      console.log(this.showDropdown);
   }
 
+  onClickedOutside(e: Event) {
+    this.showDropdown = false;
+  }
+
 }

@@ -1,6 +1,8 @@
+
 <ul>
-    <li droppable class="droppable" *ngFor="let list of todoLists | async" (onDrop)="onTodoDrop($event,list.listName,list.$key)">
-      <div class="todo-list-box" [ngClass]="list.color">
+    <li droppable class="droppable" *ngFor="let list of todoLists | async" (onDrop)="onTodoDrop($event,list.listName,list.$key)" >
+      <!-- (clickOutside)="onClickedOutside($event,this.list.$key)" -->
+      <div class="todo-list-box" [ngClass]="list.color" this.showDropdown = !this.showDropdown;  >
         <div class="list-label">
           <i class="fa fa-question-circle-o" aria-hidden="true">
             <span class="tooltiptext">Use list to organize your task into categories, then drag them to the calendar to plan them out</span>
@@ -11,7 +13,7 @@
 
         <div class="list-label">
 
-          <button class="list-options-button" (click)="displayDropdown(list.$key)">&#8230;</button>
+          <button class="list-options-button" (click)="displayDropdown(list.$key)" >&#8230;</button>
 
 
         </div>
@@ -48,8 +50,8 @@
             </li>
 
           </ul>
-          <div class="dropdown" *ngIf="list.showDropdown">
-            <div id="myDropdown" class="dropdown-content">
+          <div class="dropdown"  *ngIf="list.showDropdown">
+            <div id="myDropdown" class="dropdown-content" >
               <p class="list-option" (click) = "deleteTodoList(list.$key,list.listName)"><i class="fa fa-trash-o"></i>Delete</p>
               <p class="list-option" (click) = "toggleShowListEdit()" *ngIf="!showListEdit"><i class="fa fa-pencil"></i>Edit List Name</p>
               <form autocomplete="off" (submit)="editListName(list.$key, list.listName,list.tempListName)" *ngIf="showListEdit">
