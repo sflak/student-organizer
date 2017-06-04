@@ -114,10 +114,11 @@ button.list-options-button:focus, input[type="button"]:focus {
 .todo-item {
   margin: 1px 0 auto 0;
   width: 100%;
-  height: 34px;
+  min-height: 34px;
   padding-top: 4px;
   background-color: white;
   float: left;
+
 }
 .todo-item p.strikethrough {
   text-decoration: line-through;
@@ -137,6 +138,7 @@ button.list-options-button:focus, input[type="button"]:focus {
   padding-left: 15px;
   text-indent: -15px;
   margin: 0;
+  max-width: 158px;
 
 }
 .dropdown {
