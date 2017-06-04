@@ -34,14 +34,8 @@ export class TodolistComponent implements OnInit {
    inputField = '';
    tempActivity = '';
    // custom color
-  color = 'orchid';
-  duplicateName:boolean;
-
-
-   tex; // holds activity name for user input
-   tex2; // holds time name for user input
-   tex3; // holds priority name for user input
-   tex4; // hold listname
+   color = 'orchid';
+   duplicateName:boolean;
 
    listNameTemp;
    Activity;
@@ -253,6 +247,14 @@ export class TodolistComponent implements OnInit {
     });
     });
    this.showDropdown = false;
+
+  }
+
+   onClickedOutside(e: Event,key) {
+    console.log('Clicked outside:', e);
+    this.todoLists.update(key, {
+      showDropdown: false
+    });
 
   }
 

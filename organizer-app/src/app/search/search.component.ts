@@ -106,4 +106,8 @@ export class SearchComponent implements OnInit {
   removeItem(key) {
     this.items.remove(key);
   }
+
+  onClickedOutside(e: Event) {
+    this.showDropdown = false;
+  }
 }

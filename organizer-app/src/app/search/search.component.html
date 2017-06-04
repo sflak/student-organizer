@@ -1,3 +1,4 @@
+<div (clickOutside)="onClickedOutside($event)">
 <form autocomplete="off" (submit)="searchMethod(searchItem)" (submit)="showDropdown = !showDropdown">
               <input placeholder="Quick search..." type="text" [(ngModel)]="searchItem" name="test">
 </form>
@@ -6,7 +7,7 @@
   <ul>
     <li  *ngFor="let todo of items | async" >
       <p>
-      <span *ngIf = "todo.Activity.name == searchItem2" >
+      <span *ngIf = "todo.listName == searchItem2" >
       {{itemFound()}} <!-- an item has been found -->
       Found at List:
 
@@ -43,3 +44,4 @@
 
 </div>
 
+</div>
