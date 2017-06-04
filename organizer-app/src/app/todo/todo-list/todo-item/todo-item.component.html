@@ -1,5 +1,5 @@
 
-<div class="dragable" [style.height] ="oneTimePresent()? '50px':'30px'"
+<div class="dragable" [style.height] ="onlyStartTimePresent()? '50px':'30px'"
     [style.height]="bothTimesPresent()? '70px':'30px'">
     <div class = "innerDragable">
         <input type="checkbox" name="item" value="{{ item.item }}"/> {{ item.item }}
