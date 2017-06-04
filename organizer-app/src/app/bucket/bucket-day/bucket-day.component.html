@@ -16,7 +16,7 @@
                    <input type="checkbox" [ngClass]="item.color" (change)="itemChecked(item.$key,this.item.checkedOff)" [(ngModel)]="this.item.checkedOff" >
                  </div>
                  <div class="left todo-description">
-                   <p *ngIf="!item.showEditItem">{{item.itemName}}</p>
+                   <p *ngIf="!item.showEditItem" [ngClass]="{'strikethrough': this.item.checkedOff === true}">{{item.itemName}}</p>
                    <form autocomplete="off" (submit)="editItem(item.$key,item.itemName)" *ngIf="item.showEditItem">
                      <input class="edit-activity" [ngClass]="item.color" placeholder="Edit Item" type="text" [(ngModel)]="item.itemName" name="test">
                    </form>

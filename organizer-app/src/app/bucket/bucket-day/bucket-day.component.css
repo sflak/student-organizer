@@ -119,21 +119,8 @@ i.fa .fa-clock-o {
   border: #A5EBC3 solid 2px;
 }
 
-.default {
-  border: solid 1px #4A91B5;
-  color: #4A91B5;
-}
-.green {
-  border: solid 1px #a4d400;
-  color: #a4d400;
-}
-.pink{
-  border: solid 1px #f200a3;
-  color: #f200a3;
-}
-.blue{
-  border: solid 1px #33d4e0;
-  color: #33d4e0;
+.strikethrough {
+  text-decoration: line-through;
 }
 .vampire {
   border: solid 1px #D00120;
