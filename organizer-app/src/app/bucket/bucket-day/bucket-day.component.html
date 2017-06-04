@@ -18,7 +18,7 @@
                  <div class="left todo-description">
                    <p *ngIf="!item.showEditItem">{{item.itemName}}</p>
                    <form autocomplete="off" (submit)="editItem(item.$key,item.itemName)" *ngIf="item.showEditItem">
-                     <input class="edit-activity" placeholder="Edit Item" type="text" [(ngModel)]="item.itemName" name="test">
+                     <input class="edit-activity" [ngClass]="item.color" placeholder="Edit Item" type="text" [(ngModel)]="item.itemName" name="test">
                    </form>
                  </div>
                </div>
@@ -26,8 +26,8 @@
                <div class="clear"></div>
 
                 <div class="left option-buttons">
-                  <i (click)="editor.showEditBox()" class="fa fa-clock-o" aria-hidden="true" style="float:left; margin-right: 5px;"></i>
                   <i (click)="item.showEditItem = !item.showEditItem" class="fa fa-pencil"  style="float:left; margin-right: 5px;"></i>
+                  <i (click)="editor.showEditBox(item.color)" class="fa fa-clock-o" aria-hidden="true" style="float:left; margin-right: 5px;"></i>
                   <div class="time-info left" *ngIf="item.startTime != -1 && item.finishTime != -1">
                     <p>{{ item.startTime}} - {{ item.finishTime}}</p>
                   </div>

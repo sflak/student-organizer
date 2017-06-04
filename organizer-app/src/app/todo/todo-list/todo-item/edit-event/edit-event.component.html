@@ -1,44 +1,62 @@
-<div class = "wholeEvent" >
+<div class = "wholeEvent" [ngClass]="color">
     <div class = "eventTitle">
-        <h4 style = "display:inline;">Edit</h4>
-        <button (click) = "cancel()" style = "float:right;">x</button>
+        <h4 style = "display:inline;">When will you do this?</h4>
+        <button class="cancel" [ngClass]="color" (click) = "cancel()" style = "float:right;">x</button>
     </div>
     <div class = "startTimeInput">
-        <p>Start Time: </p>
-        
-        <select [(ngModel)] = "temp3" id ="startAmPmInput">
+        <p>Start: </p>
+
+      <div class="time-selection">
+        <div class="select-style" [ngClass]="color">
+          <select [(ngModel)] = "temp3" id ="startAmPmInput">
             <option>AM</option>
             <option>PM</option>
-        </select>
-
-        <select [(ngModel)] = "temp2" id="startMinInput">
+          </select>
+        </div>
+        <div class="select-style" [ngClass]="color">
+          <select [(ngModel)] = "temp2" id="startMinInput">
             <option>Min</option>
             <option *ngFor = "let v of minutesArray">{{v}}</option>
-        </select>
-        
-        <select  [(ngModel)] = "temp1" id="startHourInput">
+          </select>
+        </div>
+        <div class="select-style" [ngClass]="color">
+          <select  [(ngModel)] = "temp1" id="startHourInput">
             <option>Hour</option>
             <option *ngFor = "let v of hoursArray"> {{v}}</option>
-        </select>
+          </select>
+        </div>
+      </div>
+
     </div>
     <div class = "finishTimeInput">
-        <p>Finish Time: </p>
-        <select [(ngModel)] = "temp6" id ="finishAmPmInput">
+        <p>Finish: </p>
+      <div class="time-selection">
+        <div class="select-style" [ngClass]="color">
+          <select [(ngModel)] = "temp6" id ="finishAmPmInput">
             <option>AM</option>
             <option>PM</option>
-        </select>
-
-        <select [(ngModel)] = "temp5" id = "finishMinInput">
+          </select>
+        </div>
+        <div class="select-style" [ngClass]="color">
+          <select [(ngModel)] = "temp5" id = "finishMinInput">
             <option>Min</option>
             <option *ngFor = "let v of minutesArray">{{v}}</option>
-        </select>
-
-         <select [(ngModel)] = "temp4" id = "finishHourInput">
+          </select>
+        </div>
+        <div class="select-style" [ngClass]="color">
+          <select [(ngModel)] = "temp4" id = "finishHourInput">
             <option>Hour</option>
             <option *ngFor = "let v of hoursArray">{{v}}</option>
-        </select>
+          </select>
+        </div>
+      </div>
+
     </div>
+  <div class="clear"></div>
+  <div class="bottom">
     <p [style.display]="validSave!=true ? 'block' : 'none'" class="errorMessage">Invalid Input</p>
-    <button class ="clearButton"(click)="clearChanges()">Clear</button>
-    <button class ="saveButton" (click)="saveChanges()">Save</button>
+    <button class ="clearButton" [ngClass]="color" (click)="clearChanges()">Clear</button>
+    <button class ="saveButton" [ngClass]="color" (click)="saveChanges()">Save</button>
+  </div>
+
 </div>

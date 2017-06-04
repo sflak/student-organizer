@@ -17,6 +17,7 @@ export class EditEventComponent implements OnInit {
   saved:boolean = false;
   eventTitle:string = null;
   validSave:boolean = true;
+  color = 'calm';
 
   startHour:string = null;
   startMin:string = null;
@@ -51,9 +52,10 @@ export class EditEventComponent implements OnInit {
 
   }
 
-  showEditBox(){
+  showEditBox(color){
     this.validSave = true;
-    this.showEdit = true;
+    this.showEdit = !this.showEdit;
+    this.color = color;
 
   }
 
@@ -78,7 +80,7 @@ export class EditEventComponent implements OnInit {
       console.log(this.startTime);
       this.updateTime();
       // uncomment for testing time and key is correct
-      //console.log(this.startHour + ":" + this.startMin + this.startAmPm); 
+      //console.log(this.startHour + ":" + this.startMin + this.startAmPm);
       //console.log(this.finishHour + ":" + this.finishMin + this.finishAmPm);
       //console.log(this.key);
     }else{
@@ -123,12 +125,12 @@ export class EditEventComponent implements OnInit {
         if(this.temp1== null || this.temp2== null || this.temp3==null){
             return false;
         }
-    } 
+    }
     if(this.temp4!=null || this.temp5!=null || this.temp6!=null){
         if(this.temp4==null || this.temp5==null || this.temp6==null){
             return false;
-        } 
-    }  
+        }
+    }
 
     if(this.temp3!=null && this.temp6!= null){
         if(this.temp3 == "PM" && this.temp6 =="AM"){
@@ -143,7 +145,7 @@ export class EditEventComponent implements OnInit {
             }
         }
     }
-    return true; 
+    return true;
   }
 
 }
