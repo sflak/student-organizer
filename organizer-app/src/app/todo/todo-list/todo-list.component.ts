@@ -24,6 +24,7 @@ export class TodolistComponent implements OnInit {
    showDropdown = false;
    showListEdit = false;
    showEditItem = false;
+   strikethrough = false;
 
   // checkedOff should be a property of the item
   // itemsChecked should be a global counter
@@ -165,12 +166,13 @@ export class TodolistComponent implements OnInit {
         this.items.update(key, {
         checkedOff: true
       });
+      this.strikethrough = true;
     }
     else{
         this.items.update(key, {
         checkedOff: false
       });
-
+      this.strikethrough = false;
     }
 
   }
@@ -181,10 +183,11 @@ export class TodolistComponent implements OnInit {
       });
   }
   editItem(key,editedName) {
-  let temp = new Activity(editedName, " ", " ");
-  this.items.update(key,{
-    Activity: temp
-  });
+    let temp = new Activity(editedName, " ", " ");
+    this.items.update(key,{
+      Activity: temp
+    });
+    this.showEditItem = false;
   }
 
   editListName(key,name,newListName) {

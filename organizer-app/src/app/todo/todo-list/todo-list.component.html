@@ -30,9 +30,15 @@
                       <input [ngClass]="list.color + '-checkbox'" type="checkbox" (change)="itemChecked(todo.$key,this.todo.checkedOff)" [(ngModel)]="this.todo.checkedOff">
                     </div>
                   <div class="right">
-                    <p>{{todo.Activity.name}}</p>
+                    <p [ngClass]="{'strikethrough': this.todo.checkedOff === true}" *ngIf="!showEditItem">{{todo.Activity.name}}</p>
                     <form autocomplete="off" (submit)="editItem(todo.$key,todo.Activity.name)" *ngIf="showEditItem">
-                                  <input class="edit-activity" placeholder="Edit Item" type="text" [(ngModel)]="todo.Activity.name" name="test">
+                      <input class="edit-activity"
+                             placeholder="Edit Item"
+                             type="text"
+                             [(ngModel)]="todo.Activity.name"
+                             name="test"
+                             [ngClass]="list.color + '-checkbox' "
+                             autofocus>
                     </form>
                   </div>
                     <i (click) = "deleteTodoItems(todo.$key)" class="fa fa-trash-o item-delete-button" aria-hidden="true"></i>

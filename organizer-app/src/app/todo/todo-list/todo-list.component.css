@@ -34,7 +34,10 @@ button.list-options-button:focus, input[type="button"]:focus {
   float: right;
   margin: 5px;
 }
-
+.fa-pencil{
+  float: right;
+  margin: 5px;
+}
 .list-label {
   /*margin-left: 20px;*/
   text-align: center;
@@ -81,9 +84,8 @@ button.list-options-button:focus, input[type="button"]:focus {
 
 }
 .todo-item input.edit-activity{
-  width: 160px;
+  width: 152px;
   height: 22px;
-  /*border: none;*/
 }
 .todo-item input {
   -webkit-appearance: none;
@@ -116,6 +118,9 @@ button.list-options-button:focus, input[type="button"]:focus {
   padding-top: 4px;
   background-color: white;
   float: left;
+}
+.todo-item p.strikethrough {
+  text-decoration: line-through;
 }
 
 .todo-item div.left{
