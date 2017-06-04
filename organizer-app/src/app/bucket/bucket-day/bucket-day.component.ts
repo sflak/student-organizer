@@ -27,6 +27,7 @@ export class BucketDayComponent implements OnInit {
   dateString: string;
   showEditor = false;
   showDropdown = false;
+  showEditItem = false;
 
   constructor(af: AngularFireDatabase) {
     const path = `/users/${this.userData.uid}`; // access user data
@@ -93,6 +94,8 @@ this.dateString = "" + this.today.getFullYear() + ' '  + this.today.getMonth() +
     this.showDropdown = !this.showDropdown;
     console.log("showDropdown= ", this.showDropdown);
   }
-
+  toggleShowEditItem() {
+    this.showEditItem = !this.showEditItem;
+  }
 
 }
