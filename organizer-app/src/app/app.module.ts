@@ -7,6 +7,8 @@ import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
+import { ClickOutsideModule } from 'ng-click-outside';
+
 import { TodoComponent } from './todo/todo.component';
 import { TodolistComponent } from './todo/todo-list/todo-list.component';
 import { TodoItemComponent } from './todo/todo-list/todo-item/todo-item.component';
@@ -84,7 +86,7 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-
+    ClickOutsideModule,
 
     AlertModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),

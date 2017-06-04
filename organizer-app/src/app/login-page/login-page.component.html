@@ -25,7 +25,8 @@
 <!-- First Container -->
 <div class="container-fluid bg-1 text-center">
   <h3 class="margin">What is this?</h3>
-  <h3>A To-do List Calendar App </h3>
+  <h3>The product is a To-do/Calendar web application that allows users to assign to-do’s to different days of the week. We plan to add plenty of features and customization options that will enhance the functionality of a simple to-do app.
+</h3>
 </div>
 
 
@@ -56,3 +57,11 @@
 
 </body>
 
+<script>
+$(window).click(function(e){
+    $scope.item.showLimit = false;
+});
+$('.set-limit').click(function(e){
+    e.stopPropagation();
+});
+</script>

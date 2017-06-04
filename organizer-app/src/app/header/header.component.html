@@ -28,14 +28,14 @@
       <app-search></app-search>
     </div>
 
-    <div class="buttons">
+    <div class="buttons" (clickOutside)="onClickedOutside($event)" >
       <p (click)="showDropdownMenu()" class="user">
           {{userData.displayName}}
         <i class="fa fa-caret-down" aria-hidden="true"></i>
       </p>
 
       <img class="user-pic" style="width: 40px; margin-top: 2px; border-radius: 20px " src={{photoURL}} alt="user-icon">
-    <div *ngIf="showDropdown" >
+    <div *ngIf="showDropdown">
     <ul class="dropdown dropdown-menu-center">
     <li> <p class="button-logout" (click) = "logout()">Logout</p><i class="fa fa-power-off" aria-hidden="true"></i>  </li>
     </ul>
