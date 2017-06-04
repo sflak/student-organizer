@@ -43,6 +43,7 @@ export class TodolistComponent implements OnInit {
    tex3; // holds priority name for user input
    tex4; // hold listname
 
+   listNameTemp;
    Activity;
    TextEditorListName = '';
    setTextEditorforListName(name: any){
@@ -72,24 +73,24 @@ export class TodolistComponent implements OnInit {
 
   addTodoList() {
     this.todoLists.subscribe(items => {
-    items.forEach(item => {if (item.listName === this.tex4) {
+    items.forEach(item => {if (item.listName === this.listNameTemp) {
       this.duplicateName = true;
       }
     });
     });
-    this.tex4 = this.toTitleCase(this.tex4);
+    this.listNameTemp = this.toTitleCase(this.listNameTemp);
     if (this.duplicateName){
        console.log('duplicate list name');
        this.todoLists.subscribe(items => {
-         items.forEach(item => {if (item.listName != this.tex4) {
+         items.forEach(item => {if (item.listName != this.listNameTemp) {
            this.duplicateName = false;
            }
         });
         });
     }
     else{
-    const todo = new Todolist(this.tex4, this.showDropdown, this.color);
-    this.tex4 = '';
+    const todo = new Todolist(this.listNameTemp, this.showDropdown, this.color);
+    this.listNameTemp = '';
     this.needName = !this.needName;
     this.todoLists.push(todo);
     this.duplicateName = false; // reset boolean
@@ -150,7 +151,7 @@ export class TodolistComponent implements OnInit {
         checkedOff: false,
         showEditItem: false,
         prevListKey: listKey,
-        Activity: temp,
+        itemName: activityName,
         color: color,
         inList: true // true if in one of the todolists. false if in one of buckets
     });
@@ -186,7 +187,7 @@ export class TodolistComponent implements OnInit {
   editItem(key,editedName) {
     let temp = new Activity(editedName, " ", " ");
     this.items.update(key,{
-      Activity: temp
+      listName: editedName
     });
     this.showEditItem = false;
   }

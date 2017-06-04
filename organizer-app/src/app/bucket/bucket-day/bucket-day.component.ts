@@ -24,8 +24,7 @@ export class BucketDayComponent implements OnInit {
 
   userData = JSON.parse(localStorage.getItem('userData')); // used for UID
   items: FirebaseListObservable<any[]>;
-  temp5: string;
-
+  dateString: string;
   showEditor = false;
   showDropdown = false;
 
@@ -42,9 +41,8 @@ export class BucketDayComponent implements OnInit {
     this.items.remove(key);
   }
   editItem(key,editedName) {
-  let temp = new Activity(editedName, " ", " ");
   this.items.update(key,{
-    Activity: temp
+    itemName: editedName
   });
   }
 
@@ -58,15 +56,15 @@ onTodoDrop(e: any) {
   //  this.todolist3.push({ Activity: temp})   ;
   // this.todoBucket.push({ Activity: temp})   ;
 
-//  this.temp5 = "" + this.today.getFullYear() + this.today.getMonth() +this.today.getDate()
-this.temp5 = "" + this.today.getFullYear() + ' '  + this.today.getMonth() + ' ' +this.today.getDate();
+//  this.dateString = "" + this.today.getFullYear() + this.today.getMonth() +this.today.getDate()
+this.dateString = "" + this.today.getFullYear() + ' '  + this.today.getMonth() + ' ' +this.today.getDate();
   // var my =  this.today.charAt(2);
     // let temp2 = new Activity(e.dragData, "test_list", "foo");
-   console.log(this.temp5);
+   console.log(this.dateString);
    console.log(e.dragData);
   // today
   this.items.update(e.dragData,{
-    listname: this.temp5
+    listname: this.dateString
   });
 
   this.items.update(e.dragData, {

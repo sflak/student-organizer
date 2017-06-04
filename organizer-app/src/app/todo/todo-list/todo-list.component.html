@@ -30,12 +30,12 @@
                       <input [ngClass]="list.color + '-checkbox'" type="checkbox" (change)="itemChecked(todo.$key,this.todo.checkedOff)" [(ngModel)]="this.todo.checkedOff">
                     </div>
                   <div class="right">
-                    <p [ngClass]="{'strikethrough': this.todo.checkedOff === true}" *ngIf="!todo.showEditItem">{{todo.Activity.name}}</p>
-                    <form autocomplete="off" (submit)="editItem(todo.$key,todo.Activity.name)" *ngIf="todo.showEditItem">
+                    <p [ngClass]="{'strikethrough': this.todo.checkedOff === true}" *ngIf="!todo.showEditItem">{{todo.itemName}}</p>
+                    <form autocomplete="off" (submit)="editItem(todo.$key,todo.itemName)" *ngIf="todo.showEditItem">
                       <input class="edit-activity"
                              placeholder="Edit Item"
                              type="text"
-                             [(ngModel)]="todo.Activity.name"
+                             [(ngModel)]="todo.itemName"
                              name="test"
                              [ngClass]="list.color + '-checkbox' "
                              autofocus>
@@ -90,7 +90,7 @@
 
 <div class="label-input-form-holder" [ngClass]="{ 'has-border': needName == true }">
   <form  (submit)="addTodoList()" *ngIf="needName" #nameInput>
-    <input placeholder="Add Category..." id="listLabelInput" type="text" [(ngModel)]="tex4" name="test">
+    <input placeholder="Add Category..." id="listLabelInput" type="text" [(ngModel)]="listNameTemp" name="test">
     <br>
     <br>
     <div class="addList" (click)="addTodoList()"><p>Create</p></div>
