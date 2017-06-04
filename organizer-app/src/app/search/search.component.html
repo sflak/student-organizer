@@ -6,7 +6,7 @@
   <ul>
     <li  *ngFor="let todo of items | async" >
       <p>
-      <span *ngIf = "todo.Activity.name == searchItem2" >
+      <span *ngIf = "todo.itemName == searchItem2" >
       {{itemFound()}} <!-- an item has been found -->
       Found at List:
 
@@ -42,4 +42,3 @@
 
 
 </div>
-
