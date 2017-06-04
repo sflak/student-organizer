@@ -122,6 +122,11 @@ i.fa .fa-clock-o {
 .strikethrough {
   text-decoration: line-through;
 }
+/*custom colors*/
+.default {
+  border: solid 1px #4A91B6;
+  color: #4A91B6;
+}
 .vampire {
   border: solid 1px #D00120;
   color: #D00120;

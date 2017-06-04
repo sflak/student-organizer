@@ -34,7 +34,7 @@ export class TodolistComponent implements OnInit {
    inputField = '';
    tempActivity = '';
    // custom color
-  color = 'orchid';
+  color = 'calm';
   duplicateName:boolean;
 
 
@@ -79,22 +79,21 @@ export class TodolistComponent implements OnInit {
     });
     });
     this.listNameTemp = this.toTitleCase(this.listNameTemp);
-    if (this.duplicateName){
+    if (this.duplicateName) {
        console.log('duplicate list name');
        this.todoLists.subscribe(items => {
-         items.forEach(item => {if (item.listName != this.listNameTemp) {
+         items.forEach(item => {if (item.listName !== this.listNameTemp) {
            this.duplicateName = false;
            }
         });
         });
+    } else {
+      const todo = new Todolist(this.listNameTemp, this.showDropdown, this.color);
+      this.listNameTemp = '';
+      this.needName = !this.needName;
+      this.todoLists.push(todo);
+      this.duplicateName = false; // reset boolean
     }
-    else{
-    const todo = new Todolist(this.listNameTemp, this.showDropdown, this.color);
-    this.listNameTemp = '';
-    this.needName = !this.needName;
-    this.todoLists.push(todo);
-    this.duplicateName = false; // reset boolean
-  }
   }
   toTitleCase(str) {
     return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});

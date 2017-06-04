@@ -5,16 +5,12 @@
           <i class="fa fa-question-circle-o" aria-hidden="true">
             <span class="tooltiptext">Use list to organize your task into categories, then drag them to the calendar to plan them out</span>
           </i>
-          <h3>  {{list.listName}} </h3>
+          <button class="list-options-button" (click)="displayDropdown(list.$key)">&#8942;</button>
+          <div class="the-label">
+            <h3>  {{list.listName}} </h3>
+          </div>
         </div>
 
-
-        <div class="list-label">
-
-          <button class="list-options-button" (click)="displayDropdown(list.$key)">&#8230;</button>
-
-
-        </div>
         <div class="clear"></div>
         <div class="list-item-box">
           <ul>

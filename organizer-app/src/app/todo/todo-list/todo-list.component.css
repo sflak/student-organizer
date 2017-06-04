@@ -1,7 +1,14 @@
+
+div.the-label{
+  width: 200px;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  padding-top: 13px;
+}
 h3 {
-  float: left;
   display:inline;
-  padding-left: 25%;
+  /*padding-left: 25%;*/
+  padding: 0 auto 0 auto;
   position: relative;
 }
 .clear {
@@ -19,7 +26,7 @@ ul {
   background-color: transparent;
 	color: white;
 	padding-right: 9px;
-	margin-top: -11px;
+	margin-top: -2px;
   font-size: 32px;
 }
 button.list-options-button:focus, input[type="button"]:focus {
@@ -135,15 +142,13 @@ button.list-options-button:focus, input[type="button"]:focus {
   font-weight: lighter;
   cursor: move;
   display: block;
-  padding-left: 15px;
-  text-indent: -15px;
   margin: 0;
   max-width: 158px;
 
 }
 .dropdown {
   margin-left: 255px;
-  margin-top: -90px;
+  margin-top: -83px;
   width: 150px;
   max-height: 255px;
   background-color: white;
@@ -307,6 +312,16 @@ div.add-todo-list-button{
 
 .drag-target-border{ /* this is new 5/22/17*/
   border: black solid 2px;
+}
+.default {
+  background-color: #4A91B6;
+  color: #4A91B6;
+}
+.default-border {
+  border-bottom: solid 1px #4A91B6;
+}
+.default-checkbox{
+  border: solid 1px #4A91B6;
 }
 
 /*Custom list color styles*/
