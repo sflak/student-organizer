@@ -18,7 +18,7 @@
         <div class="clear"></div>
         <div class="list-item-box">
           <ul>
-            <form autocomplete="off" (submit)="addTodoItems(list.listName, list.tempActivity, list.color, list.$key)">
+            <form autocomplete="off" (submit)="addTodoItems(list.listName, list.tempActivity, list.color, list.$key);list.tempActivity = '' ">
               <input placeholder="Press Enter to add todo" type="text" [(ngModel)]="list.tempActivity" name="test">
             </form>
 

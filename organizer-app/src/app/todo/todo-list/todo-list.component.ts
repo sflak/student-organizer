@@ -141,8 +141,7 @@ export class TodolistComponent implements OnInit {
   }
   addTodoItems(listName, activityName, color, listKey) {
       console.log('test' + listName + activityName);
-      this.tex3 = ''; // placeholder for edit button later
-      let temp = new Activity(activityName, listName, this.tex3);
+
 
     this.items.push({
         startTime: '-1',
