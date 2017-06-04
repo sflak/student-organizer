@@ -148,6 +148,7 @@ export class TodolistComponent implements OnInit {
         finishTime: '',
         listname: listName,
         checkedOff: false,
+        showEditItem: false,
         prevListKey: listKey,
         Activity: temp,
         color: color,
