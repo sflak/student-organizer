@@ -77,6 +77,9 @@ li{
 .team {
   color: #3b5998;
 }
+.team h2 {
+  font-size: 50px;
+}
 .picture img {
   width: 400px;
   padding: 20px;
