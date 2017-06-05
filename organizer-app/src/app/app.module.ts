@@ -92,7 +92,7 @@ const routes: Routes = [
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
-    RouterModule.forRoot(routes, { useHash: false }),
+    RouterModule.forRoot(routes, { useHash: true }),
     ResizableModule,
     Ng2DragDropModule
   ],
