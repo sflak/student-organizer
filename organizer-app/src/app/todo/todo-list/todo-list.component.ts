@@ -199,8 +199,8 @@ export class TodolistComponent implements OnInit {
   }
   editItem(key,editedName) {
     let temp = new Activity(editedName, " ", " ");
-    this.items.update(key,{
-      listName: editedName
+    this.items.update(key, {
+      itemName: editedName
     });
     this.showEditItem = false;
   }
