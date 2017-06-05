@@ -6,6 +6,7 @@ import {TodoItemComponent} from './todo-item/todo-item.component'
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { GlobalDataService } from '../../shared/globaldata.service';
 
+
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
@@ -30,6 +31,7 @@ export class TodolistComponent implements OnInit {
   // itemsChecked should be a global counter
    checkedOff:boolean;
    itemsChecked = 0;
+   numLists = 0;
 
    inputField = '';
    tempActivity = '';
@@ -65,29 +67,47 @@ export class TodolistComponent implements OnInit {
     this.needName = !this.needName;
   }
 
+  getListLength() {
+    this.todoLists.subscribe(items => this.setTotalItems(items.length));
+  }
+
+  setTotalItems(length) {
+    this.numLists = length;
+    console.log('Total Num of Lists = ' + this.numLists);
+  }
+
 
   addTodoList() {
-    this.todoLists.subscribe(items => {
-    items.forEach(item => {if (item.listName === this.listNameTemp) {
-      this.duplicateName = true;
-      }
-    });
-    });
     this.listNameTemp = this.toTitleCase(this.listNameTemp);
-    if (this.duplicateName) {
-       console.log('duplicate list name');
-       this.todoLists.subscribe(items => {
-         items.forEach(item => {if (item.listName !== this.listNameTemp) {
-           this.duplicateName = false;
-           }
-        });
-        });
-    } else {
+    this.getListLength();
+    if (this.numLists == 0) {
       const todo = new Todolist(this.listNameTemp, this.showDropdown, this.color);
       this.listNameTemp = '';
       this.needName = !this.needName;
       this.todoLists.push(todo);
-      this.duplicateName = false; // reset boolean
+    }
+    else{
+      this.todoLists.subscribe(items => {
+      items.forEach(item => {if (item.listName === this.listNameTemp) {
+        this.duplicateName = true;
+        }
+      });
+      });
+      if (this.duplicateName) {
+         console.log('duplicate list name');
+         this.todoLists.subscribe(items => {
+           items.forEach(item => {if (item.listName != this.listNameTemp) {
+             this.duplicateName = false;
+             }
+          });
+          });
+      } else {
+        const todo = new Todolist(this.listNameTemp, this.showDropdown, this.color);
+        this.listNameTemp = '';
+        this.needName = !this.needName;
+        this.todoLists.push(todo);
+        this.duplicateName = false; // reset boolean
+      }
     }
   }
   toTitleCase(str) {
