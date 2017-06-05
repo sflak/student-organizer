@@ -1,8 +1,7 @@
 
 <ul>
     <li droppable class="droppable" *ngFor="let list of todoLists | async" (onDrop)="onTodoDrop($event,list.listName,list.$key)" >
-      <!-- (clickOutside)="onClickedOutside($event,this.list.$key)" -->
-      <div class="todo-list-box" [ngClass]="list.color" this.showDropdown = !this.showDropdown;  >
+      <div class="todo-list-box"  [ngClass]="list.color" this.showDropdown = !this.showDropdown;  >
         <div class="list-label">
           <i class="fa fa-question-circle-o" aria-hidden="true">
             <span class="tooltiptext">Use list to organize your task into categories, then drag them to the calendar to plan them out</span>
@@ -19,10 +18,9 @@
               <input placeholder="Press Enter to add todo" type="text" [(ngModel)]="list.tempActivity" name="test">
             </form>
 
-            <li draggable *ngFor="let todo of items | async" [dragOverClass]="'drag-over-border'"
-                      [dragData]="todo.$key">
+            <li *ngFor="let todo of items | async">
                 <span  *ngIf= "todo.listname == list.listName" >
-                  <div class="todo-item" [ngClass]="list.color + '-border'">
+                  <div draggable class="todo-item"  [ngClass]="list.color + '-border'" [dragData]="todo.$key" >
                     <div class="left">
                       <input [ngClass]="list.color + '-checkbox'" type="checkbox" (change)="itemChecked(todo.$key,this.todo.checkedOff)" [(ngModel)]="this.todo.checkedOff">
                     </div>
