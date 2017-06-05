@@ -34,7 +34,7 @@
                   <div class="time-info left" *ngIf="item.startTime != -1 && item.finishTime == -1">
                     <p>Start: {{ item.startTime}}</p>
                   </div>
-                  <div class="time-info left" *ngIf="item.startTime == -1 && item.finishTime == -1">
+                  <div class="time-info left" *ngIf="item.startTime == -1 && item.finishTime != -1">
                     <p>End: {{ item.finishTime}}</p>
                   </div>
                 </div>

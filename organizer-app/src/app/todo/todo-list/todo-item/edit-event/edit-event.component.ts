@@ -75,9 +75,11 @@ export class EditEventComponent implements OnInit {
         this.startTime = "-1";
       }
       if(this.finishHour==null){
+        console.log("finish time is null");
         this.finishTime = "-1";
       }
       console.log(this.startTime);
+      console.log(this.finishHour);
       this.updateTime();
       // uncomment for testing time and key is correct
       //console.log(this.startHour + ":" + this.startMin + this.startAmPm);
