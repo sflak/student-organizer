@@ -139,7 +139,7 @@ export class TodolistComponent implements OnInit {
 
     this.items.push({
         startTime: '-1',
-        finishTime: '',
+        finishTime: '-1',
         listname: listName,
         checkedOff: false,
         showEditItem: false,
