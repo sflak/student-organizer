@@ -1,11 +1,11 @@
 div .loginbox {
-	margin-left:auto; 
+	margin-left:auto;
 	margin-right:0;
 
 }
 
 .google {
-    background-color: #d62d20; 
+    background-color: #d62d20;
     border: none;
     color: white;
     padding: 5px 10px;
@@ -16,7 +16,7 @@ div .loginbox {
 }
 
 .facebook {
-    background-color: #3b5998; 
+    background-color: #3b5998;
     border: none;
     color: white;
     padding: 5px 10px;
@@ -41,19 +41,19 @@ li{
   }
   p {font-size: 16px;}
   .margin {margin-bottom: 45px;}
-  .bg-1 { 
+  .bg-1 {
       background-color: #1abc9c; /* Green */
       color: #ffffff;
   }
-  .bg-2 { 
+  .bg-2 {
       background-color: #474e5d; /* Dark Blue */
       color: #ffffff;
   }
-  .bg-3 { 
+  .bg-3 {
       background-color: #ffffff; /* White */
       color: #555555;
   }
-  .bg-4 { 
+  .bg-4 {
       background-color: #2f2f2f; /* Black Gray */
       color: #fff;
   }
@@ -73,3 +73,33 @@ li{
   .navbar-nav  li a:hover {
       color: #1abc9c !important;
   }
+
+.team {
+  color: #3b5998;
+}
+.picture img {
+  width: 400px;
+  padding: 20px;
+  float: left;
+}
+.section {
+  height: 405px;
+  margin: 30px;
+  background-color: lightgray;
+}
+.section .info{
+  float: left;
+  padding: 30px;
+  text-align: left;
+  font-size: 20px;
+  width: 70%;
+}
+.section .info .name {
+  font-size: 50px;
+}
+.section .info p {
+  margin-bottom: 15px;
+}
+.clear {
+  clear: both;
+}
