@@ -28,14 +28,14 @@
                     </div>
                   <div class="right">
                     <p [ngClass]="{'strikethrough': this.todo.checkedOff === true}" *ngIf="!todo.showEditItem">{{todo.itemName}}</p>
-                    <form autocomplete="off" (submit)="editItem(todo.$key,todo.itemName)" *ngIf="todo.showEditItem">
+                    <form autocomplete="off" (submit)="editItem(todo.$key, todo.itemName)" *ngIf="todo.showEditItem">
                       <input class="edit-activity"
                              placeholder="Edit Item"
                              type="text"
                              [(ngModel)]="todo.itemName"
                              name="test"
                              [ngClass]="list.color + '-checkbox' "
-                             autofocus>
+                            autofocus>
                     </form>
                   </div>
                     <i (click) = "deleteTodoItems(todo.$key)" class="fa fa-trash-o item-delete-button" aria-hidden="true"></i>
