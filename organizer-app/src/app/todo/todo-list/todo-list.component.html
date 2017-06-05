@@ -1,6 +1,6 @@
 
 <ul>
-    <li droppable class="droppable" *ngFor="let list of todoLists | async" (onDrop)="onTodoDrop($event,list.listName,list.$key)" >
+    <li droppable class="droppable" *ngFor="let list of todoLists | async" (onDrop)="onTodoDrop($event,list.listName,list.$key,list.color)" >
       <div class="todo-list-box"  [ngClass]="list.color" this.showDropdown = !this.showDropdown;  >
         <div class="list-label">
           <i class="fa fa-question-circle-o" aria-hidden="true">

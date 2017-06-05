@@ -137,20 +137,17 @@ export class TodolistComponent implements OnInit {
 
 
 
-  onTodoDrop(e: any,nameOfList: any,listKey) {
+  onTodoDrop(e: any,nameOfList: any,listKey,color) {
 
     console.log(listKey);
     let LISTNAME = "" + nameOfList;
 
     this.items.update(e.dragData, {
       listname: nameOfList,
-      prevListKey: listKey
+      prevListKey: listKey,
+      inList: true,
+      color: color
     });
-
-    this.items.update(e.dragData, {
-      inList: true
-    });
-
   }
   addTodoItems(listName, activityName, color, listKey) {
       console.log('test' + listName + activityName);
