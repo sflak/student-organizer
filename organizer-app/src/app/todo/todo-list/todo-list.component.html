@@ -87,7 +87,7 @@
 
 <div class="label-input-form-holder" [ngClass]="{ 'has-border': needName == true }">
   <form  (submit)="addTodoList()" *ngIf="needName" #nameInput>
-    <input placeholder="Add Category..." id="listLabelInput" type="text" [(ngModel)]="listNameTemp" name="test">
+    <input placeholder="Add Category..." id="listLabelInput" type="text" [(ngModel)]="listNameTemp" name="test" autocomplete="off">
     <br>
     <br>
     <div class="addList" (click)="addTodoList()"><p>Create</p></div>
