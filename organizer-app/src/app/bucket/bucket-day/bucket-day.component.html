@@ -6,10 +6,10 @@
 
    <!-- <h6> {{ "" + today.getFullYear() + today.getMonth() + today.getDate() }} </h6> -->
 
-    <div droppable class="droppable" (onDrop)="onTodoDrop($event)">
+    <div droppable class="droppable" [dragOverClass]="'drag-target-border'" (onDrop)="onTodoDrop($event)">
 	      	<ul>
 	     		 <li draggable *ngFor="let item of items | async"  >
-             <div class="item-container" [ngClass]="item.color" draggable *ngIf= "item.listname == '' + today.getFullYear() + ' ' + today.getMonth() + ' ' + today.getDate()"   [dragOverClass]="'drag-over-border'"
+             <div class="item-container" [ngClass]="item.color" draggable *ngIf= "item.listname == '' + today.getFullYear() + ' ' + today.getMonth() + ' ' + today.getDate()" 
                   [dragData]="item.$key">
                <div class="todo-item">
                  <div class="left">
