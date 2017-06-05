@@ -68,12 +68,11 @@ export class TodolistComponent implements OnInit {
   }
 
   getListLength() {
-    this.todoLists.subscribe(items => this.setTotalItems(items.length));
+    this.todoLists.take(1).subscribe(items => this.setTotalItems(items.length));
   }
 
   setTotalItems(length) {
     this.numLists = length;
-    console.log('Total Num of Lists = ' + this.numLists);
   }
 
 
