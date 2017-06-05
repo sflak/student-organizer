@@ -139,7 +139,7 @@ export class TodolistComponent implements OnInit {
 
   onTodoDrop(e: any,nameOfList: any,listKey,color) {
 
-    console.log(listKey);
+    //console.log(listKey);
     let LISTNAME = "" + nameOfList;
 
     this.items.update(e.dragData, {

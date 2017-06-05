@@ -61,8 +61,6 @@ onTodoDrop(e: any) {
 this.dateString = "" + this.today.getFullYear() + ' '  + this.today.getMonth() + ' ' +this.today.getDate();
   // var my =  this.today.charAt(2);
     // let temp2 = new Activity(e.dragData, "test_list", "foo");
-   console.log(this.dateString);
-   console.log(e.dragData);
   // today
   this.items.update(e.dragData,{
     listname: this.dateString
