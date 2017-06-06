@@ -17,6 +17,9 @@ export class AF {
     else if (loginProvider === 'facebook') {
       return this.af.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
     }
+    else if (loginProvider === 'anonymous'){
+      return this.af.auth.signInAnonymously();
+    }
 
   }
 
